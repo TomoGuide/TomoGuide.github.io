@@ -1,6 +1,6 @@
 title: Tomo101
-baseurl: ""
-url: "https://TomoGuide.github.io"
+baseurl: "" # Leave empty for GitHub Pages
+url: "https://tomoguide.github.io"
 theme: "just-the-docs"
 
 # Sidebar Navigation
@@ -24,5 +24,4 @@ nav:
     url: /docs/tutorial/
 
 repository: "TomoGuide/TomoGuide.github.io"
-github:
-  is_project_page: true
+aux_links: null
