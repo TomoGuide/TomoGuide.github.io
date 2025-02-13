@@ -1,6 +1,7 @@
----
+﻿---
 layout: default
 title: "Workflow"
+parent: "Cryo-ET Data Collection"
 nav_order: 6
 ---
 

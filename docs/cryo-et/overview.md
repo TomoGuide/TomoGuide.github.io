@@ -1,7 +1,8 @@
----
+﻿---
 layout: default
 title: "Overview"
-nav_order: 1
+parent: "Cryo-Electron Tomography"
+nav_order: 2
 ---
 
 # Cryo-ET Overview

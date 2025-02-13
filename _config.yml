@@ -1,11 +1,25 @@
-title: Tomo101
-baseurl: "" # Leave empty for GitHub Pages
-url: "https://tomoguide.github.io"
+﻿title: Tomo101
+baseurl: ""
+url: "https://TomoGuide.github.io"
 theme: "just-the-docs"
 
-# Sidebar Navigation
+# Sidebar Navigation (Collapsible)
 nav_order: 1
 search_enabled: true
+
+collections:
+  cryo-et:
+    name: "Cryo-Electron Tomography"
+    output: true
+  data-collection:
+    name: "Cryo-ET Data Collection"
+    output: true
+  acknowledgments:
+    name: "Acknowledgments"
+    output: true
+  tutorial:
+    name: "Tutorial"
+    output: true
 
 nav:
   - title: "Welcome"
@@ -13,15 +27,17 @@ nav:
   - title: "Cryo-Electron Tomography"
     children:
       - title: "Overview"
-        url: /docs/cryo-et/overview/
+        url: /cryo-et/overview/
   - title: "Cryo-ET Data Collection"
     children:
       - title: "Workflow"
-        url: /docs/data-collection/workflow/
+        url: /data-collection/workflow/
   - title: "Acknowledgments"
-    url: /docs/acknowledgments/
+    url: /acknowledgments/
   - title: "Tutorial"
-    url: /docs/tutorial/
+    url: /tutorial/
 
 repository: "TomoGuide/TomoGuide.github.io"
+
+# Remove unwanted hyperlink on site title
 aux_links: null

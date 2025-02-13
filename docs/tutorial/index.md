@@ -1,6 +1,7 @@
----
+﻿---
 layout: default
 title: "Tutorial"
+parent: "Tutorial"
 nav_order: 10
 ---
 
