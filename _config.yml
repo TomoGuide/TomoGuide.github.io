@@ -1,0 +1,28 @@
+title: Tomo101
+baseurl: ""
+url: "https://TomoGuide.github.io"
+theme: "just-the-docs"
+
+# Sidebar Navigation
+nav_order: 1
+search_enabled: true
+
+nav:
+  - title: "Welcome"
+    url: /
+  - title: "Cryo-Electron Tomography"
+    children:
+      - title: "Overview"
+        url: /docs/cryo-et/overview/
+  - title: "Cryo-ET Data Collection"
+    children:
+      - title: "Workflow"
+        url: /docs/data-collection/workflow/
+  - title: "Acknowledgments"
+    url: /docs/acknowledgments/
+  - title: "Tutorial"
+    url: /docs/tutorial/
+
+repository: "TomoGuide/TomoGuide.github.io"
+github:
+  is_project_page: true
