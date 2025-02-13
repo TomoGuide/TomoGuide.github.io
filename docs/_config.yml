@@ -1,4 +1,4 @@
-﻿remote_theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
 
@@ -12,7 +12,7 @@ just_the_docs:
       url: "/"
       children:
         - label: "Some words about Cryo-Electron Tomography"
-          url: "/some-words-cryo-et"
+          url: "/some-words-cryo-et/"
         - label: "Sample types"
           url: "/sample-types/"
           children:
