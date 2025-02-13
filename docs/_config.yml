@@ -1,43 +1,7 @@
-﻿title: Tomo101
-baseurl: ""
-url: "https://TomoGuide.github.io"
-theme: "just-the-docs"
+﻿remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
 
-# Sidebar Navigation (Collapsible)
-nav_order: 1
-search_enabled: true
-
-collections:
-  cryo-et:
-    name: "Cryo-Electron Tomography"
-    output: true
-  data-collection:
-    name: "Cryo-ET Data Collection"
-    output: true
-  acknowledgments:
-    name: "Acknowledgments"
-    output: true
-  tutorial:
-    name: "Tutorial"
-    output: true
-
-nav:
-  - title: "Welcome"
-    url: /
-  - title: "Cryo-Electron Tomography"
-    children:
-      - title: "Overview"
-        url: /cryo-et/overview/
-  - title: "Cryo-ET Data Collection"
-    children:
-      - title: "Workflow"
-        url: /data-collection/workflow/
-  - title: "Acknowledgments"
-    url: /acknowledgments/
-  - title: "Tutorial"
-    url: /tutorial/
-
-repository: "TomoGuide/TomoGuide.github.io"
-
-# Remove unwanted hyperlink on site title
-aux_links: null
+title: "TomoGuide"
+description: "A guide for Cryo-ET"
+markdown: kramdown
