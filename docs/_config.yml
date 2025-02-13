@@ -12,8 +12,7 @@ just_the_docs:
       url: "/"
       children:
         - label: "Some words about Cryo-Electron Tomography"
-          url: "/some-words-cryo-et"  # We'll link to that below in the text
-
+          url: "/some-words-cryo-et"
         - label: "Sample types"
           url: "/sample-types/"
           children:
@@ -24,7 +23,6 @@ just_the_docs:
                   url: "/sample-types/in-situ-vs-purified-samples/fib-lamellae"
                 - label: "Purified sample (e.g organelles, large viruses, etc)"
                   url: "/sample-types/in-situ-vs-purified-samples/purified-sample"
-
         - label: "Cryo-ET Data Collection Workflow"
           url: "/cryo-et-data-collection-workflow/"
         - label: "Challenges in Cryo-ET Data Collection"
