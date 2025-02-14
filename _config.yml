@@ -1,0 +1,6 @@
+﻿title: "Tomo101"
+remote_theme: "just-the-docs/just-the-docs"
+lang: en
+baseurl: ""
+nav_sort: case_insensitive
+search_enabled: true
