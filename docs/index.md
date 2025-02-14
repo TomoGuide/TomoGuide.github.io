@@ -1,6 +1,6 @@
 ﻿---
 layout: default
-title: "Welcome Page"
+title: "Welcome to Tomo101"
 nav_order: 1
 ---
 

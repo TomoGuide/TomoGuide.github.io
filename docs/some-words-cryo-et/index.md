@@ -1,7 +1,6 @@
 ﻿---
 layout: default
 title: "Some Words about Cryo-Electron Tomography"
-parent: "Welcome Page"
 nav_order: 2
 ---
 
