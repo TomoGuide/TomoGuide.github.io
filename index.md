@@ -6,7 +6,9 @@ nav_order: 1
 
 # Welcome to Tomo101
 
-This website serves as a resource for both beginners and experienced researchers in Cryo-ET. It provides a comprehensive guide to the technique, from sample preparation to data processing.
+Welcome to **Tomo101**, a website serving as a resource for both beginners and experienced researchers in Cryo-ET. 
 
-Navigate through the sections using the sidebar.
+This guide offers an overview of the technique, sample preparation, and data processing workflows, including practical guidance for subtomogram averaging. 
+
+Navigate using the sidebar for structured step-by-step learning.
 
