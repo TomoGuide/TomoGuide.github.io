@@ -6,4 +6,7 @@ nav_order: 9
 
 # Acknowledgments
 
-Special thanks to contributors and the community for their support...
+This tutorial and website were created by **Philippe Van der Stappen** and **Florent Waltz**, with contributions from the Cryo-ET community.
+
+Special thanks to **Sofie van Dorst, Ricardo Righetto, Davide Tamborini**, and all contributors.
+
