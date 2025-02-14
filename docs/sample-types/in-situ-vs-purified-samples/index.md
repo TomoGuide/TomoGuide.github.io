@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "In Situ VS Purified Samples"
+title: "In Situ vs Purified Samples"
 parent: "Sample Types"
 nav_order: 4
 ---
