@@ -1,9 +1,9 @@
 ﻿---
 layout: default
-title: "Some words about Cryo-Electron Tomography"
+title: "Some Words about Cryo-Electron Tomography"
 nav_order: 2
 ---
 
-# Some words about Cryo-Electron Tomography
+# Some Words about Cryo-Electron Tomography
 
 Cryo-ET is an imaging method used to obtain 3D reconstructions...
