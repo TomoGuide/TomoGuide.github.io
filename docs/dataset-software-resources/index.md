@@ -13,9 +13,9 @@ For this tutorial, we compiled a subset of **33 tomograms** from the "Chlamy dat
 
 ## **Software**
 [RELION 5](https://relion.readthedocs.io/en/release-5.0/){: .btn } <br>
-[IMOD](https://bio3d.colorado.edu/imod/){: .btn }  
-[ChimeraX](https://www.cgl.ucsf.edu/chimerax/){: .btn }
-[ArtiaX](https://github.com/FrangakisLab/ArtiaX){: .btn }
-[pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick){: .btn }
-[Scipion](https://scipion.i2pc.es/){: .btn }
+[IMOD](https://bio3d.colorado.edu/imod/){: .btn }  <br>
+[ChimeraX](https://www.cgl.ucsf.edu/chimerax/){: .btn } <br>
+[ArtiaX](https://github.com/FrangakisLab/ArtiaX){: .btn } <br>
+[pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick){: .btn } <br>
+[Scipion](https://scipion.i2pc.es/){: .btn } <br>
 
