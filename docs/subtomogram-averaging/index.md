@@ -1,15 +1,14 @@
 ﻿---
 layout: default
 title: "Sub-Tomogram Averaging"
-nav_order: 7
+parent: "Welcome Page"
+nav_order: 8
 ---
 
 # Sub-Tomogram Averaging
 
-Cryo-ET can achieve higher resolution through **sub-tomogram averaging (STA)**, where repeated structures (e.g., ribosomes, viral spikes) are extracted from tomograms and aligned.
+There is an overlap between the two methods in the technique called sub-tomogram averaging (STA), where repeated copies of the same structure (e.g., ribosomes, viral spikes, etc.) are extracted from tomograms and averaged to enhance resolution. 
+This is what the tutorial is mainly going to cover.
 
-## **Steps in STA**
-1. **Particle Picking** - Extract candidate regions from tomograms.
-2. **Alignment & Classification** - Align similar particles and classify.
-3. **Averaging** - Enhance resolution by averaging.
-
+Hence, cryo-ET provides a powerful way to visualize cellular architecture and macromolecular complexes within their native environment, particularly when combined with FIB milling for preparing thin lamellae of cells. 
+Although it generally achieves lower resolution compared to single-particle analysis, cryo-ET’s ability to capture spatial information about molecules within intact cells makes it indispensable for exploring the structural biology of complex, heterogeneous systems.

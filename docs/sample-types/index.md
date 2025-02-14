@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Sample Types"
+parent: "Welcome Page"
 nav_order: 3
 ---
 

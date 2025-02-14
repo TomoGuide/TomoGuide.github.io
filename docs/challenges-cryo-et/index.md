@@ -1,7 +1,8 @@
 ﻿---
 layout: default
 title: "Challenges in Cryo-ET"
-nav_order: 5
+parent: "Welcome Page"
+nav_order: 6
 ---
 
 # Challenges in Cryo-ET
