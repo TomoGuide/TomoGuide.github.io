@@ -10,10 +10,10 @@ You’ll find practical guidance for sub-tomogram averaging, along with useful d
 tutorial to help you get started.
 We hope it will a useful!
 
-## 📌 **How to Use This Guide**
+<!-- ## 📌 **How to Use This Guide**
 - Use the **sidebar** to navigate different sections.
 - Click **buttons** to access external resources.
-- Follow the **step-by-step tutorials**.
+- Follow the **step-by-step tutorials**. -->
 
 🚀 **Start by selecting a topic from the sidebar!**
 
