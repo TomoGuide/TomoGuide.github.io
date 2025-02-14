@@ -1,0 +1,43 @@
+﻿title: "TomoGuide"
+description: "A step-by-step Cryo-ET guide"
+remote_theme: "just-the-docs/just-the-docs"
+color_scheme: "light"
+
+# Enable navigation sidebar
+search_enabled: true
+nav_sort: case_insensitive
+back_to_top: true
+back_to_top_text: "Back to top"
+enable_copy_code_button: true
+
+# Set up the correct sidebar navigation
+nav:
+  - title: "Welcome"
+    url: /
+  - title: "Some Words about Cryo-ET"
+    url: /some-words-cryo-et/
+  - title: "Sample Types"
+    url: /sample-types/
+    children:
+      - title: "In Situ vs Purified Samples"
+        url: /sample-types/in-situ-vs-purified-samples/
+        children:
+          - title: "FIB-Milled Cellular Lamellae"
+            url: /sample-types/in-situ-vs-purified-samples/fib-lamellae/
+          - title: "Purified Sample"
+            url: /sample-types/in-situ-vs-purified-samples/purified-sample/
+  - title: "Cryo-ET Data Collection Workflow"
+    url: /cryo-et-data-collection-workflow/
+  - title: "Challenges in Cryo-ET"
+    url: /challenges-cryo-et/
+  - title: "Cryo-ET vs SPA"
+    url: /differences-cryo-et-spa/
+  - title: "Sub-Tomogram Averaging"
+    url: /subtomogram-averaging/
+  - title: "Datasets, Software, and Resources"
+    url: /dataset-software-resources/
+  - title: "Acknowledgments"
+    url: /acknowledgments/
+  - title: "Tutorial"
+    url: /tutorial/
+
