@@ -10,8 +10,6 @@ You’ll find practical guidance for sub-tomogram averaging, along with useful d
 tutorial to help you get started.
 We hope it will a useful!
 
-This website serves as a resource for **Cryo-ET researchers**.  
-
 ## 📌 **How to Use This Guide**
 - Use the **sidebar** to navigate different sections.
 - Click **buttons** to access external resources.
