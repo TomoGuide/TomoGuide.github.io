@@ -14,11 +14,10 @@ We believe this subset can also be of interest for people benchmarking different
 
 You can directly download the subsets from EMPIAR using this command:
 
-<!-- Copy the following wget command as plain text (do not include any additional formatting): -->
-wget -r -N -np -nH --cut-dirs=4 ftp://ftp.ebi.ac.uk/empiar/world_availability/EMPIAR-code/
+`wget -r -N -np -nH --cut-dirs=4 ftp://ftp.ebi.ac.uk/empiar/world_availability/EMPIAR-code/`
 
-For Engel people it's here:  
-`/scicore/home/engel0006/GROUP/pool-visprot/Florent/Folder_Newpipeline/Frames/Set_Cytoribo`
+<!-- For Engel people it's here:  
+`/scicore/home/engel0006/GROUP/pool-visprot/Florent/Folder_Newpipeline/Frames/Set_Cytoribo` -->
 
 This folder should contain:
 - The raw frames  
