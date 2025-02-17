@@ -11,3 +11,36 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
 
 (image idea for illustration: a guy with stars in the eyes looking at a tomogram vs a bored guy looking at SPA micrographs)
 
+
+                         +---------------------------+
+                         |        CRYO-ET TOMO      |
+                         +---------------------------+
+                                  ||
+                                  ||
+            Scientist #1:        \||/
+                             ┌───────┐
+                             |  * *  |   "Wow, there's so much detail!"
+                             |   ^   |
+                             |  \_/  |
+                             └───────┘
+                                 / \
+                                /   \
+
+
+Meanwhile...
+
+                         +---------------------------+
+                         |       SPA MICROGRAPH     |
+                         +---------------------------+
+                                  ||
+                                  ||
+            Scientist #2:        \||/
+                             ┌───────┐
+                             |  -  - |   "Meh, these all look the same..."
+                             |   _   |
+                             |  ---  |
+                             └───────┘
+                                 / \
+                                /   \
+
+
