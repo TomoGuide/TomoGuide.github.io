@@ -29,7 +29,7 @@ nav:
           url: /06-subtomogram-averaging/
   - title: "Dataset, Software, and Resources"
     url: /07-dataset-software-resources/
-  - title: "Acknowledgments"
-    url: /08-acknowledgments/
   - title: "Tutorial"
-    url: /09-tutorial/
+    url: /08-tutorial/
+  - title: "Acknowledgments"
+    url: /09-acknowledgments/
