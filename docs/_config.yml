@@ -1,4 +1,16 @@
-﻿nav:
+﻿title: "TomoGuide"
+description: "A step-by-step Cryo-ET guide"
+remote_theme: "just-the-docs/just-the-docs"
+color_scheme: "light"
+
+# Enable navigation sidebar
+search_enabled: true
+nav_sort: case_insensitive
+back_to_top: true
+back_to_top_text: "Back to top"
+enable_copy_code_button: true
+
+nav:
   - title: "Welcome"
     url: /
     children:
