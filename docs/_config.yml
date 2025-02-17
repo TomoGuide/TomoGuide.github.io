@@ -31,8 +31,5 @@ nav:
     url: /07-dataset-software-resources/
   - title: "Acknowledgments"
     url: /08-acknowledgments/
-    children:
-      - title: "Disclaimer"
-        url: /08-acknowledgments/01-disclaimer/
   - title: "Tutorial"
     url: /09-tutorial/
