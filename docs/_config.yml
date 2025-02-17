@@ -18,9 +18,6 @@ nav:
         url: /01-some-words-cryo-et/
       - title: "Sample Types"
         url: /02-sample-types/
-        children:
-          - title: "In Situ vs Purified Samples"
-            url: /02-sample-types/01-in-situ-vs-purified-samples/
       - title: "Cryo-ET Data Collection Workflow"
         url: /03-cryo-et-data-collection-workflow/
       - title: "Challenges in Cryo-ET"
