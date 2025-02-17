@@ -2,6 +2,7 @@
 layout: default
 title: "Some Words about Cryo-Electron Tomography"
 nav_order: 2
+text-align: center
 ---
 
 # Some Words about Cryo-Electron Tomography
