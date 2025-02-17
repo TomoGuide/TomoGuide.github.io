@@ -2,8 +2,9 @@
 layout: default
 title: "Some Words about Cryo-Electron Tomography"
 nav_order: 2
-text-align: center
 ---
+
+<div class="text-center">
 
 # Some Words about Cryo-Electron Tomography
 
@@ -11,3 +12,5 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
 
 (image idea for illustration: a guy with stars in the eyes looking at a tomogram vs a bored guy looking at SPA micrographs)
 
+
+</div>
