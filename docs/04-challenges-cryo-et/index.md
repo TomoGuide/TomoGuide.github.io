@@ -2,6 +2,7 @@
 layout: default
 title: "Challenges in Cryo-ET"
 nav_order: 5
+parent: "Welcome to Tomo101"
 ---
 
 # Challenges in Cryo-ET

@@ -2,6 +2,7 @@
 layout: default
 title: "Sub-Tomogram Averaging"
 nav_order: 7
+parent: "Welcome to Tomo101"
 ---
 
 # Sub-Tomogram Averaging
