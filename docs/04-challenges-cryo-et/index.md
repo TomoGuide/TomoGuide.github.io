@@ -2,7 +2,7 @@
 layout: default
 title: "Challenges in Cryo-ET"
 nav_order: 5
-parent: "Welcome to Tomo101"
+parent: "Some Words about Cryo-Electron Tomography"
 ---
 
 # Challenges in Cryo-ET

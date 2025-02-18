@@ -2,7 +2,7 @@
 layout: default
 title: "Differences Between Cryo-ET and SPA"
 nav_order: 6
-parent: "Welcome to Tomo101"
+parent: "Some Words about Cryo-Electron Tomography"
 ---
 
 # Differences Between Cryo-ET and Single-Particle Analysis (SPA)

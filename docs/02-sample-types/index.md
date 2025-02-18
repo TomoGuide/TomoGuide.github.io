@@ -2,7 +2,7 @@
 layout: default
 title: "Sample Types"
 nav_order: 3
-parent: "Welcome to Tomo101"
+parent: "Some Words about Cryo-Electron Tomography"
 ---
 
 #Sample Types

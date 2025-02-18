@@ -2,7 +2,7 @@
 layout: default
 title: "Cryo-ET Data Collection Workflow"
 nav_order: 4
-parent: "Welcome to Tomo101"
+parent: "Some Words about Cryo-Electron Tomography"
 ---
 
 # Cryo-ET Data Collection Workflow

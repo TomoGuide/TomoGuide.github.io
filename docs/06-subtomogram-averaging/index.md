@@ -2,7 +2,7 @@
 layout: default
 title: "Sub-Tomogram Averaging"
 nav_order: 7
-parent: "Welcome to Tomo101"
+parent: "Some Words about Cryo-Electron Tomography"
 ---
 
 # Sub-Tomogram Averaging
