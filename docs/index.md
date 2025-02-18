@@ -4,7 +4,7 @@ title: "Welcome to Tomo101"
 nav_order: 1
 ---
 
-# Welcome to Tomo101
+# Welcome to TomoGuide
 This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique, sample preparation methods, and data processing workflows.
 You’ll find practical guidance for sub-tomogram averaging, along with useful datasets, software recommendations, and a step-by-step
 tutorial to help you get started.
