@@ -35,11 +35,6 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
 ---
 ## Sample Types
 
-parent: "Some Words about Cryo-Electron Tomography"
----
-
-#Sample Types
-
 Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam can pass through (we are using transmission electron microscopes (**TEM**)). For whole cells, a focused ion beam (FIB) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms, or biopsies) which involve high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
 
 (image idea for illustration: slice of a cell/tissue and organelle)
@@ -60,10 +55,6 @@ In short, cellular lamellae capture the true cellular environment at the expense
 ---
 ## Cryo-ET Data Collection Workflow
 
-parent: "Some Words about Cryo-Electron Tomography"
----
-
-# Cryo-ET Data Collection Workflow
 
 1. **Sample preparation**  
    FIB-milled plunge-frozen cells, HPFed samples, or purified macromolecules of interest.
@@ -87,11 +78,6 @@ parent: "Some Words about Cryo-Electron Tomography"
 ---
 ## Challenges in Cryo-ET
 
-parent: "Some Words about Cryo-Electron Tomography"
----
-
-# Challenges in Cryo-ET
-
 ## **Dose and Radiation Damage**
 Electron radiation damages biological samples. The total electron dose must be strictly limited, leading to a lower signal-to-noise ratio (SNR).
 
@@ -106,10 +92,6 @@ Even small movements in the sample can degrade resolution, especially at higher 
 ---
 ## Differences Between Cryo-ET and SPA
 
-parent: "Some Words about Cryo-Electron Tomography"
----
-
-# Differences Between Cryo-ET and Single-Particle Analysis (SPA)
 
 | Aspect                 | Cryo-ET                                                                                   | Single-Particle Analysis (SPA)                                      |
 |------------------------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -123,11 +105,6 @@ parent: "Some Words about Cryo-Electron Tomography"
 
 ---
 ## Sub-Tomogram Averaging
-
-parent: "Some Words about Cryo-Electron Tomography"
----
-
-# Sub-Tomogram Averaging
 
 Cryo-ET can achieve higher resolution through **sub-tomogram averaging (STA)**, where repeated structures (e.g., ribosomes, viral spikes) are extracted from tomograms and aligned.
 
