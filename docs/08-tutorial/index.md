@@ -14,11 +14,13 @@ Even if already reconstructed tomograms are available for this dataset (original
 automatically aligned with AreTomo), this tutorial aims at teaching you how to reconstruct tomograms from scratch and get 
 into subtomogram averaging (STA). We believe this subset can also be of interest for people benchmarking different software.
 
-In this tutorial, the software that you will need are:  
+In this tutorial, the software that you will need are:
+<br>
 [Scipion](https://scipion.i2pc.es/){: .btn }  
 [RELION5](https://relion.readthedocs.io/en/release-5.0/){: .btn }  
 [IMOD](https://bio3d.colorado.edu/imod/){: .btn }  
 [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick){: .btn }
+<br>
 
 We like to start our tomogram preprocessing and reconstruction in Scipion, but we will also describe how to do the complete 
 RELION5 pipeline. We recommend that you also download [ChimeraX](https://www.cgl.ucsf.edu/chimerax/) and the [ArtiaX](https://github.com/FrangakisLab/ArtiaX) plug-in for particle map-backs.
