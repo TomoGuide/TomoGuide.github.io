@@ -34,7 +34,7 @@ From there you are in your Scipion project, which is for now empty.
 The first step is going to import the frames. You can press on the top left or press <kbd>Ctrl + f</kbd> and look for 
 _“Add tomo - import tilt-series”_.
 
-<img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:70%;">
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
 information about each tilt-series.
@@ -52,10 +52,10 @@ information about each tilt-series.
 
 This step aligns each frame of the movies and corrects for beam-induced motion.
 
-<img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:80%;">
-<img src="/imgs/05_image-2025-1-15_16-19-1.png" alt="Processing Workflow" style="width:80%;">
-<img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:80%;">
-<img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/05_image-2025-1-15_16-19-1.png" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:70%;">
 
 Tick **Yes** for “Split & sum odd/even frames” if you later want to denoise your tomograms using cryoCare.
 
@@ -83,46 +83,74 @@ N_frames = 0.5 / ( 3.5 * 1.91² / 350  ) = 13.7 ~ 14 frames
 
 ## Cleaning the stack
 
-Once motion correction is done, you want to remove “bad” tilts from your TS. Bad tilts are tilts that are either:
+Once motion correction is done, you want to remove “bad” tilts from your tilt stack. Bad tilts are tilts that are either:
 - Strongly shifted compared to the others (more than 15% of the FOV)
 - Partially or fully blacked out
 - Blurred because motion correction was not sufficient
+You can just open the motion correction output by double click and hold down <kbd>space bar</kbd> to deselect the bad tilts. Once done cleaning all bad tilts save the new tilt stack and use this as the import for the next TS alignment job.
 
 ---
 
-## TS alignment
+## Tilt-series alignment
 
 Can be done either with **AreTomo** or with **IMOD patch tracking**. Here we automatically do it with AreTomo.  
 AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the 
 tilt axis angle, starting from the one you provided at import.
 
-> **(Placeholder for screenshot of AreTomo alignment)**
+<img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 
-- For the initial reconstruction, we use an estimated lamella thickness of ~1000 unbinned pixels (~190 nm).  
-- We don’t reconstruct odd/even tomograms for denoising at this stage.  
-- A little note: check your tilt axis sign (±95°). If it’s reversed, you’ll end up with mirrored tomograms.
+
+> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps—such as when performing Subtomogram Averaging (STA)—you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
+
+We will reconstruct bin8 tomograms first to quickly assess overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella thickness of 1000 unbinned pixels (~190 nm).
+
+At this step we will not reconstruct odd/even tomograms for denoising since we are going to do it at a later stage.
+
+> **PLACEHOLDER: Here a little movie comparing unaligned with aligned TS**
 
 ### Refining AreTomo TS alignment
 
-Open the bin8 tomograms from your first AreTomo run. Flip/Rotate volumes as needed. Measure lamella thickness 
-(e.g., in IMOD). Provide these thickness measurements to AreTomo in the advanced options if you want more accurate 
-reconstructions.
+This step is optional but highly recommended if you want well-aligned tomograms. The better the tomogram alignment, the easier it will be to detect your target of interest, and the better resolution you can achieve in subsequent analyses.
+
+1. Open the bin8 tomograms that resulted from your first AreTomo run.
+2. Flip/Rotate the volumes as needed.
+3. Measure the lamella thickness:
+  - Place the yellow cross on one lamella edge by left-clicking.
+  - Move your cursor to the opposite edge of the lamella.
+  - Press <kbd>Q</kbd> to get the distance between the yellow cross and the position of your cursor.
+
+> **PlACEHOLDER picture of how to measure thickness in IMOD**
+
+Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the Advanced options.
+
+<img src="/imgs/09_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 
 ---
 
 ## CTF estimation
 
-You can use AreTomo to estimate CTF automatically or pick alternatives like **CTFFIND5**. We found AreTomo was better 
-than older CTFFIND4.
+You can use different options to estimate CTF. However, you might have noticed that AreTomo can do it, and if you ran the previous job exactly as we did, you already have done it.
+We found that CTFFIND4, that was an alternative that we were using, was not performing as well as AreTomo. CTFFIND5 appears to be performing better than CTFFIND4, so we recommand using this one if you don't want to use AreTomo.
 
 ---
 
 ## Tomogram reconstruction
 
-Perform dose filtering, apply transforms, then reconstruct tomograms. They might still look noisy.  
-To help make them more visually interpretable:
+Perform dose filtering, apply transforms, then reconstruct tomograms.
+
+<img src="/imgs/11_Dosefiltering_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/12_Transform_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
+
+We can now finally reconstruct our tomograms
+
+<img src="/imgs/13_Recontruct_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
+
+However, this doesn't look particularly contrasty right? To help make it nicer to our human eyes we can denoise them
 
 ### Generating denoised tomograms
+
+TBD 
 
 - Quick approach: **dimifilter**  
 - More advanced: **cryoCare** (if you split odd/even frames earlier)
