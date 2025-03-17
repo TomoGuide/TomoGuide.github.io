@@ -39,12 +39,9 @@ _“Add tomo - import tilt-series”_.
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
 information about each tilt-series.
 
-> **Note**: We work with Tomo5 mdocs (TFS acquisition software). In your case you might be working with SerialEM mdocs.  
-> Scipion is smart enough to read the info from the mdoc files, but I recommend overriding these values if you know them, 
-  since they are often wrong, notably the ****Tilt axis angle**.  
-> If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be 
-  the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo which can estimate the tilt axis angle.  
-> A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
+> **Note**: We work with Tomo5 mdocs (TFS acquisition software). In your case you might be working with SerialEM mdocs. Scipion is smart enough to read the info from the mdoc files, but I recommend overriding these values if you know them, 
+  since they are often wrong, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be 
+  the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
 
 ---
 
@@ -57,9 +54,9 @@ This step aligns each frame of the movies and corrects for beam-induced motion.
 <img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:70%;">
 <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:70%;">
 
-Tick **Yes** for “Split & sum odd/even frames” if you later want to denoise your tomograms using cryoCare.
+Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using cryoCare.
 
-In the “Motioncor params” tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
+In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
 the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
 
 Because this dataset was collected as **.eer**, specify how you want to group frames. For instance:
@@ -87,6 +84,7 @@ Once motion correction is done, you want to remove “bad” tilts from your til
 - Strongly shifted compared to the others (more than 15% of the FOV)
 - Partially or fully blacked out
 - Blurred because motion correction was not sufficient
+
 You can just open the motion correction output by double click and hold down <kbd>space bar</kbd> to deselect the bad tilts. Once done cleaning all bad tilts save the new tilt stack and use this as the import for the next TS alignment job.
 
 ---
