@@ -18,7 +18,7 @@ operations necessary for tomogram reconstruction and STA, while also keeping tra
 
 Here's an example of the workflow that we are going to follow:
 
-<img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:40%;">
 
 ---
 
@@ -34,7 +34,7 @@ From there you are in your Scipion project, which is for now empty.
 The first step is going to import the frames. You can press on the top left or press <kbd>Ctrl + f</kbd> and look for 
 _“Add tomo - import tilt-series”_.
 
-<img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:50%;">
+<img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:80%;">
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
 information about each TS.
