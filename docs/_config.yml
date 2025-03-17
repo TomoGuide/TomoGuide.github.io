@@ -11,25 +11,16 @@ back_to_top_text: "Back to top"
 enable_copy_code_button: true
 
 nav:
+nav:
   - title: "Welcome"
     url: /
     children:
       - title: "Some Words about Cryo-ET"
         url: /01-some-words-cryo-et/
-        children:
-        - title: "Sample Types"
-          url: /02-sample-types/
-        - title: "Cryo-ET Data Collection Workflow"
-          url: /03-cryo-et-data-collection-workflow/
-        - title: "Challenges in Cryo-ET"
-          url: /04-challenges-cryo-et/
-        - title: "Differences Between Cryo-ET and SPA"
-          url: /05-differences-cryo-et-spa/
-        - title: "Sub-Tomogram Averaging"
-          url: /06-subtomogram-averaging/
   - title: "Dataset, Software, and Resources"
     url: /07-dataset-software-resources/
   - title: "Tutorial"
     url: /08-tutorial/
   - title: "Acknowledgments"
     url: /09-acknowledgments/
+
