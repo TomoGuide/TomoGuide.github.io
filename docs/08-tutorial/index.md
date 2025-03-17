@@ -48,7 +48,7 @@ you’ll notice that most of the pre-processing steps are very similar.
 
 In this tutorial, we’ll walk through all the steps following data acquisition.
 
-![STA Workflow Diagram](imgs/01_Processing_workflow_transparent.png)
+![STA Workflow Diagram](/imgs/01_Processing_workflow_transparent.png)
 
 Here’s a quick summary:
 
