@@ -32,7 +32,9 @@ From there you are in your Scipion project, which is for now empty.
 ## Import frames
 
 The first step is going to import the frames. You can press on the top left or press <kbd>Ctrl + f</kbd> and look for 
-“Add tomo - import tilt-series”.
+_“Add tomo - import tilt-series”_.
+
+<img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:50%;">
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
 information about each TS.
