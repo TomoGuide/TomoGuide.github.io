@@ -8,16 +8,20 @@ has_children: true
 # Preamble
 
 For this tutorial, we compiled a subset of 33 tomograms from the "Chlamy dataset" (EMPIAR-11830) (R. Kelley, et al, *Towards 
-community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii.* bioRxiv [Preprint] 
-(2024). [https://doi.org/10.1101/2024.12.28.630444](https://doi.org/10.1101/2024.12.28.630444).)
+community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii.* bioRxiv (2024). [https://doi.org/10.1101/2024.12.28.630444](https://doi.org/10.1101/2024.12.28.630444).)
 
 Even if already reconstructed tomograms are available for this dataset (originally reconstructed using TOMOMAN and 
 automatically aligned with AreTomo), this tutorial aims at teaching you how to reconstruct tomograms from scratch and get 
 into subtomogram averaging (STA). We believe this subset can also be of interest for people benchmarking different software.
 
-In this tutorial, software that you will need are: **Scipion** (link), **RELION5** (link), **IMOD** (link), and **pytom-match-pick** (link). 
+In this tutorial, the software that you will need are:  
+[Scipion](https://scipion.i2pc.es/){: .btn }  
+[RELION5](https://relion.readthedocs.io/en/release-5.0/){: .btn }  
+[IMOD](https://bio3d.colorado.edu/imod/){: .btn }  
+[pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick){: .btn }
+
 We like to start our tomogram preprocessing and reconstruction in Scipion, but we will also describe how to do the complete 
-RELION5 pipeline. We recommend that you also download ChimeraX (link) and the ArtiaX (link) plug-in for particle map-backs.
+RELION5 pipeline. We recommend that you also download ChimeraX and the ArtiaX plug-in for particle map-backs.
 
 Start by going to the **Dataset, Software and Resources** tab and make sure you download all the necessary software as well 
 as the dataset.
