@@ -13,33 +13,36 @@ Below is how to import frames and reconstruct tomograms directly in RELION5.
 
 ## Import frames
 
+To import your tilt series in RELION you need to have a folder containing your frames (as .eer or .tiff) and your .mdoc files pointing to your frames. You can also directly import motion corrected .mrc. In your RELION working folder, create a rawdata folder containing soft links to the frames and .mdoc (in the same directory) and the gainref(s) e.g:
+
+```
+ln -s ~/pool-visprot/Florent/Folder_Newpipeline/Frames/Set_Cytoribo/ ~/pool-visprot/Florent/Folder_Newpipeline/Tomo_reconstruction/RELION5/Cytoribosome_5.11.24_GOOD/rawdata
+ 
+ln -s ~/pool-visprot/Florent/Folder_Newpipeline/Frames/Gain_refs/ ~/pool-visprot/Florent/Folder_Newpipeline/Tomo_reconstruction/RELION5/Cytoribosome_5.11.24_GOOD/rawdata
+
+```
+
 1. Create a **rawdata** folder in your RELION working directory.
 2. Copy or symlink the `.eer/.tiff` frames, `.mdoc` files, and gain references into **rawdata**.
 3. Use the **Import** job in RELION to point to these raw frames and `.mdoc` files.
 
-> **(Placeholder for screenshot: RELION import)**
+Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gainrefs. 
+In the case of the cytoribosome dataset, out of the 33 tomos, 6 tomos were collected with one gainref and 27 with another, so we split them in two different groups. You would have to run them as separate jobs until you go to STA.
 
-If you have multiple gain references (like 6 TS with GainRef1 and 27 TS with GainRef2), you might import them separately 
-until you reach the STA step.
+You need to know the tilt axis and the defocus handedness for RELION (something Scipion didn't ask you for!). If you get the defocus handedness wrong, this will only have an effect during STA, especially when reaching high resolution. If you want to check it, you can use **[Ricardo's Defocusgrad](https://github.com/CellArchLab/cryoet-scripts/tree/main/defocusgrad)**. With this dataset, _Invert defocus handedness_ should be set as **YES (-1)**.
 
-### Tilt axis & defocus handedness
+You also need to know the handedness of you tomos. 
+In our case they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95 we use -95.
 
-RELION also wants to know:
-- **Tilt axis** sign (95 vs -95). If your real axis was +95° but the data is mirrored, you may need -95.  
-- **Defocus handedness**. If you get it wrong, high-resolution refinements might be mirrored. For this dataset, 
-  “Invert defocus handedness” is YES (-1).
+Both defocus handedness and tomo handedness can be checked once the tomos are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.
+Be aware that even if data were collected on the same microscope, updates on the camera can result on flipped handedness. Data collected within the same session should be all the same.
 
-If you’re unsure, reconstruct a couple tomograms first and check orientation visually.
+<img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:70%;">
 
----
 
-## Tomogram reconstruction
+TBD
 
-Like Scipion, you’ll:
-- Run **motion correction** on each tilt
-- Do **tilt-series alignment** (RELION’s internal or AreTomo)
-- Estimate **CTF**
-- Assemble final tomograms (dose filtering, etc.)
 
-Once done, confirm they’re not mirrored. If they are, you may need to adjust your tilt-axis sign. After that, you’re 
-ready for [STA in RELION5](/08-tutorial/04-sta-in-relion5/).
+
+
