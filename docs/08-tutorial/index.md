@@ -31,7 +31,7 @@ as the dataset.
 The downloaded dataset should contain:
 
 - The raw frames  
-- The .mdoc for each tilt series (6 + 27)  
+- The .mdoc for each tilt-series (6 + 27)  
 - The gain references (2)  
 - Two text files with thickness measurements for automated AreTomo TS alignment  
 - Templates and masks for Template Matching  

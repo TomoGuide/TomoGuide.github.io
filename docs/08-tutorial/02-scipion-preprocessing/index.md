@@ -37,14 +37,14 @@ _“Add tomo - import tilt-series”_.
 <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:80%;">
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
-information about each TS.
+information about each tilt-series.
 
 > **Note**: We work with Tomo5 mdocs (TFS acquisition software). In your case you might be working with SerialEM mdocs.  
 > Scipion is smart enough to read the info from the mdoc files, but I recommend overriding these values if you know them, 
-  since they are often wrong, notably the Tilt axis angle.  
+  since they are often wrong, notably the ****Tilt axis angle**.  
 > If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be 
-  the same as here. If in doubt, ask your facility manager, or check the output of AreTomo.  
-> A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure.
+  the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo which can estimate the tilt axis angle.  
+> A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
 
 ---
 
@@ -52,7 +52,10 @@ information about each TS.
 
 This step aligns each frame of the movies and corrects for beam-induced motion.
 
-> **(Placeholder for screenshot of Scipion motion correction settings)**
+<img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/05_image-2025-1-15_16-19-1.png" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:80%;">
+<img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:80%;">
 
 Tick **Yes** for “Split & sum odd/even frames” if you later want to denoise your tomograms using cryoCare.
 
