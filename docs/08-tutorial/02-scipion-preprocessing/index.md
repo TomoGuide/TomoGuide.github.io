@@ -18,7 +18,7 @@ operations necessary for tomogram reconstruction and STA, while also keeping tra
 
 Here's an example of the workflow that we are going to follow:
 
-<img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+<img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:40%;">
 
 ---
 
