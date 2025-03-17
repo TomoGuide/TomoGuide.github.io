@@ -5,43 +5,41 @@ parent: "Tutorial"
 nav_order: 3
 ---
 
-# Preprocessing and Tomogram Reconstruction in RELION5
+# Preprocessing and tomogram reconstruction in RELION5
 
-Below is a basic guide on how to import frames and reconstruct tomograms directly in RELION5.
+Below is how to import frames and reconstruct tomograms directly in RELION5.
 
 ---
 
-## Import Frames
+## Import frames
 
-1. Prepare a directory named **rawdata** in your RELION working folder.
-2. Copy (or make symlinks to) the .eer/.tiff frames, .mdoc files, and gain references into **rawdata**.
-3. In RELION, use the **Import** job to point to these raw frames and the corresponding .mdoc files.
+1. Create a **rawdata** folder in your RELION working directory.
+2. Copy or symlink the `.eer/.tiff` frames, `.mdoc` files, and gain references into **rawdata**.
+3. Use the **Import** job in RELION to point to these raw frames and `.mdoc` files.
 
-> **(Placeholder: screenshot of RELION import dialog)**  
-> `![RELION Import](path/to/relion_import.png)`
+> **(Placeholder for screenshot: RELION import)**
 
-- If you have multiple gain references (e.g., 6 TS use GainRef1, 27 TS use GainRef2), you might import them as separate 
-  groups until you get to the STA step.
+If you have multiple gain references (like 6 TS with GainRef1 and 27 TS with GainRef2), you might import them separately 
+until you reach the STA step.
 
-### Tilt-Axis & Defocus Handedness
+### Tilt axis & defocus handedness
 
 RELION also wants to know:
-- **Tilt Axis** sign: if your real axis is +95°, and your data came out mirrored, you might need to enter -95.  
-- **Defocus Handedness**: if you get it wrong, high-resolution refinements can be mirrored. For this dataset, 
-  “Invert defocus handedness” is `YES (-1)`.
+- **Tilt axis** sign (95 vs -95). If your real axis was +95° but the data is mirrored, you may need -95.  
+- **Defocus handedness**. If you get it wrong, high-resolution refinements might be mirrored. For this dataset, 
+  “Invert defocus handedness” is YES (-1).
 
-> **Tip:** If you’re unsure, reconstruct a few tomograms first and visually confirm the orientation.
+If you’re unsure, reconstruct a couple tomograms first and check orientation visually.
 
 ---
 
-## Tomogram Reconstruction in RELION5
+## Tomogram reconstruction
 
-Similar to Scipion, you’ll do:
-- **Motion Correction** for each tilt (e.g., RELION’s internal motioncorr or external motioncor2).  
-- **Tilt-Series Alignment** (with RELION’s own alignment or AreTomo integration).  
-- **CTF Estimation**  
-- **Tomogram Assembly** and possible dose filtering.
+Like Scipion, you’ll:
+- Run **motion correction** on each tilt
+- Do **tilt-series alignment** (RELION’s internal or AreTomo)
+- Estimate **CTF**
+- Assemble final tomograms (dose filtering, etc.)
 
-Once your tomograms are reconstructed, you can further refine them, check for mirrored orientation, etc. 
-At that point, you’d proceed to [STA in RELION5](/08-tutorial/04-sta-in-relion5/).
-
+Once done, confirm they’re not mirrored. If they are, you may need to adjust your tilt-axis sign. After that, you’re 
+ready for [STA in RELION5](/08-tutorial/04-sta-in-relion5/).

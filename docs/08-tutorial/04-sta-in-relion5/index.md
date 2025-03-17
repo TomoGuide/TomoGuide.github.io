@@ -31,15 +31,4 @@ averaging to reach higher resolution on repeated structures (like ribosomes, vir
    Additional rounds of alignment, classification, and post-processing steps (masking, B-factor sharpening, etc.) may be 
    performed to push resolution.
 
----
-
-## Defocus Handedness & Tomogram Orientation
-
-Be sure your tomograms aren’t mirrored. If you see an inverted hand in your final 3D structure, revisit your tilt-axis sign or 
-defocus handedness.  
-
-## Exporting STA Results
-
-Once your STA job finishes, you can analyze your final maps in ChimeraX or any 3D visualization tool. If needed, you can 
-export back to Scipion or other software for more specialized tasks.
 

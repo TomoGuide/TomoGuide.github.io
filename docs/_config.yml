@@ -3,7 +3,6 @@ description: "A step-by-step Cryo-ET guide"
 remote_theme: "just-the-docs/just-the-docs"
 color_scheme: "light"
 
-# Enable navigation sidebar
 search_enabled: true
 nav_sort: case_insensitive
 back_to_top: true
@@ -11,25 +10,32 @@ back_to_top_text: "Back to top"
 enable_copy_code_button: true
 
 nav:
-nav:
   - title: "Welcome"
     url: /
     children:
       - title: "Some Words about Cryo-ET"
         url: /01-some-words-cryo-et/
+        children:
+          - title: "Sample Types"
+            url: /02-sample-types/
+          - title: "Cryo-ET Data Collection Workflow"
+            url: /03-cryo-et-data-collection-workflow/
+          - title: "Challenges in Cryo-ET"
+            url: /04-challenges-cryo-et/
+          - title: "Differences Between Cryo-ET and SPA"
+            url: /05-differences-cryo-et-spa/
+          - title: "Sub-Tomogram Averaging"
+            url: /06-subtomogram-averaging/
   - title: "Dataset, Software, and Resources"
     url: /07-dataset-software-resources/
   - title: "Tutorial"
     url: /08-tutorial/
     children:
-    - title: "Preamble and General Workflow"
-      url: /08-tutorial/01-preamble-workflow/
-    - title: "Preprocessing in Scipion"
-      url: /08-tutorial/02-scipion-preprocessing/
-    - title: "Preprocessing in RELION5"
-      url: /08-tutorial/03-relion-preprocessing/
-    - title: "STA in RELION5"
-      url: /08-tutorial/04-sta-in-relion5/
+      - title: "Preprocessing in Scipion"
+        url: /08-tutorial/02-scipion-preprocessing/
+      - title: "Preprocessing in RELION5"
+        url: /08-tutorial/03-relion-preprocessing/
+      - title: "STA in RELION5"
+        url: /08-tutorial/04-sta-in-relion5/
   - title: "Acknowledgments"
     url: /09-acknowledgments/
-
