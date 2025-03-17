@@ -91,9 +91,7 @@ You can just open the motion correction output by double click and hold down <kb
 
 ## Tilt-series alignment
 
-Can be done either with **AreTomo** or with **IMOD patch tracking**. Here we automatically do it with AreTomo.  
-AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the 
-tilt axis angle, starting from the one you provided at import.
+Can be done either with **AreTomo** or with **IMOD patch tracking**. Here we automatically do it with AreTomo. AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
 
 <img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
@@ -101,7 +99,7 @@ tilt axis angle, starting from the one you provided at import.
 
 > **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps—such as when performing Subtomogram Averaging (STA)—you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
 
-We will reconstruct bin8 tomograms first to quickly assess overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella thickness of 1000 unbinned pixels (~190 nm).
+We will reconstruct bin8 tomograms first to quickly assess overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella  thickness of 1000 unbinned pixels (~190 nm).
 
 At this step we will not reconstruct odd/even tomograms for denoising since we are going to do it at a later stage.
 
@@ -122,7 +120,7 @@ This step is optional but highly recommended if you want well-aligned tomograms.
 
 Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the Advanced options.
 
-<img src="/imgs/09_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/10_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 
 ---
 
