@@ -142,7 +142,7 @@ We can now finally reconstruct our tomograms
 
 <img src="/imgs/13_Recontruct_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 
-However, this doesn't look particularly contrasty right? To help make it nicer to our human eyes we can denoise them
+However, those tomogram don't look particularly contrasty right? To help make it nicer to our human eyes we can denoise them
 
 ### Generating denoised tomograms
 
