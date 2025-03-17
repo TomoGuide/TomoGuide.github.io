@@ -29,7 +29,7 @@ ln -s ~/pool-visprot/Florent/Folder_Newpipeline/Frames/Gain_refs/ ~/pool-visprot
 Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gainrefs. 
 In the case of the cytoribosome dataset, out of the 33 tomos, 6 tomos were collected with one gainref and 27 with another, so we split them in two different groups. You would have to run them as separate jobs until you go to STA.
 
-You need to know the tilt axis and the defocus handedness for RELION (something Scipion didn't ask you for!). If you get the defocus handedness wrong, this will only have an effect during STA, especially when reaching high resolution. If you want to check it, you can use **[Ricardo's Defocusgrad](https://github.com/CellArchLab/cryoet-scripts/tree/main/defocusgrad)**. With this dataset, _Invert defocus handedness_ should be set as **YES (-1)**.
+You need to know the tilt axis and the defocus handedness for RELION (something Scipion didn't ask you for!). If you get the defocus handedness wrong, this will only have an effect during STA, especially when reaching high resolution. If you want to check it, you can use **[Ricardo's Defocusgrad](https://github.com/CellArchLab/cryoet-scripts/tree/main)**. With this dataset, _Invert defocus handedness_ should be set as **YES (-1)**.
 
 You also need to know the handedness of you tomos. 
 In our case they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95 we use -95.
