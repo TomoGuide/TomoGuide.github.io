@@ -2,6 +2,7 @@
 description: "A step-by-step Cryo-ET guide"
 remote_theme: "just-the-docs/just-the-docs"
 color_scheme: "light"
+favicon: "/assets/images/favicon.ico"
 
 search_enabled: true
 nav_sort: case_insensitive
@@ -26,16 +27,19 @@ nav:
             url: /05-differences-cryo-et-spa/
           - title: "Sub-Tomogram Averaging"
             url: /06-subtomogram-averaging/
+
   - title: "Dataset, Software, and Resources"
-    url: /07-dataset-software-resources/
+    url: /02-dataset-software-resources/
+
   - title: "Tutorial"
-    url: /08-tutorial/
+    url: /03-tutorial/
     children:
       - title: "Preprocessing in Scipion"
-        url: /08-tutorial/02-scipion-preprocessing/
+        url: /03-tutorial/01-scipion-preprocessing/
       - title: "Preprocessing in RELION5"
-        url: /08-tutorial/03-relion-preprocessing/
+        url: /03-tutorial/02-relion-preprocessing/
       - title: "STA in RELION5"
-        url: /08-tutorial/04-sta-in-relion5/
+        url: /03-tutorial/03-sta-in-relion5/
+
   - title: "Acknowledgments"
-    url: /09-acknowledgments/
+    url: /04-acknowledgments/
