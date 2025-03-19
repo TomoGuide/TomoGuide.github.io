@@ -7,8 +7,6 @@ nav_order: 3
 
 # Preprocessing and tomogram reconstruction in RELION5
 
-Below is how to import frames and reconstruct tomograms directly in RELION5.
-
 ---
 
 ## Import frames
