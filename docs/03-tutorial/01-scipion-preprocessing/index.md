@@ -31,7 +31,7 @@ From there you are in your Scipion project, which is for now empty.
 
 ## Import frames
 
-The first step is going to import the frames. You can press on the top left or press <kbd>Ctrl + f</kbd> and look for 
+The first step is going to import the frames. You can press <kbd>Add</kbd> on the top left or press <kbd>Ctrl + f</kbd> to select a protocll. Look for 
 _“Add tomo - import tilt-series”_.
 
 <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:70%;">
