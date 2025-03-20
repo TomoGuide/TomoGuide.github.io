@@ -40,7 +40,7 @@ Here, you need to specify the directory that contains the movies (e.g., `.eer`) 
 information about each tilt-series.
 
 > **Note**: We work with Tomo5 mdocs (TFS acquisition software). In your case you might be working with SerialEM mdocs. Scipion is smart enough to read the info from the mdoc files, but I recommend overriding these values if you know them, 
-  since they are often wrong, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be 
+  since they are often wrong in the mdoc, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be 
   the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
 
 ---
