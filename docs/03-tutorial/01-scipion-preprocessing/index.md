@@ -127,7 +127,7 @@ Once you have done that for all the tomograms, you can provide this file as an i
 ## CTF estimation
 
 You can use different options to estimate CTF. However, you might have noticed that AreTomo can do it, and if you ran the previous job exactly as we did, you already have done it.
-We found that CTFFIND4, that was an alternative that we were using, was not performing as well as AreTomo. CTFFIND5 appears to be performing better than CTFFIND4, so we recommand using this one if you don't want to use AreTomo. You can check the CTF estimate by opening the AreTomo CTF output. Your CTF values should not deviate much over the entire tilt-series except for the bad tilt. Take care of the Y-axis scaling! This can be missleading.
+We found that CTFFIND4, that was an alternative that we were using, was not performing as well as AreTomo. CTFFIND5 appears to be performing better than CTFFIND4, so we recommand using this one if you don't want to use AreTomo. You can check the CTF estimate by opening the AreTomo CTF output. Your CTF values should not deviate much over the entire tilt-series except for the bad tilts. Take care of the Y-axis scaling! This can be missleading.
 
 ---
 
