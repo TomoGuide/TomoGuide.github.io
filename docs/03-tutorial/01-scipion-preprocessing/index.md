@@ -57,7 +57,7 @@ Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denois
 In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
 the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
 
-Because this dataset was collected as **.eer**, specify how you want to group frames. For instance:
+Because this dataset was collected as `.eer`, specify how you want to group frames. For instance:
 
 ```
 N_frames = desired_dose_per_group / ( dose_per_tilt * pixel_size² / total_EER_frames )
@@ -75,6 +75,8 @@ Note that tilts from GainRef1 and GainRef2 have different number of frames (on a
 ```
 N_frames = 0.5 / ( 3.5 * 1.91² / 350  ) = 13.7 ~ 14 frames
 ```
+
+For `.tiff` frames this is not necessary/will not be considered.
 
 ## Cleaning the stack
 
