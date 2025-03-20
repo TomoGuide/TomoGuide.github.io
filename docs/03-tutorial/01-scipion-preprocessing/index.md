@@ -133,7 +133,7 @@ We found that CTFFIND4, that was an alternative that we were using, was not perf
 
 ## Tomogram reconstruction
 
-Perform dose filtering, apply transforms, then reconstruct tomograms.
+Perform dose filtering, apply transforms, then reconstruct tomograms. We opt for bin4 tomograms.
 
 <img src="/imgs/11_Dosefiltering_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
 <img src="/imgs/12_Transform_Scipion.PNG" alt="Processing Workflow" style="width:70%;">
