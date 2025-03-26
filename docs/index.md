@@ -6,7 +6,7 @@ nav_order: 1
 
 <div style="border:2px solid red; padding:1em; background-color:#ffe5e5; color:#a00; margin-bottom:1em;">
 <h2>🚧 Under Construction 🚧</h2>
-<p>This website is under heavy construction! Please do not use or share the information just yet. Please wait until the authors communicate the official release</p>
+<p>This website is under heavy construction! Please do not use or share the information just yet. Please wait until the authors communicate the official release.</p>
 </div>
 
 
