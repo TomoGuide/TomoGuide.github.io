@@ -1,5 +1,4 @@
-﻿# **This site is under heavy construction!**
-# **Please wait until the authors share & communicate the official release**
+﻿# This website is under heavy construction! Please do not use or share its information just yet. Please wait until the authors communicate the official release.
 
 ---
 
