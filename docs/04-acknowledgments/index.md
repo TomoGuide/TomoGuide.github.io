@@ -13,7 +13,6 @@ Special thanks to **Sofie van Dorst, Ricardo Righetto, Davide Tamborini**, and a
 # Disclaimer
 
 Aside from the few custom Python scripts we provide, **we are not responsible** for any issues related to installing or running 
-the various packages and software presented. For assistance, please refer to the official GitHub pages of the respective software 
-or consult ChatGPT.
+the various packages and software presented. For assistance, please refer to the official GitHub pages and developers of the respective software.
 
 
