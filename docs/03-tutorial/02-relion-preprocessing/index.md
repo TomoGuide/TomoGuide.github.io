@@ -138,7 +138,7 @@ Additional flags to make your tomo look nicer and we advise to use:
 - ---**Fc** (binning by fourier cropping)
 - ---**pre_weight** (pre-weighting in 2D instead of 3D weighting)
 - ---**ctf** (CTF correction)
-- ---**SNR 100** (Wiener filter SNR values. Default 10. We found 100 looks "more IMOD-like")
+- ---**SNR 100** (Wiener filter SNR value. Default 10. We found 100 looks "more IMOD-like")
 
 We advice to always CTF correct tomograms especially for template matching and STA. Even denoising like [cryoCARE](https://github.com/juglab/cryoCARE_pip) and [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example can benefit from this extra information of frequencies.
 
