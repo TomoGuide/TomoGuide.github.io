@@ -44,6 +44,7 @@ information about each tilt-series.
 ---
 
 ## Motion correction
+{: #motion-eer }
 
 This step aligns each frame of the movies and corrects for beam-induced motion.
 
