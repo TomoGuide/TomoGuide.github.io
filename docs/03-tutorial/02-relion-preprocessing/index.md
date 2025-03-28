@@ -43,7 +43,7 @@ Be aware that even if data were collected on the same microscope, updates on the
 
 Run beam induced motion correction using RELION's implementation of motioncor2. 
 
-For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](motion-eer)** where we show the calculations.
+For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
 
 At this step you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
 Don't forget to indicate the proper gainref in the Motion tab!
@@ -119,7 +119,7 @@ To be sure it was taken into account, check the .log and _AlignZ_ should be diff
 
 Fill in the info about to your tomogram dimensions, here **4096 4096 2048**, and pixel size. Here **7.64** for bin4 tomos.
 
-We would advise you to first reconstruct all the tomos with AreTomo (with corrected Z thickness). Then check the ones that are not properly reconstructed.
+I would advise you to first reconstruct all the tomos with AreTomo (with corrected Z thickness). Then check the ones that are not properly reconstructed.
 
 For the ones that are not properly reconstructed, Align them using IMOD, and then at the Reconstruct step, only reconstruct the ones that were not properly reconstructed using AreTomo using the "Reconstruct only these tomo" option.
 
