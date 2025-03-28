@@ -141,3 +141,7 @@ Additional flags to make your tomo look nicer and we advise to use:
 - ---**SNR 100** (Wiener filter SNR values. Default 10. We found 100 looks "more IMOD-like")
 
 We advice to always CTF correct tomograms especially for template matching and STA. Even denoising like [cryoCARE](https://github.com/juglab/cryoCARE_pip) and [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example can benefit from this extra information of frequencies.
+
+## Create denoised tomos
+
+> TBD
