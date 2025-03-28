@@ -104,3 +104,28 @@ To do this, you can measure the tomo thickness in IMOD by hand.
 The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
 
 <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:70%;">
+
+Then, you need to edit _selected_tilt_series.star_ file in the _ExcludeTiltImages_ job, and **add a column named _rlnTomoTomogramThickness #9**. The column is thickness in **nm**.
+Here's an example of an edited file:
+
+<img src="/imgs/21_ali1.JPG" alt="Processing Workflow" style="width:70%;">
+
+Whenever you modifiy a file, create a copy of the original and name it *_ori, that way you keep track of what you have done and can easily revert back.
+
+Then run the AreTomo job again with the edited selected_tilt_series.star and run the tomo reconstruction. Your tomo should look better.
+To be sure it was taken into account, check the .log and _AlignZ_ should be different for all tomos.
+
+## Tomogram reconstruction
+
+Fill in the info about to your tomogram dimensions, here **4096 4096 2048**, and pixel size. Here **7.64** for bin4 tomos.
+
+I would advise you to first reconstruct all the tomos with AreTomo (with corrected Z thickness). Then check the ones that are not properly reconstructed.
+
+For the ones that are not properly reconstructed, Align them using IMOD, and then at the Reconstruct step, only reconstruct the ones that were not properly reconstructed using AreTomo using the "Reconstruct only these tomo" option.
+
+Tilt angle offset: If you recontructed with AreTomo, you don't need to use this because AreTomo automatically flatens the tomo.
+IMOD is not doing it (you can correct it manually in etomo, but for some reason the current version of RELION is not reading it). Hence your tomo will be tilted. Here the tilt angle was about 10°, so you need to specify 10 to correct it.
+
+<img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/23_recons.JPG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/24_recons.JPG" alt="Processing Workflow" style="width:70%;">
