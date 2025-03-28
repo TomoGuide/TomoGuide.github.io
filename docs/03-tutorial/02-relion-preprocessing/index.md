@@ -43,7 +43,7 @@ Be aware that even if data were collected on the same microscope, updates on the
 
 Run beam induced motion correction using RELION's implementation of motioncor2. 
 
-For the EER fractionation value, refer to the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
+For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
 
 At this step you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
 Don't forget to indicate the proper gainref in the Motion tab!
@@ -58,7 +58,8 @@ Make sure that CTF is properly estimated by checking the .pdf output. If it's no
 
 > **Placeholder CTFFIND4 screenshot**  
 
-**Cleaning the stack**
+
+## Cleaning the stack
 
 Opens Napari to select the tilts to exclude.
 
@@ -79,14 +80,14 @@ AreTomo tries to find the optimal back projection scheme based on a theoritical 
 
 The way AreTomo works right now in RELION5 is a bit restrictive. In the GUI, you can only set a single estimated tomogram thickness. AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal.
 Here, let's run a first alignment with a value of 200 nm.
-Set Correct Tilt Angle Offset to YES.
+Set Correct Tilt Angle Offset to **YES**.
 
 
 <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:70%;">
 <img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:70%;">
 
 
-# Refining TS alignment:
+## Refining TS alignment:
 
 Similar to Scipion, you can measure the tomogram thickness for each tomo and use this value to have a more accurate TS alignment 
 
