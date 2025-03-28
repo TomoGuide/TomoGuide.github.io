@@ -39,8 +39,67 @@ Be aware that even if data were collected on the same microscope, updates on the
 <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:70%;">
 
 
-TBD
+## Motion Correction and CTF estimation 
+
+Run beam induced motion correction using RELION's implementation of motioncor2. 
+
+For the EER fractionation value, refer to the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
+
+At this step you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
+Don't forget to indicate the proper gainref in the Motion tab!
 
 
+<img src="/imgs/16_Motion1.JPG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/17_Motion1.JPG" alt="Processing Workflow" style="width:70%;">
+
+Once this is done, run CTF estimation with the default parameters. Just make sure that the executable is proper.
+
+Make sure that CTF is properly estimated by checking the .pdf output. If it's not you can change the base settings.
+
+> **Placeholder CTFFIND4 screenshot**  
+
+**Cleaning the stack**
+
+Opens Napari to select the tilts to exclude.
+
+> **Placeholder NAPARI screenshot**  
+
+Works, it's just slow and the contrast is bad ... 
 
 
+## TS alignment
+
+Getting a properly aligned tilt series is very important for efficient particle detection and for tomogram "good looking-ness".
+
+Similar to Scipion, in RELION you can either do it using AreTomo or with IMOD patch tracking.
+
+For this dataset, and in general for quick alignment, AreTomo is good enough. This is why we are going to show you how to automatically do it with AreTomo.
+
+AreTomo tries to find the optimal back projection scheme based on a theoritical lamella thickness. It will also find and refine the tilt axis angle, starting from the one you provided at the import step.
+
+The way AreTomo works right now in RELION5 is a bit restrictive. In the GUI, you can only set a single estimated tomogram thickness. AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal.
+Here, let's run a first alignment with a value of 200 nm.
+Set Correct Tilt Angle Offset to YES.
+
+
+<img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:70%;">
+<img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:70%;">
+
+
+# Refining TS alignment:
+
+Similar to Scipion, you can measure the tomogram thickness for each tomo and use this value to have a more accurate TS alignment 
+
+Once you aligned your tomos the first time with a single estimated tomo thickness (here we did with 200 nm), you can refine your alignment using the real tomo thickness.
+To do this, you can measure the tomo thickness in IMOD by hand.
+
+1. **Open the bin8 tomograms** that resulted from your first AreTomo run.
+2. Go to **Edit > Image > Flip/Rotate** .
+3. **Measure the lamella thickness:**
+    - Place the yellow cross on one lamella edge by left-clicking (or right or middle)
+    - Move your cursor to the opposite edge of the lamella (DON'T CLICK).
+    - Press Q to get the distance between the yellow cross and the position of your cursor.
+
+The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
+
+<img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:70%;">
