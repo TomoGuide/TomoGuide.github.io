@@ -10,13 +10,13 @@ back_to_top: true
 back_to_top_text: "Back to top"
 enable_copy_code_button: true
 
-# Add GitHub repo link to nav bar
-aux_links:
-  "View on GitHub":
-    - "//github.com/yourusername/TomoGuide.github.io"
+# # Add GitHub repo link to nav bar
+# aux_links:
+#   "View on GitHub":
+#     - "//github.com/yourusername/TomoGuide.github.io"
 
-# Makes Aux links open in a new tab
-aux_links_new_tab: true
+# # Makes Aux links open in a new tab
+# aux_links_new_tab: true
 
 
 nav:
