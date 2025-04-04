@@ -7,12 +7,6 @@
 <img src="https://img.shields.io/badge/License-CC%20BY--4.0-lightgrey.svg?style=flat" alt="License: CC-BY-4.0">
 </a>
 
-### 📋 Table of Contents
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Contributors](#contributors)
-- [License](#license)
-
 
 ### ✨ Features
 - **Cryo-ET fundamentals** – Sample preparation, data collection, end-to-end workflows
