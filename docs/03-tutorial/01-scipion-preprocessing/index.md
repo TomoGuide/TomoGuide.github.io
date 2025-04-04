@@ -36,7 +36,7 @@ The first step is going to import the frames. You can press <kbd>Add</kbd> on th
 _“Add tomo - import tilt-series”_.
 
 <a href="/imgs/03_image-2025-1-15_16-17-56.png" data-lightbox="image-gallery">
-  <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
@@ -51,16 +51,16 @@ information about each tilt-series.
 This step aligns each frame of the movies and corrects for beam-induced motion.
 
 <a href="/imgs/04_image-2025-1-15_16-18-38.png" data-lightbox="image-gallery">
-  <img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/05_image-2025-1-15_16-19-1.png" data-lightbox="image-gallery">
-  <img src="/imgs/05_image-2025-1-15_16-19-1.png" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/05_image-2025-1-15_16-19-1.png" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/06_image-2025-1-15_16-19-55.png" data-lightbox="image-gallery">
-  <img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/06_image-2025-1-15_16-19-55.png" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/07_image-2025-1-15_16-19-23.png" data-lightbox="image-gallery">
-  <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using cryoCare.
@@ -105,10 +105,10 @@ You can just open the motion correction output by double click and hold down <kb
 Can be done either with **AreTomo** or with **IMOD patch tracking**. Here we automatically do it with AreTomo. AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
 
 <a href="/imgs/08_Aretomo1_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/09_Aretomo2_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 > **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps—such as when performing Subtomogram Averaging (STA)—you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
@@ -135,7 +135,7 @@ This step is optional but highly recommended if you want well-aligned tomograms.
 Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the Advanced options.
 
 <a href="/imgs/10_Aretomo3_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/10_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/10_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 ---
@@ -152,16 +152,16 @@ We found that CTFFIND4, that was an alternative that we were using, was not perf
 Perform dose filtering, apply transforms, then reconstruct tomograms. We opt for bin4 tomograms.
 
 <a href="/imgs/11_Dosefiltering_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/11_Dosefiltering_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/11_Dosefiltering_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/12_Transform_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/12_Transform_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/12_Transform_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 We can now finally reconstruct our tomograms
 
 <a href="/imgs/13_Recontruct_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/13_Recontruct_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/13_Recontruct_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 However, those tomograms don't look particularly contrasty, right? To help make it nicer to our human eyes we can denoise them.
