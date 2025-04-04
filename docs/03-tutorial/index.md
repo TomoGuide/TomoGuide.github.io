@@ -25,8 +25,7 @@ In this tutorial, the software that you will need are:
 We like to start our tomogram preprocessing and reconstruction in Scipion, but we will also describe how to do the complete 
 RELION5 pipeline. We recommend that you also download [ChimeraX](https://www.cgl.ucsf.edu/chimerax/) and the [ArtiaX](https://github.com/FrangakisLab/ArtiaX) plug-in for particle map-backs.
 
-Start by going to the [Dataset, Software and Resources](/07-dataset-software-resources/) tab and make sure you download all the necessary software as well 
-as the dataset.
+**Start by going to the [Dataset, Software and Resources](/07-dataset-software-resources/) tab and make sure you download all the necessary software as well as the dataset.**
 
 The downloaded dataset should contain:
 
@@ -37,8 +36,7 @@ The downloaded dataset should contain:
 - Templates and masks for Template Matching  
 
 The 33 tilt-series (TS) can be divided into two groups: 6 associated with **GainRef1** and 27 with **GainRef2**.  
-If you are just interested in learning the basics of tomogram reconstruction and STA, we recommend just using the 6 TS 
-associated with **GainRef1** as processing will be faster.  
+If you are just interested in learning the basics of tomogram reconstruction and STA, we recommend just using the 6 TS associated with **GainRef1** as processing will be faster.  
 If you also want to push resolution or try classification, process the entire set of TS.
 
 ---
