@@ -18,7 +18,7 @@ operations necessary for tomogram reconstruction and STA, while also keeping tra
 Here's **the** example workflow that we are going to follow:
 
 <a href="/imgs/02_Workflow_Scipion.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:30%;">
 </a>
 
 ---
@@ -33,7 +33,7 @@ From there you are in your Scipion project, which is for now empty.
 ## Import frames
 
 The first step is going to import the frames. You can press <kbd>Add</kbd> on the top left or press <kbd>Ctrl + f</kbd> to select a protocol. Look for 
-_“Add tomo - import tilt-series bob.movies”_.
+_“Add tomo - import tilt-series”_.
 
 <a href="/imgs/03_image-2025-1-15_16-17-56.png" data-lightbox="image-gallery">
   <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:50%;">
