@@ -50,7 +50,15 @@ you’ll notice that most of the pre-processing steps are very similar.
 
 In this tutorial, we’ll walk through all the steps following data acquisition.
 
-<img src="/imgs/01_Processing_workflow_transparent.png" alt="Processing Workflow" style="width:50%;">
+{: .note }
+This is a note callout.
+
+{: .warning }
+This is a warning callout.
+
+<a href="/imgs/01_Processing_workflow_transparent.png" target="_blank">
+  <img src="/imgs/01_Processing_workflow_transparent.png" alt="Processing Workflow" style="width:50%;">
+</a>
 
 
 Here’s a quick summary:
