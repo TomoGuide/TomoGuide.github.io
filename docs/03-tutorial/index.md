@@ -50,7 +50,7 @@ you’ll notice that most of the pre-processing steps are very similar.
 
 In this tutorial, we’ll walk through all the steps following data acquisition.
 
-<a href="/imgs/01_Processing_workflow_transparent.png" data-lightbox="image-gallery" data-title="Processing Workflow">
+<a href="/imgs/01_Processing_workflow_transparent.png" data-lightbox="image-gallery">
   <img src="/imgs/01_Processing_workflow_transparent.png" alt="Processing Workflow" style="width:50%;">
 </a>
 
