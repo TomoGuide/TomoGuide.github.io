@@ -37,10 +37,10 @@ Both defocus handedness and tomo handedness can be checked once the tomos are re
 Be aware that even if data were collected on the same microscope, updates on the camera can result on flipped handedness. Data collected within the same session should be all the same.
 
 <a href="/imgs/14_Import1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/15_Import2.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 ## Motion Correction and CTF estimation 
@@ -53,10 +53,10 @@ At this step you want to save the ODD and EVN frames for later steps, so tick **
 Don't forget to indicate the proper gainref in the Motion tab!
 
 <a href="/imgs/16_Motion1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/16_Motion1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/16_Motion1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/17_Motion1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/17_Motion1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/17_Motion1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Once this is done, run CTF estimation with the default parameters. Just make sure that the executable is proper.
@@ -92,10 +92,10 @@ Here, let's run a first alignment with a value of 200 nm.
 Set Correct Tilt Angle Offset to **YES**.
 
 <a href="/imgs/18_ALI1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/19_ALI1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 ## Refining TS alignment:
@@ -115,14 +115,14 @@ To do this, you can measure the tomo thickness in IMOD by hand.
 The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
 
 <a href="/imgs/20_ali1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Then, you need to edit _selected_tilt_series.star_ file in the _ExcludeTiltImages_ job, and **add a column named _rlnTomoTomogramThickness #9**. The column is thickness in **nm**.  
 Here's an example of an edited file:
 
 <a href="/imgs/21_ali1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/21_ali1.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/21_ali1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Whenever you modify a file, create a copy of the original and name it *_ori, so that you keep track of what you have done and can easily revert back.
@@ -142,13 +142,13 @@ Tilt angle offset: If you reconstructed with AreTomo, you don't need to use this
 IMOD is not doing it (you can correct it manually in etomo, but for some reason the current version of RELION is not reading it). Hence your tomo will be tilted. Here the tilt angle was about 10°, so you need to specify 10 to correct it.
 
 <a href="/imgs/22_recons.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/23_recons.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/23_recons.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/23_recons.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/24_recons.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/24_recons.JPG" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/24_recons.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Additional flags to make your tomo look nicer and we advise to use:  
