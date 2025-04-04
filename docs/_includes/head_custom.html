@@ -25,22 +25,34 @@
     .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
     @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
     @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+  </style>
+</a>
+
+<!-- Mobile-only GitHub link -->
+<a href="https://github.com/TomoGuide/TomoGuide.github.io" class="github-link-mobile" target="_blank">
+  <style>
+    .github-link-mobile {
+      display: none;
+    }
     
-    /* Fixed position at bottom right for mobile */
     @media (max-width: 800px) {
       .github-corner {
-        position: fixed !important;
-        top: auto !important;
-        bottom: 0 !important;
-        right: 0 !important;
-        z-index: 99 !important;
+        display: none !important;
       }
-      .github-corner svg {
-        position: absolute !important;
-        transform: rotate(180deg) !important;
-        transform-origin: bottom right !important;
-        width: 60px !important;
-        height: 60px !important;
+      .github-link-mobile {
+        display: block !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        z-index: 99 !important;
+        background-color: #333 !important;
+        color: white !important;
+        padding: 10px 15px !important;
+        border-radius: 50% !important;
+        text-decoration: none !important;
+      }
+      .github-link-mobile:before {
+        content: "GitHub" !important;
       }
     }
   </style>
