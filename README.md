@@ -4,8 +4,8 @@
 
 # Tomo101 - Cryo-ET Guide
 
-[![License: CC-BY-4.0](https://img.shields.io/badge/License-CC%20BY--4.0-lightgrey.svg?style=flat)](https://creativecommons.org/licenses/by/4.0/)
 [![Open TomoGuide](https://img.shields.io/badge/Open%20TomoGuide-Here-violet?style=flat)](https://tomoguide.github.io/)
+[![License: CC-BY-4.0](https://img.shields.io/badge/License-CC%20BY--4.0-lightgrey.svg?style=flat)](https://creativecommons.org/licenses/by/4.0/)
 
 
 This is the **official documentation site** for Tomo101, a step-by-step guide to Cryo-Electron Tomography.
