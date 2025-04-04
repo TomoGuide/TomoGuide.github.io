@@ -1,10 +1,4 @@
 ﻿<p align="center">
-  <img src="docs/imgs/01_Processing_workflow_transparent.png" alt="Tomo101 Logo" width="200"/>
-</p>
-
-<h1 align="center">Tomo101 - Cryo-ET Guide</h1>
-
-<p align="center">
   <a href="https://tomoguide.github.io/" target="_blank">
     <img src="https://img.shields.io/badge/Open%20TomoGuide-Here-violet?style=flat" alt="Open TomoGuide">
   </a>
