@@ -14,82 +14,6 @@
   });
 </script>
 
-<!-- Mobile navigation fixes -->
-<style>
-  /* Just the Docs specific fixes */
-  @media (max-width: 800px) {
-    .js-main-nav-trigger {
-      position: fixed !important;
-      left: 1rem !important;
-      top: 1rem !important;
-      display: block !important;
-      width: 44px !important;
-      height: 44px !important;
-      background-color: #f5f6fa !important;
-      border: 1px solid #eeebee !important;
-      border-radius: 4px !important;
-      z-index: 1001 !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-    }
-    
-    .navigation-list {
-      padding-top: 70px !important;
-    }
-    
-    /* Fix GitHub corner to not overlap menu button */
-    .github-corner {
-      z-index: 900;
-    }
-    
-    /* Add some style to make menu button more visible */
-    .js-main-nav-trigger:before {
-      content: "☰";
-      font-size: 24px;
-      line-height: 44px;
-      text-align: center;
-      width: 100%;
-      display: block;
-    }
-  }
-</style>
-
-<!-- Add mobile navigation helper script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Force mobile nav menu to be accessible
-    var navTrigger = document.querySelector('.js-main-nav-trigger');
-    if (!navTrigger) {
-      // Create the menu button if it doesn't exist
-      navTrigger = document.createElement('button');
-      navTrigger.className = 'js-main-nav-trigger';
-      navTrigger.setAttribute('type', 'button');
-      navTrigger.innerHTML = '☰';
-      document.body.appendChild(navTrigger);
-      
-      // Add click event to toggle side bar
-      navTrigger.addEventListener('click', function() {
-        var sideBar = document.querySelector('.side-bar');
-        if (sideBar) {
-          if (sideBar.style.display === 'none' || !sideBar.style.display) {
-            sideBar.style.display = 'block';
-            sideBar.style.width = '250px';
-            sideBar.style.position = 'fixed';
-            sideBar.style.top = '0';
-            sideBar.style.left = '0';
-            sideBar.style.height = '100%';
-            sideBar.style.zIndex = '1000';
-            sideBar.style.overflowY = 'auto';
-            sideBar.style.backgroundColor = '#f5f6fa';
-          } else {
-            sideBar.style.display = 'none';
-          }
-        }
-      });
-    }
-  });
-</script>
-
 <a href="https://github.com/TomoGuide/TomoGuide.github.io" class="github-corner" aria-label="View source on GitHub" target="_blank">
   <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -100,5 +24,18 @@
     .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}
     @keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
     @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+    
+    /* Reposition GitHub corner on mobile to bottom right */
+    @media (max-width: 800px) {
+      .github-corner {
+        top: auto !important;
+        bottom: 0 !important;
+        right: 0 !important;
+      }
+      .github-corner svg {
+        transform: scale(0.7);
+        transform-origin: bottom right;
+      }
+    }
   </style>
 </a>
