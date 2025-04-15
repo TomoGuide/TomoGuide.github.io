@@ -207,4 +207,35 @@ You can run this command from the terminal:
    grep _rlnChangesOptimalClasses run_it???_optimiser.star
    ```
 
+## Select good classes 
+
+Assuming your classification worked and you want to select good class(es), and only proceed with these.
+
+Let's launch a **Subset selection job**.
+
+### I/O Tab
+
+For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24 you have to use <kbd>Class3D/job00X/run_it024_optimiser.star </kbd> as input.
+
+### Running Tab
+
+Don't submit it to the queue, run it locally!
+
+Press Run!
+
+The Relion display GUI pops up, press Display! This will show you a 2D slice of all your classes. It's similar to the Display tab.
+
+To select the one(s) you want, left click on it/them. Then press right click, and do Save selected classes. You also, BEFORE SAVING, you can right-click and do Show metadata this class, and it will show you the total number of particles you are selecting.
+
+Close the windows, it RELION should tell Saved Select/job00X/particles.star with XXXXX selected particles.
+
+
+
+
+
+## Creating a mask
+
+bla bla
+
+
 
