@@ -191,17 +191,20 @@ You can run this command from the terminal:
 
 - **Monitor Resolution Over Iterations**
    This will give you the resolution for each iteration. Ideally, it should improve (i.e., the number decreases) as refinement proceeds.
-
-   <kbd>grep _rlnCurrentResolution run_it???_model.star</kbd>
+   ```
+   grep _rlnCurrentResolution run_it???_model.star
+   ```
 
 - **Follow class population and resolution**
    If you're running classification, use <kbd>relion_star_printtable</kbd> to examine how the classes evolve:
-
-   <kbd>relion_star_printtable run_it001_model.star data_model_classes rlnClassDistribution rlnEstimatedResolution</kbd>
+   ```
+   relion_star_printtable run_it001_model.star data_model_classes rlnClassDistribution rlnEstimatedResolution
+   ```
 
 - **Monitor Class Convergence (Optimum Changes)**
    Track how well classes are stabilizing. This number should start high (near 1) and trend toward 0 as the classes converge
-   
-   <kbd>grep _rlnChangesOptimalClasses run_it???_optimiser.star</kbd>
+   ```
+   grep _rlnChangesOptimalClasses run_it???_optimiser.star
+   ```
 
 
