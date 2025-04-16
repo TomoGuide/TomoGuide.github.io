@@ -5,7 +5,7 @@ nav_order: 9
 has_children: true
 ---
 
-**Start by going to the [Dataset, Software and Resources](/07-dataset-software-resources/) tab and make sure you download the dataset and all the necessary software based on the workflow you want to run.**
+**Start by going to the [Dataset, Software and Resources](/02-dataset-software-resources/) tab and make sure you download the dataset and all the necessary software based on the workflow you want to run.**
 
 ---
 
