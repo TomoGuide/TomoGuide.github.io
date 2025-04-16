@@ -230,7 +230,7 @@ Let's again launch a Class3D job.
 
 ### Reference Tab
 
-- **Initial low-pass filter**: You can now set the low pass filter slightly above the resolution given by the iteration you reached in the 3DClass with 1 class. In that case we were at 21Å, so let's set it to **25Å**. 
+- **Initial low-pass filter**: You can now set the low pass filter slightly above the resolution given by the iteration you reached in the 3DClass with 1 class. In that case we were at 21 Å, so let's set it to **25 Å**. 
 
 ### Optimization Tab
 
@@ -483,7 +483,7 @@ Check our output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look
 
 ## More classification or going to High-resolution?
 
-After 3D auto-refine you should have reached bin4 Nyquist, which corresponds to the physical limit of the dataset at this particular binning. At bin4, pixel size is 7.64Å, Nyquist is twice this value, 15.28Å.  
+After 3D auto-refine you should have reached bin4 Nyquist, which corresponds to the physical limit of the dataset at this particular binning. At bin4, pixel size is 7.64 Å, Nyquist is twice this value, 15.28 Å.  
 
 You can further classify your particles using 3D class without (or with) alignment and try to pull out e.g membrane-bound ribosomes or different translation states.
 
@@ -522,7 +522,7 @@ Before starting you have to do the following:
 - **Generate a bin1 mask**: from the bin1 Reconstruct job generate a bin1 mask
 - **Post-process:** using the bin1 Reconstruct and the generated bin1 mask (the resolution should already be higher, than what you obtained that bin4).
 
-In our case the Post-process already gave 9.55Å (aka subnanometer resolution).
+In our case the Post-process already gave 9.55 Å (aka subnanometer resolution 😎).
 
 ## Run CTF refinement
 
@@ -583,3 +583,26 @@ After Polish = **5.65 Å**<br>
 
 You can see we already reached 5.6 Å, which is already quite cool.
 
+## What to do next?
+
+At this step you should are already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify at bin2 your particles at bin2.
+
+You can re-extract subtomos at bin2 from your best Polish job, then generate a bin2 reference. From there, launch a 3D Refine at bin2 (you should reach bin2 Nyquist). You can then run a 3D classification job to remove particles that do not positively contribute to resolution (I would not recommend classifying at bin1, except if you are classifying for a feature only visible at bin1.)
+
+From there, select the best particles or your sub-state of interest.
+
+Then run another cycle of CTF Refine + Polish. This should improve the resolution even further.
+
+Finally, you can re-extract subtomos at bin1 and run a 3D refinement at bin1, and then again run another cycle of CTF Refine + Polish.
+
+Here's the result after 3 cycles of Polishing/refinement, focused on the large subunit of the ribosome. It's at Nyquist bin1.
+
+<a href="/imgs/34_bayes4.png" data-lightbox="image-gallery">
+  <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+#Final picture of the ribosome
+
+Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist (check this link)!
+
+That's it! Thanks for following this tutorial.
