@@ -2,7 +2,7 @@
 layout: default
 title: "STA in RELION5"
 parent: "Tutorial"
-nav_order: 4
+nav_order: 5
 ---
 
 # Subtomogram Averaging (STA) in RELION5

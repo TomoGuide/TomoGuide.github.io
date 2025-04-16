@@ -16,17 +16,6 @@ nav:
     children:
       - title: "Some Words about Cryo-ET"
         url: /01-some-words-cryo-et/
-        # children:
-        #   - title: "Sample Types"
-        #     url: /02-sample-types/
-        #   - title: "Cryo-ET Data Collection Workflow"
-        #     url: /03-tutorial/??  # update if needed
-        #   - title: "Challenges in Cryo-ET"
-        #     url: /04-challenges-cryo-et/
-        #   - title: "Differences Between Cryo-ET and SPA"
-        #     url: /05-differences-cryo-et-spa/
-        #   - title: "Sub-Tomogram Averaging"
-        #     url: /06-subtomogram-averaging/
   - title: "Dataset, Software, and Resources"
     url: /02-dataset-software-resources/
   - title: "Tutorial"
