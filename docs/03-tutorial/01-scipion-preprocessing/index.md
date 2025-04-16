@@ -63,7 +63,7 @@ This step aligns each frame of the movies and corrects for beam-induced motion. 
   <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using cryoCare.
+Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using software like [cryoCARE](https://github.com/juglab/cryoCARE_pip) or [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example. Later in this tutorial, we will explain how to denoise tomograms.
 
 In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
 the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
