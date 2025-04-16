@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Template Matching"
+title: "Particle Picking"
 parent: "Tutorial"
 nav_order: 4
 ---
 
-# Template Matching
+# Particle Picking by Template Matching
 
 Content for Template Matching goes here.
