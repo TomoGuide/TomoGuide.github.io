@@ -304,6 +304,8 @@ Let's launch a **Subset selection job**.
 
 For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24 you have to use <kbd>Class3D/job00X/run_it024_optimiser.star </kbd> as input.
 
+
+
 ### Running Tab
 
 Don't submit it to the queue, run it locally!
