@@ -439,3 +439,109 @@ In our case, it ran for 10 iterations, and reached **15.67 Å** resolution
 <a href="/imgs/31_ref3.png" data-lightbox="image-gallery">
   <img src="/imgs/31_ref3.png" alt="Processing Workflow" style="width:60%;">
 </a>
+
+This is very close to Nyquist bin4. Let's run a Post-processing job to check what the actual resolution is.
+
+## Post-processing
+
+​In RELION, the Post-processing job refines the final 3D map after auto-refinement by performing the following tasks.
+
+1. **Mask Application**: Applies a user-defined solvent mask to the half-maps to exclude noise from the solvent region, which can otherwise lower the Fourier Shell Correlation (FSC) curve and underestimate resolution. 
+2. **FSC Calculation**: Computes the gold-standard FSC between the masked half-maps to provide an accurate resolution estimate.
+3. **B-factor Sharpening**: Automatically estimates and applies a B-factor to sharpen the map, enhancing high-resolution features. ​
+
+The output includes a sharpened map and a PDF summarizing the FSC curves and Guinier plots, facilitating assessment of map quality and resolution.
+
+### I/O Tab
+
+<a href="/imgs/32_post.png" data-lightbox="image-gallery">
+  <img src="/imgs/32_post.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+- **Unfiltered half-maps**: This is the output of the 3D auto-refine job. 
+- **Solvent mask**: Use the mask created earlier.
+- There is also an option to change the pixel size here if you think the pixel size is slightly off.
+
+### Sharpen Tab
+
+- **Estimate B-factor automatically**: At this resolution, set it to **No**. This feature doesn't work well unless you are already at around **6 Å**. 
+- **Use your own B-factor**: Set it to **Yes** and use **-200**.
+
+<a href="/imgs/32_post1.png" data-lightbox="image-gallery">
+  <img src="/imgs/32_post1.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Run the job (it's fast):
+
+<a href="/imgs/32_post2.png" data-lightbox="image-gallery">
+  <img src="/imgs/32_post2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+We are at Nyquist bin4!
+
+Check our output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look sharper than what you had before, and at high threshold you should already see some rRNA helices.
+
+## More classification or going to High-resolution?
+
+After 3D auto-refine you should have reached bin4 Nyquist, which corresponds to the physical limit of the dataset at this particular binning. At bin4, pixel size is 7.64Å, Nyquist is twice this value, 15.28Å.  
+
+You can further classify your particles using 3D class without (or with) alignment and try to pull out e.g membrane-bound ribosomes or different translation states.
+
+But before doing that I would first recommend running a first round of CTF Refine and Polishing to greatly improve the quality of your particles/average.
+
+## CTF and alignment refinement cycle
+
+In the tomo branch of RELION5, **CTF refinement** and **Bayesian polishing** are used to improve the quality of subtomogram averages by correcting for optical and motion-related errors. 
+
+**CTF refinement** refines per-particle defocus and optical aberrations using a high-resolution bin1 reference. **Bayesian polishing** corrects for particle motion across the tilt series, basically realigning your tilt series at the particle level and for the entire tilt-series.
+
+**Iterative refinement cycle**
+
+1. Generate bin1 reference and mask
+2. Run CTF refinement
+3. Reconstruct at bin1 and post-process
+4. Run Bayesian polishing
+5. Reconstruct again and post-process
+6. Refine particles
+7. Repeat for further improvements
+
+This cycle is typically run after the first classification and refinement, and repeated to progressively improve resolution. Each iteration should result in better maps—both visually and by FSC resolution.
+
+Before starting you have to do the following:
+
+- **Generate a bin1 reference**: run a Reconstruct job from your last refinement (at bin4) but resconstruct with bin1 and appropriate box size (4 times your bin4 box size). Use the output of Refine3D as input here.
+
+
+<a href="/imgs/33_ctf.png" data-lightbox="image-gallery">
+  <img src="/imgs/33_ctf.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/33_ctf2.png" data-lightbox="image-gallery">
+  <img src="/imgs/33_ctf2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+- **Generate a bin1 mask**: from the bin1 Reconstruct job generate a bin1 mask
+- **Post-process:** using the bin1 Reconstruct and the generated bin1 mask (the resolution should already be higher, than what you obtained that bin4).
+
+In our case the Post-process already gave 9.55Å (aka subnanometer resolution).
+
+### Run CTF refinement
+
+You should play with different parameters at this step.
+
+### I/O Tab
+
+For the input, use the output of Refine3D.
+For the half-maps, use the ones generated from the bin1 Recontruct job, use the bin1 mask and the post-process that you ran.
+
+<a href="/imgs/33_ctf3.png" data-lightbox="image-gallery">
+  <img src="/imgs/33_ctf3.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+### Defocus Tab
+
+This is where you should play with the parameters. Usually, we just change **Refine defocus** and **Do defocus regularization** (marked in red).
+For the **Box size for estimation** it is recommended to use a larger box size than your actual box size (again check the magic box sizes)
+
+<a href="/imgs/33_ctf4.png" data-lightbox="image-gallery">
+  <img src="/imgs/33_ctf4.png" alt="Processing Workflow" style="width:60%;">
+</a>
