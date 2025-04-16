@@ -102,7 +102,7 @@ You can just open the motion correction output by double click and hold down <kb
 
 ## Tilt-series alignment
 
-Can be done either with **AreTomo** or with **IMOD patch tracking**. Here we automatically do it with AreTomo. AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
+Can be done either with **AreTomo** or with **IMOD patch tracking**. Here, we automatically do it with AreTomo. AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
 
 <a href="/imgs/08_Aretomo1_Scipion.PNG" data-lightbox="image-gallery">
   <img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
