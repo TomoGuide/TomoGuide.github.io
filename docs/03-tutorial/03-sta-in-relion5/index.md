@@ -125,7 +125,7 @@ Let's launch an alignment with the 3D classification using only one class.
 - **T parameter**: This is a parameter that you will have to play with. Usually launching multiple jobs with different T values is smart (e.g 0.5, 1, 2 and 4)
 - **Number of iterations**: Start with the default of **25**.
 - **Mask diameter**: Should be about **90% of the box size**.<br>
-Example: `For box size = 84 px, pixel size = 1.91 Å, binning = 4`:<br>
+Example: For box size = 84 px, pixel size = 1.91 Å, binning = 4:<br>
 `84 × 1.91 × 4 × 0.9 = ~570 Å`
 
 - **Limit resolution E-step to**: To avoid overfitting and noisy reconstructions, set this to the **Nyquist resolution** at your current binning. <br>
@@ -157,6 +157,65 @@ Example: `1.91 × 4 × 2 = ~15 Å`
 <a href="/imgs/27_class6.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class6.png" alt="Processing Workflow" style="width:60%;">
 </a>
+
+Adapt the running parameters, and press Run!
+
+When running refinement or classification in RELION, it's helpful to keep track of progress using a few key metrics in the output files.
+
+You can run these commands from the terminal, in the folder of the job.
+
+- **Monitor Resolution Over Iterations**
+   This will give you the resolution for each iteration. Ideally, it should improve (i.e., the number decreases) as refinement proceeds.
+   ```
+   grep _rlnCurrentResolution run_it???_model.star
+   ```
+
+- **Follow class population and resolution**
+   If you're running classification, use <kbd>relion_star_printtable</kbd> to examine how the classes evolve:
+   ```
+   relion_star_printtable run_it001_model.star data_model_classes rlnClassDistribution rlnEstimatedResolution
+   ```
+
+- **Monitor Class Convergence (Optimum Changes)**
+   Track how well classes are stabilizing. This number should start high (near 1) and trend toward 0 as the classes converge
+   ```
+   grep _rlnChangesOptimalClasses run_it???_optimiser.star
+   ```
+
+Let's see how the resolution evolved over time in that particular case:
+
+<a href="/imgs/27_class7.png" data-lightbox="image-gallery">
+  <img src="/imgs/27_class7.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+You can see that from iteration 20 it stopped decreasing. This is the iteration that we are going to select to continue.
+
+You can also see the resolution at each iteration in the RELION GUI, in the log window.
+Double click on the log window and it will pop-up. You will be able to scroll through the log, and check the resolution.
+
+<a href="/imgs/27_class8.png" data-lightbox="image-gallery">
+  <img src="/imgs/27_class8.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/27_class8.png" data-lightbox="image-gallery">
+  <img src="/imgs/27_class8.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+We can also open our volumes in ChimeraX and check if it improved.
+**Remember that this step is almost always mandatory!** Even if your resolution is increasing, the volume could look worse, so always check your volumes!
+
+Result:
+
+<a href="/imgs/28_class.png" data-lightbox="image-gallery">
+  <img src="/imgs/28_class.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+
+
+
+
+
+
+
 
 ## 3D classification without alignment
 
@@ -213,23 +272,7 @@ When running refinement or classification in RELION, it's helpful to keep track 
 
 You can run this command from the terminal:
 
-- **Monitor Resolution Over Iterations**
-   This will give you the resolution for each iteration. Ideally, it should improve (i.e., the number decreases) as refinement proceeds.
-   ```
-   grep _rlnCurrentResolution run_it???_model.star
-   ```
 
-- **Follow class population and resolution**
-   If you're running classification, use <kbd>relion_star_printtable</kbd> to examine how the classes evolve:
-   ```
-   relion_star_printtable run_it001_model.star data_model_classes rlnClassDistribution rlnEstimatedResolution
-   ```
-
-- **Monitor Class Convergence (Optimum Changes)**
-   Track how well classes are stabilizing. This number should start high (near 1) and trend toward 0 as the classes converge
-   ```
-   grep _rlnChangesOptimalClasses run_it???_optimiser.star
-   ```
 
 ## Select good classes 
 
