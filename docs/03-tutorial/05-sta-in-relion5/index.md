@@ -7,7 +7,7 @@ nav_order: 5
 
 # Subtomogram Averaging (STA) in RELION5
 
-After you’ve reconstructed your tomograms in RELION5 (or exported them from Scipion), you can proceed with subtomogram 
+After you’ve reconstructed your tomograms in RELION5 (or exported them from Scipion or AreTomo3), you can proceed with subtomogram 
 averaging to reach higher resolution on repeated structures (e.g. Ribosomes).
 
 If you started in RELION you can directly go to Pick particles (link) otherwise if you come from Scipion or AreTomo3, you have to import them to RELION.
