@@ -11,11 +11,11 @@ nav_order: 3
 
 ## Initialize RELION
 
-Create a clean working folder and name it however you want, e.g. Cytoribosome_processing.
+Create a clean working folder and name it however you want.
 
 In the folder you created, open a terminal.
 
-Load RELION5 and launch the tomo branch
+Load RELION5 and launch the tomo branch.
 
 ```
 ml RELION
