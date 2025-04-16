@@ -8,7 +8,7 @@ nav_order: 2
 # Preprocessing and tomogram reconstruction in Scipion
 
 In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the 
-information to perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-sta-in-relion5/)**.
+information to perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-relion-preprocessing/)**.
 
 Scipion is a freely available and open-source software that mainly acts as a wrapper for other programs, allowing you to 
 organize your projects and have different software interact almost seamlessly. It can be used for both SPA and tomography, 
