@@ -575,7 +575,7 @@ Here you can try deactivating Fit per-particle motion, even though it should alw
 Again, for each of the Polish jobs, run Reconstruct with the same parameters that you used as the step before and run post-process (all with the same mask!) and compare resolution. 
 At this step resolution should have improved again. In our case we went to **5.65 Å**!
 
-**<u>Summary of the first cycle we did (Post-processed value)</u>**
+**<u>Summary of the first cycle we did (Post-processed value)</u>**<br>
 Bin4 Refine3D = **15.28 Å** (Nyquist bin4)<br>
 Reconstruct Bin1 before = **9.55 Å**<br>
 After CTF Refine = **8.48 Å**<br>
