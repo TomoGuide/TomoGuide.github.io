@@ -289,8 +289,11 @@ Same as before, you can also monitor the classification in RELION, using the com
 </a>
 
 
+Here i'm tracking how much the particles are changing classes.
+You can see that after iteration 19, not much is happening anymore. So we will use this.
 
-## Select good classes 
+
+### Select good classes 
 
 Assuming your classification worked and you want to select good class(es), and only proceed with these.
 
@@ -298,29 +301,81 @@ Let's launch a **Subset selection job**.
 
 ### I/O Tab
 
-For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24 you have to use <kbd>Class3D/job00X/run_it024_optimiser.star </kbd> as input.
+For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24 you have to use <kbd>Class3D/job00X/run_it019_optimiser.star </kbd> as input.
 
+<a href="/imgs/29_class7.png" data-lightbox="image-gallery">
+  <img src="/imgs/29_class7.png" alt="Processing Workflow" style="width:60%;">
+</a>
 
+All the other tabs should be set to No
 
 ### Running Tab
 
 Don't submit it to the queue, run it locally!
 
-Press Run!
+Press **Run**!
 
-The Relion display GUI pops up, press Display! This will show you a 2D slice of all your classes. It's similar to the Display tab.
+The Relion display GUI pops up, press <kbd> Display</kbd> ! This will show you a 2D slice of all your classes. It's similar to the Display tab.
 
-To select the one(s) you want, left click on it/them. Then press right click, and do Save selected classes. You also, BEFORE SAVING, you can right-click and do Show metadata this class, and it will show you the total number of particles you are selecting.
+To select the one(s) you want, left click on it/them. Then press right click, and do Save selected classes. Also, BEFORE SAVING, you can right-click and do <kbd>Show metadata this class</kbd>, and it will show you the total number of particles you are selecting.
 
-Close the windows, it RELION should tell Saved Select/job00X/particles.star with XXXXX selected particles.
+Close the windows, it RELION should tell Saved </kbd>Select/job00X/particles.star</kbd> with </kbd>XXXXX</kbd> selected particles.
 
+Here's an example of selected classes:
 
+<a href="/imgs/29_class8.png" data-lightbox="image-gallery">
+  <img src="/imgs/29_class8.png" alt="Processing Workflow" style="width:60%;">
+</a>
 
+You can see i selected classes 2, 3, 5 and 6. 
+
+In that case, I could have also discarded class 2 that have less defined features, but I decided to be generous with the particle selection because I know that some will improve later.
+We will do a second round of classification without alignment at bin2 where we will be more selective.
 
 
 ## Creating a mask
 
-bla bla
+Something that we haven't done yet is create a mask.
 
+​In single-particle analysis (SPA) and subtomogram averaging (STA), masks are essential tools used to enhance the accuracy and resolution of reconstructions. They serve several key purposes:​
 
+**Focus Alignment and Classification**: Masks isolate specific regions of interest within a particle, such as a flexible domain or a particular subunit. By focusing computational efforts on these areas, masks improve alignment precision and enable targeted classification, which is crucial for resolving structural heterogeneity.​
 
+**Noise Reduction**: Applying masks helps exclude extraneous noise from surrounding areas, such as solvent regions or neighboring particles. This exclusion enhances the signal-to-noise ratio, leading to clearer and more accurate reconstructions.
+
+For the next steps we will use a mask that cover the entire ribosome and ​exclude the solvent, to make sure that alignment is only focused on the ribosome.
+
+To do so, let's launch a **Mask creation job**.
+
+### I/O Tab
+
+You will use a map of the ribosome that you working with. The best is to use, for example, class 3 or 5 of iteration 19 from our last 3D classfication job.
+
+<a href="/imgs/30_mask.png" data-lightbox="image-gallery">
+  <img src="/imgs/30_mask.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+### Mask Tab
+
+These are the parameters that are going to be used to create the mask. The important ones are "Lowpass filter", "Initial binarisation threshold" and "Extend binary map this many pixels"
+
+<a href="/imgs/30_mask1.png" data-lightbox="image-gallery">
+  <img src="/imgs/30_mask1.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+For the Lowpass parameter, let's use 25, which is slightly lower than the resolution we are at.
+
+For the Initial binarisation threshold, you will have to open your input map in ChimeraX, and decide of the threshold you want to use.
+I recommend choosing a rather low threshold, to be sure to have all the features of ribosome are visible, even the low resolution ones.
+
+<a href="/imgs/30_mask2.png" data-lightbox="image-gallery">
+  <img src="/imgs/30_mask2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+We will then extend by 3 pixel, to make sure that the mask is not going to cut through our volume.
+
+You can then create the mask, and check how it looks (always check!)
+
+<a href="/imgs/30_mask3.png" data-lightbox="image-gallery">
+  <img src="/imgs/30_mask3.png" alt="Processing Workflow" style="width:60%;">
+</a>
