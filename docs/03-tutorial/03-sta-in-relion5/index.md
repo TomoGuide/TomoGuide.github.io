@@ -379,3 +379,15 @@ You can then create the mask, and check how it looks (always check!)
 <a href="/imgs/30_mask3.png" data-lightbox="image-gallery">
   <img src="/imgs/30_mask3.png" alt="Processing Workflow" style="width:60%;">
 </a>
+
+
+## 3D Refinement
+
+Let's now do a proper 3D alignment using 3D Refinement.
+
+The 3D auto-refinement job aligns particle images to iteratively reconstruct a high-resolution 3D map of a macromolecule.
+To ensure accuracy and prevent overfitting, the dataset is split into two independent half-sets. Each half is refined separately, and their similarity is assessed using the gold-standard Fourier Shell Correlation (FSC).
+This is that specific part which was not done 3D classification with 1 class.
+This approach ensures that only genuine structural features are enhanced during refinement. 
+
+### I/O Tab
