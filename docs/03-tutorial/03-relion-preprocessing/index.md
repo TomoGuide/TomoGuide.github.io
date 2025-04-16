@@ -74,9 +74,9 @@ Once this is done, run CTF estimation with the default parameters. Just make sur
 
 Make sure that CTF is properly estimated by checking the .pdf output. If it's not you can change the base settings.
 
-We recommend to estimate CTF using AreTomo in the next step.
-
 > **Placeholder CTFFIND4 screenshot**
+
+We recommend estimating CTF with AreTomo in the next step.
 
 ## Cleaning the stack
 
