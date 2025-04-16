@@ -30,7 +30,7 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Tomo frame alignment (**CPU**)
 - Local resolution (**CPU**)
 
-<div style="margin-top:-5px;"></div>
+<div style="margin-top:-3px;"></div>
 
 - TOC
 {:toc}
