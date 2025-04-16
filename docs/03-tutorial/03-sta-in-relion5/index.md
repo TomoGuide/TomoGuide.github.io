@@ -524,7 +524,7 @@ Before starting you have to do the following:
 
 In our case the Post-process already gave 9.55Å (aka subnanometer resolution).
 
-### Run CTF refinement
+## Run CTF refinement
 
 You should play with different parameters at this step.
 
@@ -545,3 +545,41 @@ For the **Box size for estimation** it is recommended to use a larger box size t
 <a href="/imgs/33_ctf4.png" data-lightbox="image-gallery">
   <img src="/imgs/33_ctf4.png" alt="Processing Workflow" style="width:60%;">
 </a>
+
+Run the jobs with the different parameters, and then for each of them run a **Reconstruct job** with the same parameters that you used as the step before and run **post-process** (all with the same bin1 mask you used initially!) and compare resolution. 
+You should also check if visually, in ChimeraX, the map looks better.
+At this step resolution should have improved slightly. In our case we went to **8.48 Å**, a whole angstrom gained!
+
+## Run Bayesian polishing
+
+### I/O Tab
+
+Use as input the best Ctf Refine job and its respective Reconstruct and Post-Process jobs. Use the same mask you use originally.
+
+<a href="/imgs/34_bayes.png" data-lightbox="image-gallery">
+  <img src="/imgs/34_bayes.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+### Polish and Motion Tabs
+
+Similarly to Ctf Refine, use a larger box size for estimation than your actual box size (use the same value), and play with the different parameters.
+Here you can try deactivating Fit per-particle motion, even though it should always be better when turned on.
+
+<a href="/imgs/34_bayes2.png" data-lightbox="image-gallery">
+  <img src="/imgs/34_bayes2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/34_bayes3.png" data-lightbox="image-gallery">
+  <img src="/imgs/34_bayes3.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Again, for each of the Polish jobs, run Reconstruct with the same parameters that you used as the step before and run post-process (all with the same mask!) and compare resolution. 
+At this step resolution should have improved again. In our case we went to **5.65 Å**!
+
+**<u>Summary of the first cycle we did (Post-processed value)</u>**
+Bin4 Refine3D = **15.28 Å** (Nyquist bin4)<br>
+Reconstruct Bin1 before = **9.55 Å**<br>
+After CTF Refine = **8.48 Å**<br>
+After Polish = **5.65 Å**<br>
+
+You can see we already reached 5.6 Å, which is already quite cool.
+
