@@ -29,9 +29,7 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Tomo CTF refinement (**CPU**)
 - Tomo frame alignment (**CPU**)
 - Local resolution (**CPU**)
-
 <span style="display:inline-block; height:0;"></span>
-
 - TOC
 {:toc}
 
