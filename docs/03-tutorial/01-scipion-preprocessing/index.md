@@ -111,7 +111,7 @@ Can be done either with **AreTomo** or with **IMOD patch tracking**. Here, we au
   <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps—such as when performing Subtomogram Averaging (STA)—you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
+> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps — such as when performing Subtomogram Averaging (STA) — you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
 
 We will reconstruct bin8 tomograms first to quickly assess overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella  thickness of 1000 unbinned pixels (~190 nm).
 
@@ -123,14 +123,18 @@ At this step we will not reconstruct odd/even tomograms for denoising since we a
 
 This step is optional but highly recommended if you want well-aligned tomograms. The better the tomogram alignment, the easier it will be to detect your target of interest, and the better resolution you can achieve in subsequent analyses.
 
-1. Open the bin8 tomograms that resulted from your first AreTomo run.
-2. Flip/Rotate the volumes as needed.
-3. Measure the lamella thickness:
-  - Place the yellow cross on one lamella edge by left-clicking.
-  - Move your cursor to the opposite edge of the lamella.
-  - Press <kbd>Q</kbd> to get the distance between the yellow cross and the position of your cursor.
+1. **Open the bin8 tomograms** that resulted from your first AreTomo run.  
+2. Go to **Edit > Image > Flip/Rotate**.  
+3. **Measure the lamella thickness:**
+    - Place the yellow cross on one lamella edge by left-clicking (or right or middle)  
+    - Move your cursor to the opposite edge of the lamella (DON'T CLICK).  
+    - Press Q to get the distance between the yellow cross and the position of your cursor.
 
-> **PLACEHOLDER: Picture of how to measure thickness in IMOD**
+The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
+
+<a href="/imgs/20_ali1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
 
 Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the Advanced options.
 
