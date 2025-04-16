@@ -317,7 +317,7 @@ Press **Run**!
 
 The Relion display GUI pops up, press <kbd> Display</kbd> ! This will show you a 2D slice of all your classes. It's similar to the Display tab.
 
-To select the one(s) you want, left click on it/them. Then press right click, and do Save selected classes. Also, BEFORE SAVING, you can right-click and do <kbd>Show metadata this class</kbd>, and it will show you the total number of particles you are selecting.
+To select the one(s) you want, **left click** on it/them. Then press **right click**, and do **Save selected classes**. Also, BEFORE SAVING, you can right-click and do <kbd>Show metadata this class</kbd>, and it will show you the total number of particles you are selecting.
 
 Close the windows, it RELION should tell Saved </kbd>Select/job00X/particles.star</kbd> with </kbd>XXXXX</kbd> selected particles.
 
