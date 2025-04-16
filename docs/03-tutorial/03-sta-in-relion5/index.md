@@ -135,7 +135,7 @@ Example: `1.91 × 4 × 2 = ~15 Å`
   <img src="/imgs/27_class4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-## Sampling Tab
+### Sampling Tab
 
 - **Perform alignment**: Set to **Yes** (since we are aligning). If not aligning, set to **No**.
 - **Off search range and step**. This define the translation parameters, how much you let your thing move in the box. Our particles should be centered thanks to TM and we are high binning, so best is use small values like a range of 2 range and a step of 1.
@@ -213,10 +213,6 @@ You can see that at iteration 1, our ribosome is very smooth, you can only disti
 At iteration 20, we start seeing domains.
 
 
-
-
-
-
 ## 3D classification without alignment
 
 Your particles should now be all aligned more or less the same way. The next step would be to run classification without alignment, but this might be different for you.
@@ -281,7 +277,7 @@ And you can see how many particles are in that class, the estimated resolution e
 Of course you can also open all these classes in ChimeraX to see how they look:
 
 <a href="/imgs/29_class5.png" data-lightbox="image-gallery">
-  <img src="/imgs/29_class5.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/29_class5.png" alt="Processing Workflow" style="width:80%;">
 </a>
 
 You can see that class 1 is an empty or "trash" class. Classes 2, 3, 5, and 6 are quite similar with class 2 being less resolved. Class 4 is bad.
