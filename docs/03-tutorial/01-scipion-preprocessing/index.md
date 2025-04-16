@@ -15,7 +15,7 @@ organize your projects and have different software interact almost seamlessly. I
 but it is particularly handy for tomography since the field currently lacks a “simple” software that performs all the 
 operations necessary for tomogram reconstruction and STA, while also keeping track of your work.
 
-Here's **the** example workflow that we are going to follow:
+Here is the example workflow that we are going to follow:
 
 <a href="/imgs/02_Workflow_Scipion.PNG" data-lightbox="image-gallery">
   <img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:40%;">
