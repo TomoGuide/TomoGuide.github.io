@@ -167,7 +167,7 @@ IMOD is not doing it (you can correct it manually in etomo, but for some reason 
 Additional flags to make your tomo look nicer and we advise to use:  
 - ---**Fc** (binning by Fourier cropping)  
 - ---**pre_weight** (pre-weighting in 2D instead of 3D weighting)  
-- ---**ctf** (CTF correction)  
+- ---**ctf** (CTF correction by phase flip)  
 - ---**SNR 100** (Wiener filter SNR value. Default 10. We found 100 looks "more IMOD-like")
 
 We advise to always CTF correct tomograms especially for template matching and STA. Even denoising like [cryoCARE](https://github.com/juglab/cryoCARE_pip) and [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example can benefit from this extra information of frequencies.
