@@ -48,7 +48,7 @@ information about each tilt-series.
 
 ## Motion correction
 
-This step aligns each frame of the movies and corrects for beam-induced motion.
+This step aligns each frame of the movies and corrects for beam-induced motion. Frames to align can bet set **from 1 to 0** then it will automatically detect the number of frames.
 
 <a href="/imgs/04_image-2025-1-15_16-18-38.png" data-lightbox="image-gallery">
   <img src="/imgs/04_image-2025-1-15_16-18-38.png" alt="Processing Workflow" style="width:60%;">
