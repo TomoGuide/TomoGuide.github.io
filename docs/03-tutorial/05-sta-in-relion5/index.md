@@ -28,6 +28,8 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Tomo frame alignment (**CPU**)
 - Local resolution (**CPU**)
 
+[[toc]]
+
 ## Extract your particles and check your average
 
 The first step to begin Subtomogram Averaging (STA) is to run an Extract Subtomos job. This job will extract cropped subtomograms from all tilts, around the center of the particle positions we identified using Template Matching.
