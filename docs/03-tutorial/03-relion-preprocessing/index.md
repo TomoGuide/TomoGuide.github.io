@@ -13,7 +13,8 @@ nav_order: 3
 
 Create a clean working folder and name it however you want, e.g. Cytoribosome_processing.
 
-In the folder you created, open a terminal
+In the folder you created, open a terminal.
+
 Load RELION5 and launch the tomo branch
 
 ```
