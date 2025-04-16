@@ -149,8 +149,7 @@ Example: `1.91 × 4 × 2 = ~15 Å`
 
 - Not applicable in our case. Leave it untouched. This is only if you are working with something with helical symmetry, e.g. a filament.
 
-### Compute Tab (Classification){#compute-classification}
-
+### Compute Tab
 
 - Configure settings as shown.
 - **Enable GPU acceleration only** if performing image alignment. If not aligning, **disable GPU acceleration**.
@@ -430,4 +429,13 @@ This approach ensures that only genuine structural features are enhanced during 
 
 ### Compute Tab
 
-- Configure settings as shown [same as for 3D classification](#compute-classification)
+- Configure settings as shown (same as for 3D classification)
+
+Adapt the running parameters, and press Run!
+
+The job will run and stop automatically until it converges. 
+In our case, it ran for 10 iterations, and reached **15.67 Å** resolution
+
+<a href="/imgs/31_ref3.png" data-lightbox="image-gallery">
+  <img src="/imgs/31_ref3.png" alt="Processing Workflow" style="width:60%;">
+</a>
