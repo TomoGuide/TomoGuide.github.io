@@ -6,6 +6,8 @@ nav_order: 5
 ---
 
 # Subtomogram Averaging (STA) in RELION5
+{: .no_toc }
+
 
 After you’ve reconstructed your tomograms in RELION5 (or exported them from Scipion or AreTomo3), you can proceed with subtomogram 
 averaging to reach higher resolution on repeated structures (e.g. Ribosomes).
