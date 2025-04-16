@@ -29,7 +29,7 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Local resolution (**CPU**)
 
 1. TOC
-{:toc}
+   {:toc max_level=2}
 
 ## Extract your particles and check your average
 
