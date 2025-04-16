@@ -9,9 +9,23 @@ nav_order: 3
 
 ---
 
+## Initialize RELION
+
+Create a clean working folder and name it however you want, e.g. Cytoribosome_processing.
+
+In the folder you created, open a terminal
+Load RELION5 and launch the tomo branch
+
+```
+ml RELION
+ 
+relion --tomo &
+```
+A GUI pops-up, you are in RELION.
+
 ## Import frames
 
-To import your tilt series in RELION you need to have a folder containing your frames (as .eer or .tiff) and your .mdoc files pointing to your frames. You can also directly import motion corrected .mrc. In your RELION working folder, create a rawdata folder containing soft links to the frames and .mdoc (in the same directory) and the gainref(s) e.g:
+To import your tilt series in RELION5 you need to have a folder containing your frames (as .eer or .tiff) and your .mdoc files pointing to your frames. You can also directly import motion corrected .mrc. In your RELION working folder, create a rawdata folder containing soft links to the frames and .mdoc (in the same directory) and the gainref(s) e.g:
 
 ```
 ln -s ~/pool-visprot/Florent/Folder_Newpipeline/Frames/Set_Cytoribo/ ~/pool-visprot/Florent/Folder_Newpipeline/Tomo_reconstruction/RELION5/Cytoribosome_5.11.24_GOOD/rawdata
@@ -34,7 +48,7 @@ You also need to know the handedness of your tomos.
 In our case they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95 we use -95.
 
 Both defocus handedness and tomo handedness can be checked once the tomos are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
-Be aware that even if data were collected on the same microscope, updates on the camera can result on flipped handedness. Data collected within the same session should be all the same.
+Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should be all the same.
 
 <a href="/imgs/14_Import1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:60%;">
