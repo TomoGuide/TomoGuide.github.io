@@ -36,6 +36,13 @@ ln -s ~/path/to/frames/ ~/path/to/RELION/raw/frames
 ln -s ~/path/to/gain ~/path/to/RELION/raw/gain
 ```
 
+<a href="/imgs/14_Import1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/15_Import2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
 Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gainrefs.  
 In the case of the cytoribosome dataset, out of the 33 tomos, 6 tomos were collected with one gainref and 27 with another, so we split them in two different groups. You would have to run them as separate jobs until you go to STA.
 
@@ -46,13 +53,6 @@ In our case they are flipped, so to get the proper hand, we need to import them 
 
 Both defocus handedness and tomo handedness can be checked once the tomos are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
 Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should be all the same.
-
-<a href="/imgs/14_Import1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:60%;">
-</a>
-<a href="/imgs/15_Import2.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:60%;">
-</a>
 
 ## Motion Correction and CTF estimation 
 
