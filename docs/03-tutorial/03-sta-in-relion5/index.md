@@ -124,8 +124,8 @@ Let's launch an alignment with the 3D classification using only one class.
 - **Number of classes**: Set to the number of desired classes. Current case: We are using **1** class.
 - **T parameter**: This is a parameter that you will have to play with. Usually launching multiple jobs with different T values is smart (e.g 0.5, 1, 2 and 4)
 - **Number of iterations**: Start with the default of **25**.
-- **Mask diameter**: Should be about **90% of the box size**.
-Example: For box size = 84 px, pixel size = 1.91 Å, binning = 4: 
+- **Mask diameter**: Should be about **90% of the box size**.<br>
+Example: For box size = 84 px, pixel size = 1.91 Å, binning = 4:<br>
 84 × 1.91 × 4 × 0.9 = ~570 Å
 
 - **Limit resolution E-step to**: To avoid overfitting and noisy reconstructions, set this to the **Nyquist resolution** at your current binning.  
