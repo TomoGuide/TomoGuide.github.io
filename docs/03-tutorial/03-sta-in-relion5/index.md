@@ -585,7 +585,7 @@ You can see we already reached 5.6 Å, which is already quite cool.
 
 ## What to do next?
 
-At this step you should are already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify at bin2 your particles at bin2.
+At this step you should are already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify your particles at bin2.
 
 You can re-extract subtomos at bin2 from your best Polish job, then generate a bin2 reference. From there, launch a 3D Refine at bin2 (you should reach bin2 Nyquist). You can then run a 3D classification job to remove particles that do not positively contribute to resolution (I would not recommend classifying at bin1, except if you are classifying for a feature only visible at bin1.)
 
