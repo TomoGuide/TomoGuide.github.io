@@ -149,7 +149,8 @@ Example: `1.91 × 4 × 2 = ~15 Å`
 
 - Not applicable in our case. Leave it untouched. This is only if you are working with something with helical symmetry, e.g. a filament.
 
-### Compute Tab
+### Compute Tab (Classification){#compute-classification}
+
 
 - Configure settings as shown.
 - **Enable GPU acceleration only** if performing image alignment. If not aligning, **disable GPU acceleration**.
@@ -401,3 +402,32 @@ This approach ensures that only genuine structural features are enhanced during 
 <a href="/imgs/31_ref.png" data-lightbox="image-gallery">
   <img src="/imgs/31_ref.png" alt="Processing Workflow" style="width:60%;">
 </a>
+
+### Reference Tab
+
+- **Initial low-pass filter**: Let's go with **30 Å**. 
+
+<a href="/imgs/31_ref1.png" data-lightbox="image-gallery">
+  <img src="/imgs/31_ref1.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+### CTF Tab
+
+- Same as 3D classification
+
+### Optimization Tab
+
+- **Mask Diameter**: Is the same as in 3D classification, 570. Note: this mask is different from the mask we just created, it's a spherical mask, automatically created by RELION.
+- **Use solvent-flattened FSCs**:  In the case of STA, this as proven particularly useful, set it to YES
+
+### Auto-sampling Tab
+
+- We again are going to perform only local searches. To enable this, set the "initial angular sampling" and "local searches from auto-sampling" fields to the same values.
+
+<a href="/imgs/31_ref2.png" data-lightbox="image-gallery">
+  <img src="/imgs/31_ref2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+### Compute Tab
+
+- Configure settings as shown [same as for 3D classification](#compute-classification)
