@@ -30,6 +30,7 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Tomo frame alignment (**CPU**)
 - Local resolution (**CPU**)
 <br>
+
 - TOC
 {:toc}
 
