@@ -28,7 +28,8 @@ To know whether our job is going to run on GPU or CPU here's a list:
 - Tomo frame alignment (**CPU**)
 - Local resolution (**CPU**)
 
-{:toc} 
+1. TOC
+{:toc}
 
 ## Extract your particles and check your average
 
