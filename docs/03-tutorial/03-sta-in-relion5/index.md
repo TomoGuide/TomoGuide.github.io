@@ -141,6 +141,10 @@ Let's launch an alignment with the 3D classification using only one class.
 - **Off search range and step**. This define the translation parameters, how much you let your thing move in the box. Our particles should be centered thanks to TM and we are high binning, so best is use small values like a range of 2 range and a step of 1.
 - **Local searches only**: Enable this, and use the suggested parameters. This overrides **Angular sampling interval**. We only want to perform local searches because our particles are already well aligned from TM.
 
+<a href="/imgs/27_class5.png" data-lightbox="image-gallery">
+  <img src="/imgs/27_class5.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
 ### Helix Tab
 
 - Not applicable in our case. Leave it untouched. This is only if you are working with something with helical symmetry, e.g. a filament.
