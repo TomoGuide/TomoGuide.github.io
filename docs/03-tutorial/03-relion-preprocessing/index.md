@@ -26,17 +26,15 @@ A GUI pops-up, you are in RELION.
 
 ## Import frames
 
-To import your tilt series in RELION5 you need to have a folder containing your frames (as .eer or .tiff) and your .mdoc files pointing to your frames. You can also directly import motion corrected .mrc. In your RELION working folder, create a rawdata folder containing soft links to the frames and .mdoc (in the same directory) and the gainref(s) e.g:
+1. Create a **rawdata** folder in your RELION working directory.  
+2. Copy or symlink the `.eer` frames, `.mdoc` files, and `.gain` references into **rawdata**.  
+3. Use the **Import** job in RELION to point to these raw frames and `.mdoc` files.
 
 ```
 ln -s ~/path/to/frames/ ~/path/to/RELION/raw/frames
  
 ln -s ~/path/to/gain ~/path/to/RELION/raw/gain
 ```
-
-1. Create a **rawdata** folder in your RELION working directory.  
-2. Copy or symlink the `.eer` frames, `.mdoc` files, and `.gain` references into **rawdata**.  
-3. Use the **Import** job in RELION to point to these raw frames and `.mdoc` files.
 
 Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gainrefs.  
 In the case of the cytoribosome dataset, out of the 33 tomos, 6 tomos were collected with one gainref and 27 with another, so we split them in two different groups. You would have to run them as separate jobs until you go to STA.
