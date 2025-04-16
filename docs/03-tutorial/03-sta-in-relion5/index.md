@@ -319,7 +319,7 @@ The Relion display GUI pops up, press <kbd> Display</kbd> ! This will show you a
 
 To select the one(s) you want, **left click** on it/them. Then press **right click**, and do **Save selected classes**. Also, BEFORE SAVING, you can right-click and do <kbd>Show metadata this class</kbd>, and it will show you the total number of particles you are selecting.
 
-Close the windows, it RELION should tell Saved </kbd>Select/job00X/particles.star</kbd> with </kbd>XXXXX</kbd> selected particles.
+Close the windows, it RELION should tell Saved <kbd>Select/job00X/particles.star</kbd> with <kbd>XXXXX</kbd> selected particles.
 
 Here's an example of selected classes:
 
@@ -391,3 +391,13 @@ This is that specific part which was not done 3D classification with 1 class.
 This approach ensures that only genuine structural features are enhanced during refinement. 
 
 ### I/O Tab
+
+- This time we can not use the Input optimisation set, because we created a subset of particles. We have to use **direct entries**. Set it to **Yes**
+- For the **Input particle set**, use the output of the Select job
+- For the **Input tomogram set**, I use the <kbd>tomogram.star</kbd> that contains all the tomograms (from gain ref 1 and 2). You can easily create it by just copy pasting the list of tomo within these files.
+- **Reference map**: Here I use the <kbd>run_it019_class003.mrc</kbd> from the 3D classification job that I used to create the mask.
+- **Reference mask**: Use the <kbd>mask.mrc</kbd> we just made before.
+
+<a href="/imgs/31_ref.png" data-lightbox="image-gallery">
+  <img src="/imgs/31_ref.png" alt="Processing Workflow" style="width:60%;">
+</a>
