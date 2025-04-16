@@ -10,37 +10,37 @@ back_to_top: true
 back_to_top_text: "Back to top"
 enable_copy_code_button: true
 
-
 nav:
   - title: "Welcome"
     url: /
     children:
       - title: "Some Words about Cryo-ET"
         url: /01-some-words-cryo-et/
-        children:
-          - title: "Sample Types"
-            url: /02-sample-types/
-          - title: "Cryo-ET Data Collection Workflow"
-            url: /03-cryo-et-data-collection-workflow/
-          - title: "Challenges in Cryo-ET"
-            url: /04-challenges-cryo-et/
-          - title: "Differences Between Cryo-ET and SPA"
-            url: /05-differences-cryo-et-spa/
-          - title: "Sub-Tomogram Averaging"
-            url: /06-subtomogram-averaging/
-
+        # children:
+        #   - title: "Sample Types"
+        #     url: /02-sample-types/
+        #   - title: "Cryo-ET Data Collection Workflow"
+        #     url: /03-tutorial/??  # update if needed
+        #   - title: "Challenges in Cryo-ET"
+        #     url: /04-challenges-cryo-et/
+        #   - title: "Differences Between Cryo-ET and SPA"
+        #     url: /05-differences-cryo-et-spa/
+        #   - title: "Sub-Tomogram Averaging"
+        #     url: /06-subtomogram-averaging/
   - title: "Dataset, Software, and Resources"
     url: /02-dataset-software-resources/
-
   - title: "Tutorial"
     url: /03-tutorial/
     children:
       - title: "Preprocessing in Scipion"
         url: /03-tutorial/01-scipion-preprocessing/
+      - title: "Preprocessing in AreTomo3"
+        url: /03-tutorial/02-aretomo3/
       - title: "Preprocessing in RELION5"
-        url: /03-tutorial/02-relion-preprocessing/
+        url: /03-tutorial/03-relion-preprocessing/
+      - title: "Particle Picking"
+        url: /03-tutorial/04-template-matching/
       - title: "STA in RELION5"
-        url: /03-tutorial/03-sta-in-relion5/
-
+        url: /03-tutorial/05-sta-in-relion5/
   - title: "Acknowledgments"
     url: /04-acknowledgments/
