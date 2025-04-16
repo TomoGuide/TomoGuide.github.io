@@ -196,8 +196,8 @@ Double click on the log window and it will pop-up. You will be able to scroll th
 <a href="/imgs/27_class8.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class8.png" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/27_class8.png" data-lightbox="image-gallery">
-  <img src="/imgs/27_class8.png" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/27_class9.png" data-lightbox="image-gallery">
+  <img src="/imgs/27_class9.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
 We can also open our volumes in ChimeraX and check if it improved.
