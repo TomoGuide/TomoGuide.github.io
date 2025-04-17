@@ -7,9 +7,6 @@ nav_order: 4
 
 # Particle Picking by Template Matching
 
-> "Template matching is a technique in digital image processing for finding small parts of an image which match a template image" 
-    --Wikipedia, 2025
-
 ## Create boundary masks of your tomograms
 
 To restrict particle extraction (or detection) to your lamella only, and not the entire tomogram, you might want to use a "slab mask" or a boundary mask. This is particularly useful on difficult targets no minimize the amount of false positive picks.
