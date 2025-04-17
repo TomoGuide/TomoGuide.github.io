@@ -35,13 +35,13 @@ You will need to have:
 
 ### Scaling a template using RELION or EMAN
 
-Two examples of how to scale an 'input.mrc' file from the [EMDB](https://www.ebi.ac.uk/emdb/) for example using either 'e2proc3d.py' from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or 'relion_image_handler' from RELION:
+Two examples of how to scale an `input.mrc` file from the [EMDB](https://www.ebi.ac.uk/emdb/) for example using either `e2proc3d.py` from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or `relion_image_handler` from RELION:
 
-'''
+```
 e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cutoff_freq=0.1 --clip=84,84,84
 
 relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.92 --new_box 24 --force_header_angpix 7.6
-'''
+```
 
 
 
