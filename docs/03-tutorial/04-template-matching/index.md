@@ -30,8 +30,8 @@ You can make a slab_mask folder inside the tomograms folder (e.g RELION5/Tomogra
 Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
 
 You will need to have:
-- A template at the correct pixel size. Here, we first used an SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
-- A template mask with the same properties. It can also just be a sphere but it is not recommended here.
+- A **template** at the correct pixel size. Here, we first use a SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
+- A **template mask** with the same properties. It can also just be a sphere but it is not recommended here.
 
 ### Scaling a template using RELION or EMAN
 
