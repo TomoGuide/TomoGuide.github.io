@@ -39,7 +39,8 @@ Two examples of how to scale an `input.mrc` file from the [EMDB](https://www.ebi
 
 ```
 e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cutoff_freq=0.1 --clip=84,84,84
-
+```
+```
 relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_box 84 --force_header_angpix 7.64
 ```
 
