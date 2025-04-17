@@ -45,7 +45,7 @@ relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_bo
 ```
 
 - **`--scale=0.2`**: Rescale the pixel size by a facor of input/output so here 5 for example.
-- **`process=filter.lowpass.gauss:cutoff_freq`**: Lowpass filter as 1/Resolution. Here 10 Å for example.
+- **`process=filter.lowpass.gauss:cutoff_freq`**: Lowpass filter as 1/Resolution. Here 10 Å for example. Best to just filter to the binnings Nyquist resolution for "high-res TM".
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
 
