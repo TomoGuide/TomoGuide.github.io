@@ -44,7 +44,7 @@ e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cuto
 relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_box 84 --force_header_angpix 7.64
 ```
 
-- **`--scale=0.2`**: Rescale the pixel size by input/output so here by 5 for example.
+- **`--scale=0.2`**: Rescale the pixel size by a facor of input/output so here 5 for example.
 - **`process=filter.lowpass.gauss:cutoff_freq`**: Lowpass filter as 1/Resolution. Here 10 Å for example.
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
