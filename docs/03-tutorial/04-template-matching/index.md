@@ -25,7 +25,27 @@ If you know where you particle should be (e.g mitochondria, nucleus etc) you can
 You can make a slab_mask folder inside the tomograms folder (e.g RELION5/Tomograms/jobXXX/tomograms/) for example.
 
 
+## Use pytom-match-pick for template matching
 
+Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
+
+You will need to have:
+- A template at the correct pixel size. Here, we first used an SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
+- A template mask with the same properties. It can also just be a sphere but it is not recommended here.
+
+### Scaling a template using RELION or EMAN
+
+Two examples of how to scale an 'input.mrc' file from the [EMDB](https://www.ebi.ac.uk/emdb/) for example using either 'e2proc3d.py' from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or 'relion_image_handler' from RELION:
+
+'''
+e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cutoff_freq=0.1 --clip=84,84,84
+
+relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.92 --new_box 24 --force_header_angpix 7.6
+'''
+
+
+
+From more, check pyTOM documentation. Generally, we recommend that you use a template that was generated from your data, this gives better result than using a template from SPA. Hence, this is also an iterative process. You might want to rerun everything once you obtain a nice structure from your data.
 
 
 
