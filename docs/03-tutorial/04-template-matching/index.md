@@ -134,11 +134,54 @@ and of course if you don't have an HPC or don't use SLURM, you can just run the 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
 1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
 
-Once you have succesfully run template matching, you can extract your particles with 
+You can check the `_scores.mrc` file in IMOD for example to see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this part we will show you how to visualize your particles in an appealing way using ChimeraX & ArtiaX
 
-You can check the `_scores.mrc` file in IMOD for example to see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. 
 
-If you want to visualize your particles even better then follow the next part:
+## Extract particles
+
+Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. Again for detailed explanation check the documentation or `--help`.
+
+You can extract from multiple tomos for example via SLURM like:
+
+```
+#!/bin/bash -l
+#SBATCH -o pytomextract.out%j
+#SBATCH -D ./
+#SBATCH -J pytom
+#SBATCH --partition=emgpu
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:1
+#SBATCH --mail-type=none
+#SBATCH --mem 64G
+#SBATCH --qos=emgpu
+#SBATCH --time=06:00:00
+ 
+ml purge
+ml pytom-match-pick
+ 
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_25/rec_tomo25_job.json -r 20 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_34/rec_tomo34_job.json -r 20 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json -r 20 -n 800 -c -1 --relion5-compat
+```
+
+
+Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
+```
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 5000 --relion5-compat
+```
+
+Force select the top 800 positions:
+```
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 800 -c -1 --relion5-compat
+```
+
+or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value.
+
+
 
 
 
