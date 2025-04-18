@@ -134,7 +134,7 @@ and of course if you don't have an HPC or don't use SLURM, you can just run the 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
 1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
 
-You can check the `_scores.mrc` file in IMOD for example to see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this part we will show you how to visualize your particles in an appealing way using ChimeraX & ArtiaX
+You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this part we will show you how to visualize your particles in an appealing way using ChimeraX & ArtiaX
 
 
 ## Extract particles
