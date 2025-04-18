@@ -190,12 +190,35 @@ We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which 
 python rln2mod.py --x 1024 --y 1024 --z 512
 ```
 
-Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualization is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! An example for `tomo_24.mrc` and `24.mod` in XYZ mode (<kbd>ctrl + X</kbd>):
+Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualization is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! Here, an example from reconstruction in AreTomo with refined thickeness and with default pytom extraction parameters using a high-pass filter of 400. Shown in in IMOD XYZ mode (<kbd>ctrl + X</kbd>):
 
 <a href="/imgs/36_mod.png" data-lightbox="image-gallery">
   <img src="/imgs/36_mod.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
+A total of **546** positions were extracted. The particle picking is nearly perfect, with only a few false positives occurring on thylakoid membranes or chloroplastic ribosomes, which closely resemble cytosolic ribosomes. The boundary mask was applied for selection, you can see that nothing has been picked outside of the tomogram volume.
+
+Common problems that can occur: 
+- Particles extracted miss true positive particles: can be fixed by (slightly) increasing the number of particles `-n` and forcing this number with `-c -1`.
+- Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
+
+The latter might not pose a problem if you believe you can easily trash them though classification, in the later stages of [STA]((/03-tutorial/05-sta-in-relion5/)).
+
+
+You can select your positions with a mask only covering the cytosol, and excluding the chloroplast, instead of a simple boundary mask as we did. This is the best, but requires you to create masks, and can easily be tidieous when you work with tens or hundreds of tomos.
+You can also try to play with the high-pass parameter at the TM step (we used a 400 HP by default, you can use smaller values, but be careful at some point you will lose true positives)
+The number of particles that you want is always tricky to decide. Of course, you ideally want to pick everything.
+In reality, if you want to pick everything, you will probably have to "overpick" and include false positives. Luckily you will be able to clean them out in the later stages.
+If you underpick, there's high chances that you will minimise the number of false positives and will only select your particles of interest. This is useful when you want to quickly generate an average from your own data.
+This is ALWAYS a good idea when doing template matching, because using a template generated from your data will always give better results than an template coming from e.g molmap in Chimera from a PDB (worst) or an SPA map.
+
+
+
+Then, once you are satisfied with the TM results, you can generate a "master" .star file that will contain all the particle positions for all the tomos.
+
+To do so, load pytom and use pytom_merge_stars.py , it will automatically merge all the .star files present in the directory where you execute the script.
+
+Just be careful, when importing to RELION, remove "rec_" from the TomoName in the merged .star file ...
 
 
 
