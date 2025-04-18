@@ -202,7 +202,7 @@ Common problems that can occur:
 - Particles extracted miss true positive particles: can be fixed by (slightly) increasing the number of particles `-n` and forcing this number with `-c -1`.
 - Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
 
-The latter might not pose a problem if you believe you can easily trash them though classification, in the later stages of [STA](/03-tutorial/05-sta-in-relion5/).
+The latter might not pose a problem if you believe you can easily trash them though classification, in the later stages of **[STA](/03-tutorial/05-sta-in-relion5/)**.
 
 
 You can select your positions with a mask only covering the cytosol, and excluding the chloroplast, instead of a simple boundary mask as we did. This is the best, but requires you to create masks, and can easily be tidieous when you work with tens or hundreds of tomos.
