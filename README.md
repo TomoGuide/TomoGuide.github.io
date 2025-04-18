@@ -17,7 +17,7 @@
 Visit our [documentation site](https://tomoguide.github.io/) to begin your journey into Cryo-Electron Tomography.
 
 ### 👥 Contributors
-This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips). We welcome contributions from the community! Please raise any issues here directly.
+This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips). We welcome contributions from the community! Please raise any issues or suggestions here directly.
 
 ### 📄 License
 This project is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
