@@ -184,7 +184,7 @@ or you can investigate the `.svg` file that was generated from the extraction jo
 
 ## Check your particle positions with IMOD
 
-We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which will create `.mod` files from your `particle.star` files. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
+We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which will create IMOD `.mod` point models from your `particle.star` files. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
 
 ```
 python rln2mod.py --x 1024 --y 1024 --z 512
