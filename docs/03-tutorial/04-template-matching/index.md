@@ -190,7 +190,7 @@ We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which 
 python rln2mod.py --x 1024 --y 1024 --z 512
 ```
 
-Just give the tomogram dimensions in pixels as input. Then you can open your tomogram and model together with IMOD. A trick is to then go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! An example for `tomo_24.mrc` and `24.mod`:
+Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualization is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! An example for `tomo_24.mrc` and `24.mod`:
 
 <a href="/imgs/36_mod.png" data-lightbox="image-gallery">
   <img src="/imgs/36_mod.png" alt="Processing Workflow" style="width:60%;">
