@@ -81,7 +81,7 @@ python batch_pytom.py \
   [--dry-run] # to just create the submission scripts without launching them
 ```
 
-> Note: many flags are set to default values like voltage **300** kV, amplitude contrast **0.07**, and SLURM setting like partition **emgpu** (name of our SLURM partition). So make sure you check `batch_pytom.py --help` for informations about the input flags. 
+> Note: many flags are set to default values like the voltage **300** kV, amplitude contrast **0.07**, and SLURM settings like the partition **emgpu** (name of our SLURM partition). So make sure you check `batch_pytom.py --help` for informations about the input flags. 
 
 An example output of one of the generated submission files might look like this:
 
