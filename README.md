@@ -10,8 +10,9 @@
 
 ### ✨ Features
 - **Cryo-ET fundamentals** – Sample preparation, data collection, end-to-end workflows
-- **Subtomogram Averaging (STA)** – Using Scipion, RELION5, WarpM and other tools
-- **Datasets & Resources** – Detailed software usage and test datasets
+- **Datasets & Resources** – Detailed software usage and a test dataset
+- **Tomogram preprocessing** – Using Scipion, RELION5, or AreTomo3
+- **Subtomogram Averaging (STA)** – Tutorial using RELION5
 
 ### 🚀 Getting Started
 Visit our [documentation site](https://tomoguide.github.io/) to begin your journey into Cryo-Electron Tomography.
