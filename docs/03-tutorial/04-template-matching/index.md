@@ -77,8 +77,8 @@ python batch_pytom.py \
   --per-tilt-weighting \
   --non-spherical-mask \
   --tomogram-ctf-model phase-flip \
-  --high-pass 400
-  --tomogram-mask path/to/slab_mask.mrc # if you have one
+  --high-pass 400 \
+  --tomogram-mask path/to/slab_mask.mrc # if you have one \
   [--dry-run] # to just create the submission scripts without launching them
 ```
 
@@ -125,7 +125,7 @@ pytom_match_template.py \
   --per-tilt-weighting \
   --tomogram-ctf-model phase-flip \
   --non-spherical-mask \
-  --high-pass 400
+  --high-pass 400 \
   --tomogram-mask masks/bmask_1.mrc                           # from Slabify for example
 ```
 
