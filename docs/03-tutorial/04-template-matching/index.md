@@ -49,7 +49,7 @@ relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_bo
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
 
-To run template matching in batch (on all the tomograms in your RELION folder) we will use this [batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5) script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` function. 
+To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` function. 
 
 Additionally, for ribosomes good results were obtained using:
 
