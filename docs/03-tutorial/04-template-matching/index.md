@@ -202,15 +202,9 @@ Common problems that can occur:
 - Particles extracted miss true positive particles: can be fixed by (slightly) increasing the number of particles `-n` and forcing this number with `-c -1`.
 - Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
 
-The latter might not pose a problem if you believe you can easily trash them though classification, in the later stages of **[STA](/03-tutorial/05-sta-in-relion5/)**.
-
-
-You can select your positions with a mask only covering the cytosol, and excluding the chloroplast, instead of a simple boundary mask as we did. This is the best, but requires you to create masks, and can easily be tidieous when you work with tens or hundreds of tomos.
-You can also try to play with the high-pass parameter at the TM step (we used a 400 HP by default, you can use smaller values, but be careful at some point you will lose true positives)
-The number of particles that you want is always tricky to decide. Of course, you ideally want to pick everything.
-In reality, if you want to pick everything, you will probably have to "overpick" and include false positives. Luckily you will be able to clean them out in the later stages.
-If you underpick, there's high chances that you will minimise the number of false positives and will only select your particles of interest. This is useful when you want to quickly generate an average from your own data.
-This is ALWAYS a good idea when doing template matching, because using a template generated from your data will always give better results than an template coming from e.g molmap in Chimera from a PDB (worst) or an SPA map.
+The latter might not pose a problem if you believe you can easily trash them through classification in the later stages of **[STA](/03-tutorial/05-sta-in-relion5/)**.
+You can improve your particle picks with a mask only covering the cytosol and excluding the chlorplast instead of a simple boundary mask. You can even provide this mask during the extraction job. This will yield optimal results as you only extract particles in the areas you expect them to be. However, this requires you to create the masks in the first place and can be tedious when you work with tens or hundreds of tomograms. Approaches like **[Pom](https://github.com/bionanopatterning/Pom)** or other automated volume segmentations or many-feature segmentations could overcome this bottleneck. We have not tested such approaches thoroughly enough to include in this tutorial but we think this has great potential.
+You can also try to play with pytom parameters like the `high-pass`. We used a value of 400, you can use smaller values, but be careful at some point you will lose true positive signal. The number of particles you want extracted is always tricky to decide. Of course, you ideally want to pick "everything" i.e. all the true positives. In reality, if you want to pick "everything", you will probably have to "overpick" and include false positives. Luckily you will have the chance of cleaning them out in the later stages. If you "underpick", there are high chances that you will minimise the number of false positives and only select your particles of interest. This is useful when you want to quickly generate an average from your own data. This is **ALWAYS** a good idea when doing template matching. Because using a template generated from your data will always give better results than a template coming from e.g an SPA map or `molmap` in ChimeraX from a PDB (worst).
 
 
 
