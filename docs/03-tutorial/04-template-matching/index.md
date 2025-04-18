@@ -78,6 +78,7 @@ python batch_pytom.py \
   --non-spherical-mask \
   --tomogram-ctf-model phase-flip \
   --high-pass 400
+  --tomogram-mask path/to/slab_mask.mrc # if you have one
   [--dry-run] # to just create the submission scripts without launching them
 ```
 
@@ -125,6 +126,7 @@ pytom_match_template.py \
   --tomogram-ctf-model phase-flip \
   --non-spherical-mask \
   --high-pass 400
+  --tomogram-mask masks/bmask_1.mrc                           # from Slabify for example
 ```
 
 and of course if you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure informations read from the RELION .star files.
@@ -132,9 +134,13 @@ and of course if you don't have an HPC or don't use SLURM, you can just run the 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
 1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
 
+Once you have succesfully run template matching, you can extract your particles with 
+
 You can check the `_scores.mrc` file in IMOD for example to see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. 
 
-You want to visualize your particles in an even 
+If you want to visualize your particles even better then follow the next part:
+
+
 
 
 
