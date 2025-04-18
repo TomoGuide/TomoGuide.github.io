@@ -206,13 +206,12 @@ The latter might not pose a problem if you believe you can easily trash them thr
 You can improve your particle picks with a mask only covering the cytosol and excluding the chlorplast instead of a simple boundary mask. You can even provide this mask during the extraction job. This will yield optimal results as you only extract particles in the areas you expect them to be. However, this requires you to create the masks in the first place and can be tedious when you work with tens or hundreds of tomograms. Approaches like **[Pom](https://github.com/bionanopatterning/Pom)** or other automated volume segmentations or many-feature segmentations could overcome this bottleneck. We have not tested such approaches thoroughly enough to include in this tutorial but we think this has great potential.
 You can also try to play with pytom parameters like the `high-pass`. We used a value of 400, you can use smaller values, but be careful at some point you will lose true positive signal. The number of particles you want extracted is always tricky to decide. Of course, you ideally want to pick "everything" i.e. all the true positives. In reality, if you want to pick "everything", you will probably have to "overpick" and include false positives. Luckily you will have the chance of cleaning them out in the later stages. If you "underpick", there are high chances that you will minimise the number of false positives and only select your particles of interest. This is useful when you want to quickly generate an average from your own data. This is **ALWAYS** a good idea when doing template matching. Because using a template generated from your data will always give better results than a template coming from e.g an SPA map or `molmap` in ChimeraX from a PDB (worst).
 
+## Combining your particles
 
+Finally, once you are satisfied with the template matching results, you can generate a "master" .star file that will contain all the particle positions for all the tomograms.
+To do so you can use the `pytom_merge_stars.py` script. Run it from a folder containing all your `.star` files. It will automatically merge particle lists present in the directory
 
-Then, once you are satisfied with the TM results, you can generate a "master" .star file that will contain all the particle positions for all the tomos.
-
-To do so, load pytom and use pytom_merge_stars.py , it will automatically merge all the .star files present in the directory where you execute the script.
-
-Just be careful, when importing to RELION, remove "rec_" from the TomoName in the merged .star file ...
+When importing to RELION5, make sure the prefix `rec_` is not present in the `rlnTomoName` field of your merged `particles.star` file. Otherwise do a quick find-and-replace to remove this prefix.
 
 
 
