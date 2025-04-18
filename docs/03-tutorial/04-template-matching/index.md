@@ -87,7 +87,6 @@ An example output of one of the generated submission files might look like this:
 
 ```
 #!/bin/bash -l
-
 #SBATCH -o pytom.out%j
 #SBATCH -D ./
 #SBATCH -J pytom_1
