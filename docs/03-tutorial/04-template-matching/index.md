@@ -49,7 +49,7 @@ relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_bo
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
 
-To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` function. 
+To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` script. 
 
 Additionally, for ribosomes good results were obtained using:
 
@@ -134,12 +134,12 @@ and of course if you don't have an HPC or don't use SLURM, you can just run the 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
 1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
 
-You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this part we will show you how to visualize your particles in an appealing way using ChimeraX & ArtiaX
+You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this section, we'll show you how to visualize your particles first with IMOD, and then more appealingly using ChimeraX & ArtiaX.
 
 
 ## Extract particles
 
-Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. Again for detailed explanation check the documentation or `--help`.
+Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. This will create the `particles.star` in RELION5 format to then use for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). Again for detailed explanation check the documentation or `--help` of the pytom script.
 
 You can extract from multiple tomos for example via SLURM like:
 
@@ -182,6 +182,19 @@ pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 8
 or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value.
 
 
+## Check your particle positions with IMOD
+
+We wrote a script called [rln2mod](https://github.com/Phaips/rln2mod) which will create `.mod` files from your `particle.star` files. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
+
+```
+python rln2mod.py --x 1024 --y 1024 --z 512
+```
+
+Just give the tomogram dimensions in pixels as input. Then you can open your tomogram and model together with IMOD. A trick is to go to: <kbd>Edit > Object > Sphere radius for point</kbd> and increase this value! An example for `tomo_24.mrc` and `24.mod`
+
+<a href="/imgs/36_mod.png" data-lightbox="image-gallery">
+  <img src="/imgs/36_mod.png" alt="Processing Workflow" style="width:60%;">
+</a>
 
 
 
