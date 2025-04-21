@@ -183,5 +183,4 @@ TBD
 
 ## Exporting data to RELION5 for STA
 
-Scipion can export the final alignment, tomograms, or pick coordinates into RELION5. In the next section, we’ll see how 
-to do the entire pipeline in RELION5.
+Scipion can export the final alignment, tomograms, or pick coordinates into RELION5. Just search for the `reliontomo` jobs.

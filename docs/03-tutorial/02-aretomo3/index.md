@@ -86,7 +86,7 @@ How this command now works is that it will find all frames corresponding to thei
 
 ## Creating a RELION5 project
 
-Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful we can use this for [template matching](/03-tutorial/04-template-matching/#at3tm) or [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). 
+Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful we can use this for [template matching](/03-tutorial/04-template-matching/#at3tm) or [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). However, to this date (April 2025) there was no simple way to go from AreTomo3 to RELION5. That is why we decided to write a little **[script](https://github.com/Phaips/aretomo3torelion5)** which reads all the AreTomo3 output informations and writes out a `tomogram.star` and the corresponding `tilt-series.star` files in RELION5 format. 
 
 
 
