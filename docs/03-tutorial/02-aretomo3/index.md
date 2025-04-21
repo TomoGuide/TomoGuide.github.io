@@ -11,25 +11,17 @@ nav_order: 2
 
 ```bash
 #!/bin/bash
-# Standard output and error:
 #SBATCH -o aretomo3.out%j
-# Initial working directory:
 #SBATCH -D ./
-# Job Name:
 #SBATCH -J aretomo3
-# Queue (Partition):
 #SBATCH --partition=emgpu
-# Number of nodes and MPI tasks per node:
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#
 #SBATCH --mail-type=none
 #SBATCH --mem 64G
-#
-# Wall clock limit:
 #SBATCH --qos=emgpu
 #SBATCH --time=00-00:30:00
  
