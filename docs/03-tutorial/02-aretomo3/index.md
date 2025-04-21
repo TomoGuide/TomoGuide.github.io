@@ -81,16 +81,18 @@ time AreTomo3 \
     -AmpContrast ${amp_con}
 ```
 
-Make sure you check the meaning of all the flags with `AreTomo3 --help`.
-How this command now works is that it will find all frames corresponding to their .mdocs. The tomograms will be reconstructed with CTF correction and also ODD and EVEN frames are generated. Those can be used for denoising for example. Again, if you don't use SLURM you can just adopt the command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
+Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **2 e/Å^2 per 10 frames** would result in the `FmDose=0.2`.
+How the rest of the functionlity works as we defined it now is that it will find all frames corresponding to their .mdocs in the given path. The tomograms will be reconstructed with CTF correction and also ODD and EVEN volumes are generated. Those can then be used for denoising for example. Again, if you don't use SLURM you can just adopt the command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
 
 ## Creating a RELION5 project
 
-Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful we can use this for [template matching](/03-tutorial/04-template-matching/#at3tm) or [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). However, to this date (April 2025) there was no simple way to go from AreTomo3 to RELION5. That is why we decided to write a little **[script](https://github.com/Phaips/aretomo3torelion5)** which reads all the AreTomo3 output informations and writes out a `tomogram.star` and the corresponding `tilt-series.star` files in RELION5 format. 
+Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful, we can use this for [template matching](/03-tutorial/04-template-matching/#at3tm) or [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). However, to this date (April 2025) there was no simple way to go from AreTomo3 to RELION5. That is why we decided to write a little **[script](https://github.com/Phaips/aretomo3torelion5)** which reads all the AreTomo3 output informations and writes out a `tomogram.star` and the corresponding `tilt-series.star` files in RELION5 format. To simply create the RELION5 files for all tomograms in the AreTomo3 directory you can run:
 
 ```python
-aretomo3torelion5.py /path/to/aretomo_output/ --dose 2 --output_dir relion_star_files --include Position_1 Position_2 # or e.g. --exclude Position_3 Position_4
+aretomo3torelion5.py /path/to/aretomo_output/ --dose 3.5
 ```
+We included the `--dose` flag since there is -- to our knowledge -- no way to read this information from the AreTomo3 outputs. AreTomo3 itself reads the exposure informations from the .mdocs. However, the .mdoc files often do not contain the correct values unofrtunately! That's why we decided to just prompt the user for this value and calculate the **cumulative dose/exposure** based on the acquisition parameters.
+
 
 
 
