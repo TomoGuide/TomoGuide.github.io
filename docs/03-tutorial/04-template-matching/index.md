@@ -203,7 +203,7 @@ or you can investigate the `.svg` file that was generated from the extraction jo
 We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which will create IMOD `.mod` point models from your `particle.star` files. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
 
 ```python
-python rln2mod.py --x 1024 --y 1024 --z 512
+rln2mod.py --x 1024 --y 1024 --z 512
 ```
 
 Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualization is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! Here, an example from reconstruction in AreTomo with refined thickeness and with default pytom extraction parameters using a high-pass filter of 400. Shown in in IMOD XYZ mode (<kbd>ctrl + X</kbd>):
