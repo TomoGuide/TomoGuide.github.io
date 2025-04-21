@@ -147,7 +147,7 @@ You can check the `_scores.mrc` file in IMOD for example to already see if templ
 
 
 
-## Template matching AreTomo3 tomograms using pytom-match-pick
+## Template matching AreTomo3 tomograms using pytom-match-pick {#at3tm}
 
 TBD
 
