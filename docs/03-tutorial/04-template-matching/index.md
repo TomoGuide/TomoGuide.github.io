@@ -6,6 +6,13 @@ nav_order: 4
 ---
 
 # Particle Picking by Template Matching
+{: .no_toc }
+
+## Table of Contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Create boundary masks of your tomograms
 
@@ -25,7 +32,7 @@ You can make a slab_mask folder inside the tomograms folder (e.g RELION5/Tomogra
 
 ## Template matching RELION5 tomograms using pytom-match-pick
 
-Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
+You should have RELION5 tomograms for example from [here](/03-tutorial/03-relion-preprocessing/). Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
 
 You will need to have:
 - A **template** at the correct pixel size. Here, we first use a SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
