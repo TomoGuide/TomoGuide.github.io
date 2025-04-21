@@ -181,19 +181,19 @@ You can run these commands from the terminal, in the folder of the job.
 
 - **Monitor Resolution Over Iterations**
    This will give you the resolution for each iteration. Ideally, it should improve (i.e., the number decreases) as refinement proceeds.
-   ```
+   ```bash
    grep _rlnCurrentResolution run_it???_model.star
    ```
 
 - **Follow class population and resolution**
    If you're running classification, use <kbd>relion_star_printtable</kbd> to examine how the classes evolve:
-   ```
+   ```bash
    relion_star_printtable run_it001_model.star data_model_classes rlnClassDistribution rlnEstimatedResolution
    ```
 
 - **Monitor Class Convergence (Optimum Changes)**
    Track how well classes are stabilizing. This number should start high (near 1) and trend toward 0 as the classes converge
-   ```
+   ```bash
    grep _rlnChangesOptimalClasses run_it???_optimiser.star
    ```
 

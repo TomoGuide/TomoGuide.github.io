@@ -44,10 +44,10 @@ For more details check the [Documentation](https://sbc-utrecht.github.io/pytom-m
 
 Two examples of how to scale an `input.mrc` file from the [EMDB](https://www.ebi.ac.uk/emdb/) for example using either `e2proc3d.py` from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or `relion_image_handler` from [RELION](https://github.com/3dem/relion/tree/ver5.0):
 
-```
+```bash
 e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cutoff_freq=0.1 --clip=84,84,84
 ```
-```
+```bash
 relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_box 84 --force_header_angpix 7.64
 ```
 
@@ -71,7 +71,7 @@ Additionally, for ribosomes good results were obtained using:
 
 An example how to run the script:
 
-```
+```python
 python batch_pytom.py \
   --mrc-dir path/to/Tomograms/jobXXX/tomograms \
   --star-dir /path/to/Tomograms/jobXXX/ \
@@ -95,7 +95,7 @@ python batch_pytom.py \
 
 An example output of one of the generated submission files might look like this:
 
-```
+```bash
 #!/bin/bash -l
 #SBATCH -o pytom.out%j
 #SBATCH -D ./
@@ -159,7 +159,7 @@ Once you have succesfully run template matching, you can extract your particles 
 
 You can extract from multiple tomos for example via SLURM like:
 
-```
+```bash
 #!/bin/bash -l
 #SBATCH -o pytomextract.out%j
 #SBATCH -D ./
@@ -186,12 +186,12 @@ pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json -r 20 -n 8
 
 
 Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
-```
+```python
 pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 5000 --relion5-compat
 ```
 
 Force select the top 800 positions:
-```
+```python
 pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 800 -c -1 --relion5-compat
 ```
 
@@ -202,7 +202,7 @@ or you can investigate the `.svg` file that was generated from the extraction jo
 
 We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which will create IMOD `.mod` point models from your `particle.star` files. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
 
-```
+```python
 python rln2mod.py --x 1024 --y 1024 --z 512
 ```
 

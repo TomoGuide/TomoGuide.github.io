@@ -17,7 +17,7 @@ In the folder you created, open a terminal.
 
 Load RELION5 and launch the tomo branch.
 
-```
+```bash
 ml RELION
  
 relion --tomo &
@@ -30,7 +30,7 @@ A GUI pops-up, you are in RELION.
 2. Copy or symlink the `.eer` frames, `.mdoc` files, and `.gain` references into **rawdata**.  
 3. Use the **Import** job in RELION to point to these raw frames and `.mdoc` files.
 
-```
+```bash
 ln -s ~/path/to/frames/ ~/path/to/RELION/raw/frames
  
 ln -s ~/path/to/gain ~/path/to/RELION/raw/gain
