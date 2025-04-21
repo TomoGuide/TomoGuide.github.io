@@ -33,7 +33,7 @@ tilt_axis=-95.75
 dark_tol=0.7
 vol_z=2048
 amp_con=0.1
-fm_dose=0.2 # dose per frame! so 2 e/A^2 per 10 frames here
+fm_dose=0.2 # dose per frame! so 2 e/A² per 10 frames here
 lowpass=15
 # align_z=1400 # Not really needed since AreTomo3 can estimate it automatically
  
@@ -73,7 +73,7 @@ time AreTomo3 \
     -AmpContrast ${amp_con}
 ```
 
-Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **2 e/Å^2 per 10 frames** would result in the `FmDose=0.2`.
+Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **2 e/Å² per 10 frames** would result in the `FmDose=0.2`.
 How the rest of the functionlity works as we defined it now is that it will find all frames corresponding to their .mdocs in the given path. The tomograms will be reconstructed with CTF correction and also ODD and EVEN volumes are generated. Those can then be used for denoising for example. Again, if you don't use SLURM you can just adopt the command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
 
 ## Creating a RELION5 project
