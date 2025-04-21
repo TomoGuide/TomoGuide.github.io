@@ -86,7 +86,7 @@ How this command now works is that it will find all frames corresponding to thei
 
 ## Creating a RELION5 project
 
-Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful we can use this for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/) or [template matching](/03-tutorial/04-template-matching/#at3tm)
+Since the alignment and CTF estimation/correction from AreTomo3 seems quite powerful we can use this for [template matching](/03-tutorial/04-template-matching/#at3tm) or [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). 
 
 
 
