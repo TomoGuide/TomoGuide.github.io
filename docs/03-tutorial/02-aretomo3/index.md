@@ -83,7 +83,7 @@ Since the alignment and CTF estimation/correction from AreTomo3 seems quite powe
 ```python
 aretomo3torelion5.py /path/to/aretomo_output/ --dose 3.5
 ```
-We included the `--dose` flag since there is -- to our knowledge -- no way to read this information from the AreTomo3 outputs. AreTomo3 itself reads the exposure informations from the .mdocs. However, the .mdoc files often do not contain the correct values unofrtunately! That's why we decided to just prompt the user for this value and calculate the **cumulative dose/exposure** based on the acquisition parameters.
+We included the `--dose` flag since there is -- to our knowledge -- no way to read this information from the AreTomo3 outputs. AreTomo3 itself reads the exposure informations from the .mdocs, which could be an issue, since .mdoc files often do not contain correct values unfortunately! That is why we decided to just prompt the user for this value and calculate the **cumulative dose/exposure** based on the acquisition parameters.
 
 
 
