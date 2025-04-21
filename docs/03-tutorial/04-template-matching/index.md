@@ -229,6 +229,14 @@ To do so you can use the `pytom_merge_stars.py` script. Run it from a folder con
 
 When importing to RELION5, make sure the prefix `rec_` is not present in the `rlnTomoName` field of your merged `particles.star` file. Otherwise do a quick find-and-replace to remove this prefix.
 
+## Visualisation in ChimeraX using ArtiaX
+
+TBD
+
+## Alternatives to template matching
+
+TBD
+
 
 
 
