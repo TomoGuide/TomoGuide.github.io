@@ -121,8 +121,8 @@ Also, this is were we are going to use AreTomo for CTF estimation.
 <a href="/imgs/18_ALI1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/19_ALI1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/19_ALI.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/19_ALI.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Run the job.
