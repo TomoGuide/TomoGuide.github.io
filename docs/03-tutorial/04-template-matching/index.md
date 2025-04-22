@@ -268,13 +268,13 @@ Here is a short step by step guide on how to open your particles in ArtiaX.
 Once you've installed ArtiaX, you should have have these options on the window:
 
 <a href="/imgs/38_artiax1.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/38_artiax1.JPG" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/38_artiax1.JPG" alt="Processing Workflow" style="width:70%;">
 </a>
 
 Press on Launch on the left, you should now have these windows
 
 <a href="/imgs/38_artiax2.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/38_artiax2.JPG" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/38_artiax2.JPG" alt="Processing Workflow" style="width:40%;">
 </a>
 
 You can open the tomogram of your choice, and it will open
