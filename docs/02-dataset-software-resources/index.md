@@ -44,6 +44,9 @@ If you want to push resolution (try classification etc.), process the entire set
 
 ## **Software**
 
+You need to have access to a GPU-powered machine running on Linux. It can be a local machine or a computing cluster. In our case, we work on a computing cluster with a SLURM system.
+You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a python installation.
+
 [Scipion](https://scipion.i2pc.es/){: .btn } <br>
 [IMOD](https://bio3d.colorado.edu/imod/){: .btn } <br>
 [RELION 5](https://relion.readthedocs.io/en/release-5.0/){: .btn } <br>
