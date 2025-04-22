@@ -7,7 +7,7 @@ nav_order: 2
 
 # Preprocessing in AreTomo3
 
-[AreTomo3](https://github.com/czimaginginstitute/AreTomo3) is a software which can take you from raw frames/movies to 3D-CTF corrected tomograms in under 10 minutes. If you are not familiar with AreTomo3 you can also read their latest [publication](https://www.biorxiv.org/content/10.1101/2025.03.11.642690v1). Below we will show you how to AreTomo3 using a SLURM submission:
+[AreTomo3](https://github.com/czimaginginstitute/AreTomo3) is a software which can take you from raw frames/movies to 3D-CTF corrected tomograms in under 10 minutes. If you are not familiar with AreTomo3 you can also read their latest [publication](https://www.biorxiv.org/content/10.1101/2025.03.11.642690v1). Below we will show you how to run AreTomo3 using a SLURM submission:
 
 ```bash
 #!/bin/bash
