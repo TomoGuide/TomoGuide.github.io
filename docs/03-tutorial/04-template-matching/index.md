@@ -252,11 +252,101 @@ When importing to RELION5, make sure the prefix `rec_` is not present in the `rl
 
 ## Visualisation in ChimeraX using ArtiaX
 
-TBD
+We will show you how to use the [ArtiaX](https://github.com/FrangakisLab/ArtiaX) plug-in in [ChimeraX](https://www.cgl.ucsf.edu/chimerax/). This allows you to not only check the position but also the orientation of particles.
+
+This is also what we use to create these figures;
+
+<a href="/imgs/37_mitopoop.png" data-lightbox="image-gallery">
+  <img src="/imgs/37_mitopoop.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/37_rubipoop.png" data-lightbox="image-gallery">
+  <img src="/imgs/37_rubipoop.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Here is a short step by step guide on how to open your particles in ArtiaX.
+
+Once you've installed ArtiaX, you should have have these options on the window:
+
+<a href="/imgs/38_artiax1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax1.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Press on Launch on the left, you should now have these windows
+
+<a href="/imgs/38_artiax2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax2.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+You can open the tomogram of your choice, and it will open
+
+<a href="/imgs/38_artiax3.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax3.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+To open a particle list, select <kbd>Open List</kbd>, chose your list (it needs to be a RELION5 particle list), and this window will pop-up. Click on custom and select the tomogram, it will adapt the dimensions.
+
+<a href="/imgs/38_artiax4.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax4.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+If you have a particle list with particles from several tomograms (e.g a concatenated particle list after template matching), you'll want to display only the particles from your tomogram of interest (here tomo50).
+
+On the left go to <kbd>Select/Manipulate</kbd>, and <kbd>Add selector</kbd>. Choose `rlnTomoName`, and select only the tomogram you want (here 50)
+
+<a href="/imgs/38_artiax5.png" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax5.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Now only the particles from tomogram 50 are visible:
+
+<a href="/imgs/38_artiax6.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax6.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+The center of the particles are represented by balls and the orientation by the arrows. However, you see all particles from all the slices are represented, you can change it by pressing <kbd>Clip</kbd> on the top.
+Now only the particles close (in Z) to the plane you are looking at will be visible. Easier for inspection.
+
+<a href="/imgs/38_artiax7.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax7.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+You can also hide the tomogram and just look at the particles. Here, for example, you can see a pattern, these particles appear to all be oriented the same way.
+
+<a href="/imgs/38_artiax8.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax8.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Let's try to attach a volume to these particles, to have a better idea of what is happening. On the left window, <kbd>Open Geomodel</kbd> (a .mrc volume, for example the template used for template matching, or the volume you obtained during STA)
+Then on the right, on the <kbd>Visualization tab</kbd>, at the bottom, on the <kbd>Add new surface</kbd> part, click on <kbd>Attach Model</kbd>. Now we have ribosomes! You can play for the <kbd>Surface Level</kbd> to make it nice.
+
+<a href="/imgs/38_artiax9.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax9.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Here you can see that many of them are nicely organized, these are ER-bound polysomes.
+
+You can also open multiple particle lists from multiple complexes as well as membrane segmentation, to understand how all these thing are organized in 3D, and to create nice figures.
+
 
 ## Alternatives to template matching
 
-TBD
+While template matching is a standard method, several alternative approaches have been developed, for identifying macromolecules within dense cellular environment
+
+### Manual Picking
+
+- If you are able to recognize your particle of interest in the tomograms, you can manually select them in IMOD or with ArtiaX
+
+### Machine Learning-Based Methods
+
+- **[TomoTwin](https://github.com/MPI-Dortmund/tomotwin-cryoet)**: Employs deep metric learning to embed tomograms into a high-dimensional space, enabling the identification of proteins without the need for manual annotation or retraining for each new protein.​
+- **[crYOLO](https://cryolo.readthedocs.io/en/latest/)**: A convolutional neural network-based tool that applies the YOLO (You Only Look Once) object detection system for fast and accurate particle picking. It offers pre-trained models and supports training on user-specific datasets cryolo.readthedocs.io.​
+- **[ProPicker](https://github.com/MLI-lab/ProPicker)**: A promptable segmentation method that allows for selective detection of specific proteins in cryo-ET tomograms, facilitating targeted particle picking OpenReview.​
+- and many more!
+
+### Geometry-Based Methods
+
+- **[MPicker](https://www.nature.com/articles/s41467-024-55767-w)**: Focuses on membrane-associated particles by generating flattened tomograms to reduce membrane curvature, enhancing the visualization and localization of proteins on membranes Nature.​
+- **[MemBrain-pick](https://github.com/CellArchLab/membrain-pick)**: Part of the MemBrain suite, this tool utilizes pre-existing membrane segmentations to localize membrane-associated particles. It converts segmentations into mesh representations, which can be manually annotated using Surforama to train models for particle prediction GitHub.​
 
 
 
