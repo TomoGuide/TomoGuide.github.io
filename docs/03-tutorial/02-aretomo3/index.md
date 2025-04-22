@@ -85,6 +85,14 @@ aretomo3torelion5.py /path/to/aretomo_output/ --dose 3.5
 ```
 We included the `--dose` flag since there is -- to our knowledge -- no way to read this information from the AreTomo3 outputs. AreTomo3 itself reads the exposure informations from the .mdocs, which could be an issue, since .mdoc files often do not contain correct values unfortunately! That is why we decided to just prompt the user for this value and calculate the **cumulative dose/exposure** based on the acquisition parameters.
 
+If you have successfully generated your `.star` files you can run a `relion_tomo_reconstruct_tomogram_mpi` job using the `tomogram.star` file to check the alignments are correct. Here an example in bin4:
+
+```
+relion_tomo_reconstruct_tomogram_mpi --t tomograms.star --o Tomograms/job001/ --w 4096 --h 4096 --d 2048 --binned_angpix  --only_do_unfinished  --j 12 --Fc --SNR 100 --pre_weight --ctf --pipeline_control Tomograms/job001/
+```
+
+Or you can directly follow the [STA in RELION5](/03-tutorial/05-sta-in-relion5/) once you have a particle list from e.g. [template matching](/03-tutorial/04-template-matching/)
+
 
 
 
