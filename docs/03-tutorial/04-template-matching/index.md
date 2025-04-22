@@ -339,14 +339,14 @@ While template matching is a standard method, several alternative approaches hav
 ### Machine Learning-Based Methods
 
 - **[TomoTwin](https://github.com/MPI-Dortmund/tomotwin-cryoet)**: Employs deep metric learning to embed tomograms into a high-dimensional space, enabling the identification of proteins without the need for manual annotation or retraining for each new protein.​
-- **[crYOLO](https://cryolo.readthedocs.io/en/latest/)**: A convolutional neural network-based tool that applies the YOLO (You Only Look Once) object detection system for fast and accurate particle picking. It offers pre-trained models and supports training on user-specific datasets cryolo.readthedocs.io.​
-- **[ProPicker](https://github.com/MLI-lab/ProPicker)**: A promptable segmentation method that allows for selective detection of specific proteins in cryo-ET tomograms, facilitating targeted particle picking OpenReview.​
+- **[crYOLO](https://cryolo.readthedocs.io/en/latest/)**: A convolutional neural network-based tool that applies the YOLO (You Only Look Once) object detection system for fast and accurate particle picking. It offers pre-trained models and supports training on user-specific datasets.​
+- **[ProPicker](https://github.com/MLI-lab/ProPicker)**: A promptable segmentation method that allows for selective detection of specific proteins in cryo-ET tomograms, facilitating targeted particle picking.​
 - and many more!
 
 ### Geometry-Based Methods
 
-- **[MPicker](https://www.nature.com/articles/s41467-024-55767-w)**: Focuses on membrane-associated particles by generating flattened tomograms to reduce membrane curvature, enhancing the visualization and localization of proteins on membranes Nature.​
-- **[MemBrain-pick](https://github.com/CellArchLab/membrain-pick)**: Part of the MemBrain suite, this tool utilizes pre-existing membrane segmentations to localize membrane-associated particles. It converts segmentations into mesh representations, which can be manually annotated using Surforama to train models for particle prediction GitHub.​
+- **[MPicker](https://www.nature.com/articles/s41467-024-55767-w)**: Focuses on membrane-associated particles by generating flattened tomograms to reduce membrane curvature, enhancing the visualization and localization of proteins on membranes.​
+- **[MemBrain-pick](https://github.com/CellArchLab/membrain-pick)**: Part of the MemBrain suite, this tool utilizes pre-existing membrane segmentations to localize membrane-associated particles. It converts segmentations into mesh representations, which can be manually annotated using Surforama to train models for particle prediction.​
 
 
 
