@@ -8,6 +8,10 @@ nav_order: 4
 # Particle Picking by Template Matching
 {: .no_toc }
 
+Here we are going to work with cytosolic ribosomes.
+
+For reference, here a low resolution depiction of a ribosome, with the larger subunit colored in blue and the small subunit colored in yellow (with the head and the body colored differently)
+
 <a href="/imgs/35_ribo.png" data-lightbox="image-gallery">
   <img src="/imgs/35_ribo.png" alt="Processing Workflow" style="width:60%;">
 </a>
@@ -334,7 +338,7 @@ You can also open multiple particle lists from multiple complexes as well as mem
 
 ## Alternatives to template matching
 
-While template matching is a standard method, several alternative approaches have been developed, for identifying macromolecules within dense cellular environment
+While template matching is a standard method, several alternative approaches have been developed for identifying macromolecules within dense cellular environment. Especially, in the case where you don't know what your particle looks like, template matching falls short.
 
 ### Manual Picking
 
