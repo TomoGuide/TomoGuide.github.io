@@ -638,7 +638,10 @@ Here's the result after 3 cycles of Polishing/refinement, focused on the large s
   <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-#Final picture of the ribosome
+<video controls style="width:60%; max-width:100%;">
+  <source src="/imgs/ribo_movie.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist (check this link)!
 
