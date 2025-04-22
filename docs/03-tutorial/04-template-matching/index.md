@@ -13,7 +13,7 @@ Here we are going to work with cytosolic ribosomes.
 For reference, here a low resolution depiction of a ribosome, with the larger subunit colored in blue and the small subunit colored in yellow (with the head and the body colored differently)
 
 <a href="/imgs/35_ribo.png" data-lightbox="image-gallery">
-  <img src="/imgs/35_ribo.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/35_ribo.png" alt="Processing Workflow" style="width:40%;">
 </a>
 
 ## Table of Contents

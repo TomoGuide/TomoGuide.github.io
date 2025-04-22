@@ -29,9 +29,6 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
 
 
 
-
-
-
 ---
 ## Sample Types
 
@@ -84,8 +81,8 @@ Electron radiation damages biological samples. The total electron dose must be s
 ## **Missing Wedge Artifact**
 Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain anisotropic distortions, known as the **missing wedge** effect.
 
-## **Beam-Induced Motion**
-Even small movements in the sample can degrade resolution, especially at higher tilt angles.
+## **Tilt-series alignment**
+Even small movements in the sample can degrade correlations between images.
 
 
 
