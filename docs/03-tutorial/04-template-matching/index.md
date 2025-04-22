@@ -30,9 +30,9 @@ If you know where you particle should be (e.g mitochondria, nucleus etc) you can
 You can make a slab_mask folder inside the tomograms folder (e.g RELION5/Tomograms/jobXXX/tomograms/) for example.
 
 
-## Template matching RELION5 tomograms using pytom-match-pick
+## Template matching using pytom-match-pick
 
-You should have RELION5 tomograms for example from [here](/03-tutorial/03-relion-preprocessing/). Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
+You should have tomograms for example from [RELION5](/03-tutorial/03-relion-preprocessing/) or [AreTomo3](/03-tutorial/02-aretomo3/). Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
 
 You will need to have:
 - A **template** at the correct pixel size. Here, we first use a SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
@@ -56,11 +56,11 @@ relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_bo
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
 
-### Running template matching
+### Running template matching on RELION5 tomograms {#rln5tm}
 
-To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` script. 
+To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` script. Alternatively, as always of course you can just run template matching using pytom the conventional way. Our scripts are intended to faciliate the batch submission of jobs in case you want to template match hundreds of tomograms.
 
-Additionally, for ribosomes good results were obtained using:
+For ribosomes good results were obtained using:
 
 - Angular search: **10°**
 - Enable random-phase correction: **YES**
@@ -138,7 +138,7 @@ pytom_match_template.py \
   --tomogram-mask masks/bmask_1.mrc                           # from Slabify for example
 ```
 
-and of course if you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure informations read from the RELION .star files.
+and again, of course if you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure informations read correctly from the RELION .star files.
 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
 1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
@@ -146,12 +146,33 @@ and of course if you don't have an HPC or don't use SLURM, you can just run the 
 You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this section, we'll show you how to visualize your particles first with IMOD, and then more appealingly using ChimeraX & ArtiaX.
 
 
+## Running template matching on AreTomo3 tomograms {#at3tm}
 
-## Template matching AreTomo3 tomograms using pytom-match-pick {#at3tm}
+Similarly, if you have reconstructed your tomograms using the [AreTomo3 pipeline](03-tutorial/02-aretomo3/) we have a **[batch_pytom_aretomo3](https://github.com/Phaips/batch_pytom_aretomo3)** script. This will also create submission files for template matching using the tilt and CTF informations from the AreTomo3 outputs. Your output folder should look something like:
 
-TBD
+```
+aretomo3/
+├─ AreTomo3_Session.json
+├─ TiltSeries_Metrics.csv
+├─ TiltSeries_TimeStamp.csv
+├─ Position_1.aln
+├─ Position_1.mrc
+├─ Position_1_ODD.mrc
+├─ Position_1_EVN.mrc
+├─ Position_1_Vol.mrc
+├─ Position_1_CTF.txt
+├─ Position_1_TLT.txt
+├─ Position_1_CTF_Imod.txt
+├─ Position_1_Imod/
+│   ├─ Position_1_st.tlt
+│   ├─ Position_1_st.xf
+│   └─ Position_1_order_list.csv
+├─ Position_2.aln
+├─ Position_2.mrc
+...
+```
 
-
+The functionality of the batch submission script is basically the same as for above [RELION5](/03-tutorial/04-template-matching/#rln5tm) one. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page. Alternatively, as always of course you can run pytom with template matching just using the conventional way. Our scripts are intended to faciliate the batch submission of jobs in case you want to template match hundreds of tomograms.
 
 ## Extract particles
 

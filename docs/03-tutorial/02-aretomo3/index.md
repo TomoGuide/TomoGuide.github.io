@@ -91,7 +91,7 @@ If you have successfully generated your `.star` files you can run a `relion_tomo
 relion_tomo_reconstruct_tomogram_mpi --t tomograms.star --o Tomograms/job001/ --w 4096 --h 4096 --d 2048 --binned_angpix  --only_do_unfinished  --j 12 --Fc --SNR 100 --pre_weight --ctf --pipeline_control Tomograms/job001/
 ```
 
-Or you can directly follow the [STA in RELION5](/03-tutorial/05-sta-in-relion5/) once you have a particle list from e.g. [template matching](/03-tutorial/04-template-matching/)
+Or you can directly follow the [STA in RELION5](/03-tutorial/05-sta-in-relion5/) once you have a particle list from e.g. [template matching](/03-tutorial/04-template-matching/).
 
 
 
