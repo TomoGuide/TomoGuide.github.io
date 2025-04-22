@@ -14,15 +14,16 @@ nav_order: 3
 Create a clean working folder and name it however you want.
 
 In the folder you created, open a terminal.
-
 Load RELION5 and launch the tomo branch.
 
 ```bash
-ml RELION
- 
 relion --tomo &
 ```
 A GUI pops-up, you are in RELION.
+
+<a href="/imgs/14_gui.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/14_gui.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
 
 ## Import frames
 
@@ -70,39 +71,52 @@ Don't forget to indicate the proper gainref in the Motion tab!
   <img src="/imgs/17_Motion1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Once this is done, run CTF estimation with the default parameters. Just make sure that the executable is proper.
+For CTF estimation, you can run a CTF estimation job, using the default parameters (CTFFIND-4.1 implementation).
+However, **we recommend you to estimate CTF using AreTomo** (it's the step after this one), which in our hands, performs better.
 
-Make sure that CTF is properly estimated by checking the .pdf output. If it's not you can change the base settings.
-
-> **Placeholder CTFFIND4 screenshot**
-
-We recommend estimating CTF with AreTomo in the next step.
+If you still choose to CTFFIND, make sure CTF is properly estimated by checking the .pdf output (in the jobXXX directory). 
 
 ## Cleaning the stack
 
-Opens Napari to select the tilts to exclude. Bad tilts are:
+Once motioncorr is done, you might want to remove bad tilts. Bad tilts are either:
 
 - Strongly shifted compared to the others (more than 15% of the FOV)
 - Partially or fully blacked out - especially high tilts
 - Blurred because motion correction was not sufficient
 
-> **Placeholder NAPARI screenshot**  
+In our case we remove them manually, but be aware that some software offer automated tilt curation based on the result of motion correction and the "darkness-level" of the tilts (for example AreTomo)
 
-Works, it's just slow and the contrast is bad ...
+Run an <kbd>Exclude tit-images</kbd> job using the output of MotionCorr or CTF estimation. Don't submit to queue.
+
+This will open Napari (it might be slow to open).
+Napari, is an interactive, open-source Python tool for visualizing, annotating, and analyzing large multi-dimensional images, designed to support scientific workflows with an extensible plugin ecosystem
+
+<a href="/imgs/17_napari.png" data-lightbox="image-gallery">
+  <img src="/imgs/17_napari.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Go through the tilt stack and untick the stacks that aren't good. In that case for example (tomo24) tilts -67° to -70° and 41° to 50° were blacked out, so we removed them. Be aware that Napari does not handle the contrast of tomograms that well...
+
+Once you are done with all the TS, you can press <kbd>save tilt-series STAR file</kbd> and proceed to the next step.
 
 ## TS alignment
 
 Getting a properly aligned tilt series is very important for efficient particle detection and for tomogram "good looking-ness".
 
-Similar to Scipion, in RELION you can either do it using AreTomo or with IMOD patch tracking.
+Similar to Scipion, in RELION you can either do it using AreTomo or, the more manual way with IMOD patch tracking.
 
-For this dataset, and in general for quick alignment, AreTomo is good enough. This is why we are going to show you how to automatically do it with AreTomo.
+For this dataset, and in general, AreTomo works great. This is why we are going to show you how to automatically do it with AreTomo.
 
-AreTomo tries to find the optimal back projection scheme based on a theoritical lamella thickness. It will also find and refine the tilt axis angle, starting from the one you provided at the import step.
+AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It will also find and refine the tilt axis angle, starting from the one you provided at the import step.
 
-The way AreTomo works right now in RELION5 is a bit restrictive. In the GUI, you can only set a single estimated tomogram thickness. AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal.  
-Here, let's run a first alignment with a value of 200 nm.  
-Set Correct Tilt Angle Offset to **YES**.
+The way AreTomo works right now in RELION5 is a bit restrictive. In the GUI, you can only set a single estimated tomogram thickness.
+AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal.
+
+Make sure the path to the AreTomo2 executable is correct and points to your system.
+
+Here, let's run a first alignment with a value of 200 nm. 
+Set Correct Tilt Angle Offset to YES.
+Also, this is were we are going to use AreTomo for CTF estimation.
 
 <a href="/imgs/18_ALI1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -110,6 +124,29 @@ Set Correct Tilt Angle Offset to **YES**.
 <a href="/imgs/19_ALI1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/19_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
+
+Run the job.
+
+## Tomogram reconstruction
+
+We are now going to quickly reconstruct **bin8** tomograms.
+
+To do so, let's launch a <kbd>Reconstruct tomograms</kbd> job.
+
+<a href="/imgs/19_recons.png" data-lightbox="image-gallery">
+  <img src="/imgs/19_recons.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/19_recons2.png" data-lightbox="image-gallery">
+  <img src="/imgs/19_recons2.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
+In <kbd>I/O</kbd> fill the info as shown, and in the go to the <kbd>Reconstruct</kbd> tab.
+
+Fill in the info about to your tomogram dimensions, here 4096 4096 2048 (bin1 dimensions).
+For the pixel size, we will bin by 8, so we use a value of **15.28 Å/px**.
+
+Run the job. You now have bin8 tomograms.
+
 
 ## Refining TS alignment:
 
@@ -143,16 +180,11 @@ Whenever you modify a file, create a copy of the original and name it *_ori, so 
 Then run the AreTomo job again with the edited selected_tilt_series.star and run the tomo reconstruction. Your tomo should look better.  
 To be sure it was taken into account, check the .log and _AlignZ_ should be different for all tomos.
 
-## Tomogram reconstruction
+## Generate CTF corrected tomograms
 
-Fill in the info about your tomogram dimensions, here **4096 4096 2048**, and pixel size. Here **7.64** for bin4 tomos.
+Once we are satisfied with the alignment of our tomograms, we can reconstruct bin4 CTF corrected tomogram for template matching.
 
-I would advise you to first reconstruct all the tomos with AreTomo (with corrected Z thickness). Then check the ones that are not properly reconstructed.
-
-For the ones that are not properly reconstructed, align them using IMOD, and then at the Reconstruct step, only reconstruct the ones that were not properly reconstructed using AreTomo using the "Reconstruct only these tomo" option.
-
-Tilt angle offset: If you reconstructed with AreTomo, you don't need to use this because AreTomo automatically flatens the tomo.  
-IMOD is not doing it (you can correct it manually in etomo, but for some reason the current version of RELION is not reading it). Hence your tomo will be tilted. Here the tilt angle was about 10°, so you need to specify 10 to correct it.
+Tilt angle offset: If you recontructed with AreTomo, you don't need to use this because AreTomo automatically flatens the tomo.
 
 <a href="/imgs/22_recons.JPG" data-lightbox="image-gallery">
   <img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:60%;">
