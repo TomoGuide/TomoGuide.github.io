@@ -7,7 +7,8 @@ nav_order: 3
 
 # Preprocessing and tomogram reconstruction in RELION5
 
----
+## Table of Contents
+{: .no_toc }
 
 ## Initialize RELION
 
