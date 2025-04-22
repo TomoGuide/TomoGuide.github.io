@@ -99,14 +99,3 @@ Even small movements in the sample can degrade correlations between images.
 | **Data Requirement**   | Single tilt series per region of interest, capturing unique structures                    | Thousands to millions of particle images needed for high-resolution averaging |
 | **Throughput**         | Lower – time-consuming data collection per specimen                                      | Potentially higher – automated data collection and well-optimized pipelines |
 
-
----
-## Sub-Tomogram Averaging
-
-Cryo-ET can achieve higher resolution through **sub-tomogram averaging (STA)**, where repeated structures (e.g., ribosomes, viral spikes) are extracted from tomograms and aligned.
-
-## **Steps in STA**
-1. **Particle Picking** - Extract candidate regions from tomograms.
-2. **Alignment & Classification** - Align similar particles and classify.
-3. **Averaging** - Enhance resolution by averaging.
-
