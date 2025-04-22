@@ -6,6 +6,7 @@ nav_order: 2
 ---
 
 # Preprocessing and tomogram reconstruction in Scipion
+{: .no_toc }
 
 In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the 
 information to perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-relion-preprocessing/)**.
@@ -21,14 +22,18 @@ Here is the example workflow that we are going to follow:
   <img src="/imgs/02_Workflow_Scipion.PNG" alt="Processing Workflow" style="width:40%;">
 </a>
 
----
+
+## Table of Contents
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Create a new project
 
 From the base Scipion interface click on **Create Project**, give it a name and a location.  
 From there you are in your Scipion project, which is for now empty.
 
----
 
 ## Import frames
 
@@ -44,7 +49,6 @@ information about each tilt-series.
 
 > **Note**: We work with Tomo5 mdocs (TFS acquisition software) here but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD) which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
 
----
 
 ## Motion correction
 
@@ -98,7 +102,6 @@ Once motion correction is done, you want to remove “bad” tilts from your til
 
 You can just open the motion correction output by double click and hold down <kbd>space bar</kbd> to deselect the bad tilts. Once done cleaning all bad tilts save the new tilt stack and use this as the import for the next TS alignment job.
 
----
 
 ## Tilt-series alignment
 
@@ -142,14 +145,12 @@ Once you have done that for all the tomograms, you can provide this file as an i
   <img src="/imgs/10_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
----
 
 ## CTF estimation
 
 You can use different options to estimate CTF. However, you might have noticed that AreTomo can do it, and if you ran the previous job exactly as we did, you already have done it.
 We found that CTFFIND4, that was an alternative that we were using, was not performing as well as AreTomo. CTFFIND5 appears to be performing better than CTFFIND4, so we recommand using this one if you don't want to use AreTomo. You can check the CTF estimate by opening the AreTomo CTF output. Your CTF values should not deviate much over the entire tilt-series except for the bad tilts. Take care of the Y-axis scaling! This can be missleading.
 
----
 
 ## Tomogram reconstruction
 
@@ -179,7 +180,6 @@ TBD
 
 ### Generating CTF corrected tomograms
 
----
 
 ## Exporting data to RELION5 for STA
 
