@@ -74,7 +74,7 @@ time AreTomo3 \
 ```
 
 Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **2 e/Å² per 10 frames** would result in the `FmDose=0.2`.
-How the rest of the functionlity works as we defined it now is that it will find all frames corresponding to their .mdocs in the given path. The tomograms will be reconstructed with CTF correction in bin4 and also ODD+EVEN volumes are generated. Those can be used for denoising for example. If you don't use SLURM you can just adopt the above command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
+How the above command works now is that it will find all frames corresponding to their .mdocs in the given path. The tomograms will be reconstructed with CTF correction in bin4 and also ODD+EVEN volumes are generated. Those can be used for denoising for example. If you don't use SLURM you can just adopt the above command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
 
 ## Creating a RELION5 project
 
