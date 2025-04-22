@@ -8,6 +8,10 @@ nav_order: 4
 # Particle Picking by Template Matching
 {: .no_toc }
 
+<a href="/imgs/35_ribo.png" data-lightbox="image-gallery">
+  <img src="/imgs/35_ribo.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
 ## Table of Contents
 {: .no_toc }
 
