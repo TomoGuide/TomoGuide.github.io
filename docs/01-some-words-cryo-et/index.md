@@ -7,7 +7,7 @@ parent: "Welcome to Tomo101"
 
 # Some Words about Cryo-Electron Tomography
 
-Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA), which aims to determine the structure of repeated, purified macromolecular complexes by averaging thousands or even millions of identical particles, cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thick cellular sections (lamellae) produced by focused ion beam (FIB) milling. The main difference between SPA and cryo-ET, is that the data produced by cryo-ET is much more information-rich. You will see much more than what you are targeting, or sometimes it will be difficult to find what you are targeting. Additionally, you mostly work in 3D (even if the raw data are 2D projections of your sample). This means that you want to look at your tomograms to understand what’s in them (all of them!) contrary to look at SPA micrographs where you have the same things thousands of time.
+Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA), which aims to determine the structure of repeated, purified macromolecular complexes by averaging thousands or even millions of identical particles, cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thick cellular sections (lamellae) produced by focused ion beam (FIB) milling. The main difference between SPA and cryo-ET, is that the data produced by cryo-ET is much more information-rich. You will see much more than what you are targeting, or sometimes it will be difficult to find what you are targeting. Additionally, you mostly work in 3D (even if the raw data are 2D projections of your sample). This means that you want to look at your tomograms to understand what’s in them contrary SPA micrographs where you have the same things thousands of time.
 
 
 <pre>
@@ -32,10 +32,14 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
 ---
 ## Sample Types
 
-Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam can pass through (we are using transmission electron microscopes (**TEM**)). For whole cells, a focused ion beam (FIB) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms, or biopsies) which involve high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
+Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies) which involve high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
 
-(image idea for illustration: slice of a cell/tissue and organelle)
-
+<figure>
+  <img src="/imgs/00_CMC_vibe.jpeg" alt="Integrating cellular electron microscopy with multimodal data workflow" style="width:60%;">
+  <figcaption>
+    <em>McCafferty, Caitlyn L., et al. “Integrating cellular electron microscopy with multimodal data to explore biology across space and time.” <strong>Cell</strong> 187.3 (2024): 563–584.</em>
+  </figcaption>
+</figure>
 
 A critical philosophical difference is that cryo-ET aims to observe macromolecules in their natural cellular context. Meanwhile, SPA requires extensive purification steps, removing the protein complexes from their native milieu but achieving higher resolution in exchange for losing cellular context.
 
