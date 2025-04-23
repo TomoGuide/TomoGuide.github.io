@@ -2,7 +2,7 @@
 description: "A step-by-step Cryo-ET guide"
 remote_theme: "just-the-docs/just-the-docs"
 color_scheme: "light"
-favicon: "/imgs/00_logo.png"
+favicon_ico: "/imgs/00_logo.png"
 logo:   "/imgs/00_logo.png"
 
 
