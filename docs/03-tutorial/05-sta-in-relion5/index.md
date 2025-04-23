@@ -638,6 +638,10 @@ Here's the result after 3 cycles of Polishing/refinement, focused on the large s
   <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
+<a href="/imgs/34_final_ribo.png" data-lightbox="image-gallery">
+  <img src="/imgs/34_final_ribo.png" alt="Processing Workflow" style="width:60%;">
+</a>
+
 <video controls style="width:60%; max-width:100%;">
   <source src="/imgs/ribo_movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
