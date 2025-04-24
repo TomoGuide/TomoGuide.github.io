@@ -185,7 +185,7 @@ Whenever you modify a file, create a copy of the original and name it *_ori, so 
 Then run the AreTomo job again with the edited selected_tilt_series.star and run the tomo reconstruction. Your tomo should look better.  
 To be sure it was taken into account, check the .log and _AlignZ_ should be different for all tomos.
 
-## Generate CTF corrected tomograms
+## Generate CTF corrected tomograms {#ctftomo}
 
 Once we are satisfied with the alignment of our tomograms, we can reconstruct bin4 CTF corrected tomogram for template matching.
 

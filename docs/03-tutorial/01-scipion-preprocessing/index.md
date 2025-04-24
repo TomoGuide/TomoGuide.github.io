@@ -342,3 +342,5 @@ print("Batch replacement completed.")
 ```
 
 You need to adapt `replacement_text =` to your system. It needs to point to the absolute path of the Scipion `/Runs/` folder. Run the script in the `extra` folder where you have all the tomoXX.star files. All paths should point now be absolute and point to the correct files.
+
+Now you can reconstruct tomograms in RELION5 **[following here](03-tutorial/03-relion-preprocessing/#ctftomo)** where the <kbd>Input tilt series</kdb> is your `tomogram.star` file.
