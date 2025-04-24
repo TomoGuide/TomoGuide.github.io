@@ -40,7 +40,6 @@ If you want to push resolution (try classification etc.), process the entire set
 - **Defocus handedness:** -1 in RELION if starting from scratch (+1 if using the TOMOMAN preprocessed project)  
 - **Dose:** 3.5 e-/A² per tilt
 
----
 
 ## **Software**
 

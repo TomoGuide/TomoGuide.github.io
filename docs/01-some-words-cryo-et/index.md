@@ -13,7 +13,6 @@ Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dim
   <img src="/imgs/00_spa.png" alt="Processing Workflow" style="width:80%;">
 </a>
 
----
 ## Sample Types
 
 Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies) which involve high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
@@ -40,7 +39,6 @@ A critical philosophical difference is that cryo-ET aims to observe macromolecul
 
 In short, cellular lamellae capture the true cellular environment at the expense of more complex data collection and processing, whereas purified organelles simplify tomography but lose the broader context.
 
----
 ## Cryo-ET Data Collection Workflow
 
 
@@ -63,7 +61,6 @@ In short, cellular lamellae capture the true cellular environment at the expense
    You can segment specific structures in the tomogram or perform sub-tomogram averaging if you have repeated complexes.
 
 
----
 ## Challenges in Cryo-ET
 
 ### **Dose and Radiation Damage**
@@ -76,8 +73,6 @@ Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain a
 Even small movements in the sample can degrade correlations between images.
 
 
-
----
 ## Differences Between Cryo-ET and SPA
 
 
