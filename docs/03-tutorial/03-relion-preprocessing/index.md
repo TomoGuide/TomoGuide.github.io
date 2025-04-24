@@ -191,11 +191,11 @@ Once we are satisfied with the alignment of our tomograms, we can reconstruct bi
 
 Tilt angle offset: If you recontructed with AreTomo, you don't need to use this because AreTomo automatically flatens the tomo.
 
-<a href="/imgs/22_recons.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:60%;">
-</a>
 <a href="/imgs/23_recons.JPG" data-lightbox="image-gallery">
   <img src="/imgs/23_recons.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/22_recons.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/22_recons.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 <a href="/imgs/24_recons.JPG" data-lightbox="image-gallery">
   <img src="/imgs/24_recons.JPG" alt="Processing Workflow" style="width:60%;">
