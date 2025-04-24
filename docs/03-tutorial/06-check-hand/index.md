@@ -5,4 +5,5 @@ parent: "Tutorial"
 nav_order: 6
 ---
 
-# Check Tomogram Handedness
+# Check Physical Tomogram Handedness
+
