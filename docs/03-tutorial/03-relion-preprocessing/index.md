@@ -210,7 +210,3 @@ Additional flags to make your tomo look nicer and we advise to use:
 From here on you can run [template matching](/03-tutorial/04-template-matching/) to get particle positions (+ angles) to then try [STA](/03-tutorial/05-sta-in-relion5/)
 
 We advise to always CTF correct tomograms especially for template matching and STA. Even denoising like [cryoCARE](https://github.com/juglab/cryoCARE_pip) and [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example can benefit from this extra information of frequencies.
-
-## Create denoised tomos
-
-> TBD
