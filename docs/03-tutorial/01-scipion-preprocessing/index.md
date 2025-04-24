@@ -193,36 +193,36 @@ We will use **[CryoCARE (Content-Aware Image Restoration)](https://github.com/ju
 
 To run CryoCARE, you first have to train a model based on your own data, this will give the best results:
 
-<a href="/imgs/08_cryo1.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo1.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/08_cryo2.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo2.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/08_cryo3.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo3.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo3.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo3.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/08_cryo4.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo4.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo4.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo4.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 The training can run for several hours, especially if you have many tomograms. 
 You can then run a Prediction job that will use the model that you trained and the tomograms reconstructed from IMOD.
 
-<a href="/imgs/08_cryo5.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo5.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo5.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo5.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 The workflow should look like that:
 
-<a href="/imgs/08_cryo6.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo6.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo6.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo6.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Here's a comparison between non-denoised (left) and denoised (right) (yes this is the same tomogram!). Much better yes?
 
-<a href="/imgs/08_cryo7.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/08_cryo7.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/08_cryo7.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/08_cryo7.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 ---
@@ -234,11 +234,11 @@ A simple and rapid deconvolution approach would be the "dimifilter" - in IMOD im
 
 If you want to automatically segment membranes present in your tomograms you can use the **[MemBrain-seg](https://github.com/teamtomo/membrain-seg)** module (developed by [Lorenz Lamm](https://bsky.app/profile/lorenzlamm.bsky.social) from our team). It runs well on CryoCARE tomogram. Inside Scipion just run it with default parameters:
 
-<a href="/imgs/09_seg1.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/09_seg1.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/09_seg1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/09_seg1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
-<a href="/imgs/09_seg2.PNG" data-lightbox="image-gallery">
-  <img src="/imgs/09_seg2.PNG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/09_seg2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/09_seg2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 It looks great! If the segmentation is not perfect, you can then manually refine it in a software such as [Amira](https://www.thermofisher.com/ch/en/home/electron-microscopy/products/software-em-3d-vis/amira-software.html).
@@ -248,3 +248,97 @@ It looks great! If the segmentation is not perfect, you can then manually refine
 
 Scipion can export the final alignment, tomograms, or pick coordinates into RELION5. Just search for the `reliontomo` jobs.
 
+
+You can run a RELION5 tomograms reconstruction using the output of AreTomo alignment for example.
+Here the parameters for tomogram reconstruction don't really matter (because we won't actually use the tomograms) except for the **x y z (4096, 4096, 2048)** that have to be consistent with the rest of your workflow. Here, we reconstruct bin8 tomograms (15.28 Å/pix) as a test:
+
+<a href="/imgs/10_rln1.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln1.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+What we really want from this job are the .star files generated that will allow us to go into RELION5.
+
+If you go through the folder where you run your Scipion projects, you will be able to go find the Relion5TomoReconstruct folders:
+
+<a href="/imgs/10_rln2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln2.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+In "extra" you will see the tomoXX.star files that defines for RELION5 how each tomograms have to be reconstructed and the tomograms.star file that point to all the tomoXX.star files.
+
+<a href="/imgs/10_rln3.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln3.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+In a new folder, where you will work with RELION5, you can create a softlink to these folder(s), like so:
+
+```bash
+ln -s ~/Location/of/your/00XXXX_ProtRelion5TomoReconstruct ~/Location/of/your/Work/RelionFolder
+```
+
+Create a copy of the tomograms.star in your RelionFolder. It should look like that
+
+<a href="/imgs/10_rln4.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln4.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Now, we need to make sure the tomograms.star points properly to all the tomoXX.star files. Here's the file before
+
+<a href="/imgs/10_rln5.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln5.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+This path is wrong: `Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. We want it to point to this (relative to the root of our RELION5 working folder): `002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. To easily modify that, that you can <kbd>crtl + H</kbd> (search and replace) `"Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/"` and replace it by nothing. Here's how the file should look after:
+
+<a href="/imgs/10_rln6.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/10_rln6.JPG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+Then we need to modify paths in all the tomoXX.star files. 
+
+To do so you can use this script:
+
+```python
+import os
+ 
+# Define the directory containing the star files
+directory = "."
+ 
+# Define the text to search for and the replacement text
+search_text = "Runs/"
+replacement_text = "/scicore/home/engel0006/GROUP/projects/projectName/Runs/"
+ 
+# Check if the directory exists
+if not os.path.exists(directory):
+    print(f"Error: Directory '{directory}' does not exist.")
+    exit()
+ 
+# Iterate over all files in the directory
+for filename in os.listdir(directory):
+    if filename.endswith(".star"):  # Process only .star files
+        file_path = os.path.join(directory, filename)
+        print(f"Processing file: {file_path}")
+         
+        try:
+            # Read the file
+            with open(file_path, 'r') as file:
+                file_data = file.read()
+             
+            # Check if the search text exists in the file
+            if search_text in file_data:
+                # Replace all instances of the search text
+                updated_data = file_data.replace(search_text, replacement_text)
+                 
+                # Write the updated data back to the file
+                with open(file_path, 'w') as file:
+                    file.write(updated_data)
+                print(f"Updated file: {file_path}")
+            else:
+                print(f"No occurrences of '{search_text}' found in {file_path}.")
+        except Exception as e:
+            print(f"Error processing file {file_path}: {e}")
+ 
+print("Batch replacement completed.")
+```
+
+You need to adapt `replacement_text =` to your system. It needs to point to the absolute path of the Scipion `/Runs/` folder. Run the script in the `extra` folder where you have all the tomoXX.star files. All paths should point now be absolute and point to the correct files.
