@@ -21,5 +21,5 @@ We hope it will be useful!
 - Click **buttons** to access external resources.
 - Follow the **step-by-step tutorials**. -->
 
-**Start by selecting a topic from the sidebar!**
+**Start by selecting a topic from the sidebar on the left (or top right on mobile)!**
 
