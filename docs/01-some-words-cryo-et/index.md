@@ -66,13 +66,13 @@ In short, cellular lamellae capture the true cellular environment at the expense
 ---
 ## Challenges in Cryo-ET
 
-## **Dose and Radiation Damage**
+### **Dose and Radiation Damage**
 Electron radiation damages biological samples. The total electron dose must be strictly limited, leading to a lower signal-to-noise ratio (SNR).
 
-## **Missing Wedge Artifact**
+### **Missing Wedge Artifact**
 Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain anisotropic distortions, known as the **missing wedge** effect.
 
-## **Tilt-series alignment**
+### **Tilt-series alignment**
 Even small movements in the sample can degrade correlations between images.
 
 
