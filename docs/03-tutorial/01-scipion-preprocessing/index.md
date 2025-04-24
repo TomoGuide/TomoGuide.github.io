@@ -120,8 +120,6 @@ We will reconstruct bin8 tomograms first to quickly assess overall quality and t
 
 At this step we will not reconstruct odd/even tomograms for denoising since we are going to do it at a later stage.
 
-> **PLACEHOLDER: Here a little movie comparing unaligned with aligned TS**
-
 ### Refining AreTomo TS alignment
 
 This step is optional but highly recommended if you want well-aligned tomograms. The better the tomogram alignment, the easier it will be to detect your target of interest, and the better resolution you can achieve in subsequent analyses.

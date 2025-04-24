@@ -33,5 +33,7 @@ nav:
         url: /03-tutorial/04-template-matching/
       - title: "STA in RELION5"
         url: /03-tutorial/05-sta-in-relion5/
+      - title: "Check Handedness"
+        url: /03-tutorial/06-check-hand/
   - title: "Acknowledgments"
     url: /04-acknowledgments/
