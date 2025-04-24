@@ -29,7 +29,7 @@ To restrict particle extraction (or detection) to your lamella only, and not the
 In our case with ribosomes, a slab mask is actually not really necessary.
 You can automatically create a boundary masks using [Slabify](https://github.com/CellArchLab/slabify-et). This works best on denoised tomograms. For detailed instruction check the Slabify [Wiki](https://github.com/CellArchLab/slabify-et/wiki).
 
-If you know where you particle should be (e.g mitochondria, nucleus etc) you can further restrict your search by creating appropriate masks with software like [Amira](https://www.thermofisher.com/ch/en/home/electron-microscopy/products/software-em-3d-vis/amira-software/cell-biology.html?cid=msd_vds_ls_none_amr_123456_gl_pso_gaw_escchz&gad_source=1&gbraid=0AAAAADxi_GQP_HTwG5UvF75JpF-4AyxPP&gclid=Cj0KCQjwzYLABhD4ARIsALySuCSqID5sMy5zoaTDmyL_ScEreSQ_k5zh6D2_RKo_Dhr_trSPq0WOU7caAjPIEALw_wcB), [Napari](https://napari.org/stable/), [MITK](https://github.com/MITK/MITK) - or using automated membrane segmentations tools like [MemBrain-seg](https://github.com/teamtomo/membrain-seg). 
+If you know where you particle should be (e.g mitochondria, nucleus etc) you can further restrict your search by creating appropriate masks with software like [Amira](https://www.thermofisher.com/ch/en/home/electron-microscopy/products/software-em-3d-vis/amira-software.html), [Napari](https://napari.org/stable/), [MITK](https://github.com/MITK/MITK) - or using automated membrane segmentations tools like [MemBrain-seg](https://github.com/teamtomo/membrain-seg). 
 
 <a href="/imgs/35_slab.png" data-lightbox="image-gallery">
   <img src="/imgs/35_slab.png" alt="Processing Workflow" style="width:60%;">
