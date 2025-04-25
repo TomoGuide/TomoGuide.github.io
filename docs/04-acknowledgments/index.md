@@ -8,7 +8,7 @@ nav_order: 10
 
 This tutorial and website were created by [**Philippe Van der Stappen**](https://bsky.app/profile/phaips.vd.st) and [**Florent Waltz**](https://bsky.app/profile/florentwaltz.bsky.social), with contributions from the Cryo-ET community.
 
-Special thanks to **Sofie van Dorst, Ricardo Righetto, Davide Tamborini**, the entire [**Cell Architecture Lab**](https://www.cellarchlab.com/) and all software developers.
+Special thanks to **[Sofie van Dorst](https://bsky.app/profile/sofie-dot-rec.bsky.social), [Ricardo Righetto](https://bsky.app/profile/lifeonthewedge.bsky.social), the entire [**Cell Architecture Lab**](https://www.cellarchlab.com/), and all software developers.
 
 # Disclaimer
 
