@@ -14,7 +14,7 @@ nav_order: 1
 This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique and data processing workflows.
 You’ll find practical guidance for useful datasets, software recommendations, and a step-by-step tutorial for preprocessing and sub-tomogram averaging (STA).
 
-**Start by selecting a topic from the sidebar!**
+### Start by selecting a topic from the sidebar!**
 
 You have multiple options to choose from! 
 - If you want to start from scratch (raw frames) using our [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) you can start by going to [Dataset](/02-dataset-software-resources) and then following either one of the [Scipion](/03-tutorial/01-scipion-preprocessing), [RELION5](/03-tutorial/03-relion-preprocessing), or [AreTomo3](/03-tutorial/02-aretomo3) preprocessing workflows! 
