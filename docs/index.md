@@ -10,7 +10,7 @@ nav_order: 1
 </div>
 
 
-# Welcome to TomoGuide
+# **Welcome to TomoGuide**
 This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique and data processing workflows.
 You’ll find practical guidance for useful datasets, software recommendations, and a step-by-step tutorial for preprocessing and sub-tomogram averaging (STA).
 
