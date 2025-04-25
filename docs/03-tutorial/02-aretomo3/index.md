@@ -7,7 +7,7 @@ nav_order: 2
 
 # Preprocessing in AreTomo3
 
-[AreTomo3](https://github.com/czimaginginstitute/AreTomo3) is a software which can take you from raw frames/movies to 3D-CTF corrected tomograms in under 10 minutes. If you are not familiar with AreTomo3 you can read the [publication](https://www.biorxiv.org/content/10.1101/2025.03.11.642690v1). Below we will show you how to run AreTomo3 using a SLURM submission:
+[AreTomo3](https://github.com/czimaginginstitute/AreTomo3) is a software which can take you from raw frames/movies to 3D-CTF corrected tomograms in under 10 minutes. If you are not familiar with AreTomo3 you can read the [publication](https://www.biorxiv.org/content/10.1101/2025.03.11.642690v1) as well as the [user manual](https://github.com/czimaginginstitute/AreTomo3/tree/main/docs). Below we will show you how to run AreTomo3 using a SLURM submission:
 
 ```bash
 #!/bin/bash
@@ -33,7 +33,7 @@ tilt_axis=-95.75
 dark_tol=0.7
 vol_z=2048
 amp_con=0.1
-fm_dose=0.2 # dose per frame! so 2 e/A² per 10 frames here
+fm_dose=0.14 # dose per frame! so 3.5 e/A² per 25 slices here
 lowpass=15
 # align_z=1400 # Not really needed since AreTomo3 can estimate it automatically
  
@@ -53,7 +53,7 @@ time AreTomo3 \
     -PixSize ${apix} \
     -McBin 1 \
     -McPatch 1 1 \
-    -FmInt 1 \
+    -FmInt 12 \ # use EER fractionation here. Default value is 15
     -FmDose ${fm_dose} \
     -SplitSum 1 \
     -VolZ ${vol_z} \
@@ -73,7 +73,8 @@ time AreTomo3 \
     -AmpContrast ${amp_con}
 ```
 
-Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **2 e/Å² per 10 frames** would result in the `FmDose=0.2`.
+Make sure you check the meaning of all the flags with `AreTomo3 --help`. One important things to note is that `FmDose` is defined as **dose per frame**! Here for example **3.5 e/Å² per 25 frames** would result in the `FmDose=0.14`. This depends on your EER grouping - in TIFF format this will change and `FmInt 1` should be used.
+
 How the above command works now is that it will find all frames corresponding to their .mdocs in the given path. The tomograms will be reconstructed with CTF correction in bin4 and also ODD+EVEN volumes are generated. Those can be used for denoising for example. If you don't use SLURM you can just adopt the above command and submit/run it your way. Additionally, AreTomo3 will output many files with useful alignment information (e.g. IMOD format).
 
 ## Creating a RELION5 project
