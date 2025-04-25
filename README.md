@@ -2,10 +2,6 @@
 > **Please do not use or share its information just yet.**  
 > Wait until the authors communicate the official release.
 
-<p align="center">
-  <img src="docs/imgs/00_logo.svg" alt="TomoGuide Logo" width="200" />
-</p>
-
 <a href="https://tomoguide.github.io/" target="_blank">
   <img src="https://img.shields.io/badge/Open%20TomoGuide-Here-violet?style=flat" alt="Open TomoGuide">
 </a>
@@ -13,7 +9,9 @@
   <img src="https://img.shields.io/badge/License-CC%20BY--4.0-lightgrey.svg?style=flat" alt="License: CC-BY-4.0">
 </a>
 
----
+<p align="center">
+  <img src="docs/imgs/00_logo.svg" alt="TomoGuide Logo" width="200" />
+</p>
 
 ### ✨ Features
 - **Cryo-ET fundamentals** – Sample preparation, data collection, end-to-end workflows  
