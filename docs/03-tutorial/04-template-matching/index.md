@@ -10,7 +10,7 @@ nav_order: 4
 
 Here we are going to work with cytosolic ribosomes.
 
-For reference, here a low resolution depiction of a ribosome, with the large subunit colored in blue and the small subunit colored in yellow (with the head and the body colored differently)
+For reference, here a low-resolution depiction of a ribosome, with the large subunit colored in blue and the small subunit colored in yellow (with the head and the body colored differently)
 
 <a href="/imgs/35_ribo.png" data-lightbox="image-gallery">
   <img src="/imgs/35_ribo.png" alt="Processing Workflow" style="width:40%;">
@@ -24,7 +24,7 @@ For reference, here a low resolution depiction of a ribosome, with the large sub
 
 ## Create boundary masks of your tomograms
 
-To restrict particle extraction (or detection) to your lamella only, and not the entire tomogram, you might want to use a "slab mask" or a boundary mask. This is particularly useful on difficult targets to minimize the amount of false positive picks.
+To restrict particle extraction (or detection) to your lamella only, and not the entire tomogram, you might want to use a "slab mask" or a boundary mask. This is particularly useful on difficult targets to minimise the number of false positive picks.
 
 In our case with ribosomes, a slab mask is actually not really necessary.
 You can automatically create a boundary masks using [Slabify](https://github.com/CellArchLab/slabify-et). This works best on denoised tomograms. For detailed instruction check the Slabify [Wiki](https://github.com/CellArchLab/slabify-et/wiki).
@@ -40,19 +40,19 @@ You can make a slab_mask folder inside the tomograms folder (e.g RELION5/Tomogra
 
 ## Template matching using pytom-match-pick
 
-You should have tomograms for example from [RELION5](/03-tutorial/03-relion-preprocessing/) or [AreTomo3](/03-tutorial/02-aretomo3/). Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in root RELION working directory (e.g RELION5/project/template_matching).
+You should have tomograms for example from [RELION5](/03-tutorial/03-relion-preprocessing/) or [AreTomo3](/03-tutorial/02-aretomo3/). Make sure you have [pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick) installed. Set up a template matching folder in the root RELION working directory (e.g RELION5/project/template_matching).
 
 You will need to have:
 - A **template** at the correct pixel size. Here, we first use a SPA structure with matching pixel size, correct box size, and inverted contrast (black density on white background)
-- A **template mask** with the same properties. It can also just be a sphere but it is not recommended here.
+- A **template mask** with the same properties. It can also just be a sphere, but it is not recommended here.
 
-For more details check the [Documentation](https://sbc-utrecht.github.io/pytom-match-pick/). Generally, we recommend to use a template that was generated from the data. This gives **much** better results. 
+For more details, check the [Documentation](https://sbc-utrecht.github.io/pytom-match-pick/). Generally, we recommend using a template that was generated from the data. This gives **much** better results. 
 
 Hence, template matching is also an iterative process. For challenging targets, you want to rerun everything once you obtain a "low-res" (ideally bin4 Nyquist) structure from your data.
 
 ### Scaling a template using RELION or EMAN
 
-Two examples of how to scale an `input.mrc` file from the [EMDB](https://www.ebi.ac.uk/emdb/) for example using either `e2proc3d.py` from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or `relion_image_handler` from [RELION](https://github.com/3dem/relion/tree/ver5.0):
+Scaling an `input.mrc` file from the [EMDB](https://www.ebi.ac.uk/emdb/) can be done, for example, using either `e2proc3d.py` from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or `relion_image_handler` from [RELION](https://github.com/3dem/relion/tree/ver5.0):
 
 ```bash
 e2proc3d.py input.mrc output.mrc --scale=0.2 --process=filter.lowpass.gauss:cutoff_freq=0.1 --clip=84,84,84
@@ -62,15 +62,15 @@ relion_image_handler --i input.mrc --o output.mrc --rescale_angpix 7.64 --new_bo
 ```
 
 - **`--scale=0.2`**: Rescale the pixel size by a facor of input/output so here 5 for example.
-- **`process=filter.lowpass.gauss:cutoff_freq`**: Lowpass filter as 1/Resolution. Here 10 Å for example. Best to just filter to the binnings Nyquist resolution for "high-res TM".
+- **`process=filter.lowpass.gauss:cutoff_freq`**: Lowpass filter as 1/Resolution. Here, 10 Å for example. Best to just filter to the binning Nyquist resolution for "high-res TM".
 - **`new_box`** or **`clip`**: Boxsize (in pixels)
 - **`force_header_angpix`**: There might be some discrepancy between the desired and actual pixel size from the way RELION scales the image. We force the header to the desired pixel size.
 
 ### Running template matching on RELION5 tomograms {#rln5tm}
 
-To run template matching in batch (on all the tomograms in your RELION folder) we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary informations like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram those values will be provided to the `pytom_match_template.py` script. Alternatively, as always you can just run template matching using pytom the conventional way. Our scripts are intended to faciliate the batch submission of jobs in case you want to template match hundreds of tomograms.
+To run template matching in batch (on all the tomograms in your RELION folder), we will use this **[batch_pytom_wRln5](https://github.com/Phaips/batch_pytom_wRln5)** script we wrote. It is intended to create `bash.sh` files for SLURM submission.  It will read all necessary information like the defocus per tilt and exposure values from the `tilt-series.star` files in your RELION `Tomograms/jobXXX/` folder. For each tomogram, those values will be provided to the `pytom_match_template.py` script. Alternatively, as always, you can just run template matching using pytom in the conventional way. Our scripts are intended to facilitate the batch submission of jobs in case you want to template match hundreds of tomograms.
 
-For ribosomes good results were obtained using:
+For ribosomes, good results were obtained using:
 
 - Angular search: **10°**
 - Enable random-phase correction: **YES**
@@ -79,7 +79,7 @@ For ribosomes good results were obtained using:
 - Enable non-spherical mask: **YES**
 - High-pass filter: **400**
 
-An example how to run the script:
+An example of how to run the script:
 
 ```python
 python batch_pytom.py \
@@ -101,7 +101,7 @@ python batch_pytom.py \
   [--dry-run] # to just create the submission scripts without launching them
 ```
 
-> Note: many flags are set to default values like the voltage **300** kV, amplitude contrast **0.07**, and SLURM settings like the partition **emgpu** (name of our SLURM partition). So make sure you check `batch_pytom.py --help` for informations about the input flags. 
+> Note: many flags are set to default values like the voltage **300** kV, amplitude contrast **0.07**, and SLURM settings like the partition **emgpu** (name of our SLURM partition). So, make sure you check `batch_pytom.py --help` for information about the input flags. 
 
 An example output of one of the generated submission files might look like this:
 
@@ -145,20 +145,20 @@ pytom_match_template.py \
   --tomogram-ctf-model phase-flip \
   --non-spherical-mask \
   --high-pass 400 \
-  --tomogram-mask masks/bmask_1.mrc                           # from Slabify for example
+  --tomogram-mask masks/bmask_1.mrc                           # from Slabify, for example
 ```
 
-If you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure informations read correctly from the RELION .star files.
+If you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure information read correctly from the RELION .star files.
 
 > Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
-1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time but we recommend using it - especially for more challenging targets.
+1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time, but we recommend using it, especially for more challenging targets.
 
 You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this section, we'll show you how to visualize your particles first with IMOD, and then more appealingly using ChimeraX & ArtiaX.
 
 
 ## Running template matching on AreTomo3 tomograms {#at3tm}
 
-Similarly, if you have reconstructed your tomograms using the [AreTomo3 pipeline](03-tutorial/02-aretomo3/) we have a **[batch_pytom_aretomo3](https://github.com/Phaips/batch_pytom_aretomo3)** script. This will also create submission files for template matching using the tilt and CTF informations from the AreTomo3 outputs. Your output folder should look something like:
+Similarly, if you have reconstructed your tomograms using the [AreTomo3 pipeline](03-tutorial/02-aretomo3/), we have a **[batch_pytom_aretomo3](https://github.com/Phaips/batch_pytom_aretomo3)** script. This will also create submission files for template matching using the tilt and CTF information from the AreTomo3 outputs. Your output folder should look something like:
 
 ```
 aretomo3/
@@ -182,13 +182,13 @@ aretomo3/
 ...
 ```
 
-The functionality of the batch submission script is basically the same as for above [RELION5](/03-tutorial/04-template-matching/#rln5tm) one. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page. Alternatively, as always you can run pytom with template matching just using the conventional way. Our scripts are intended to faciliate the batch submission of jobs in case you want to template match hundreds of tomograms.
+The functionality of the batch submission script is basically the same as for the above [RELION5](/03-tutorial/04-template-matching/#rln5tm) one. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page. Alternatively, as always, you can run pytom with template matching just using the conventional way. Our scripts are intended to facilitate the batch submission of jobs in case you want to template match hundreds of tomograms.
 
 ## Extract particles
 
 Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. This will create the `particles.star` in RELION5 format to then use for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). Again for detailed explanation check the documentation or `--help` of the pytom script.
 
-You can extract from multiple tomos for example via SLURM like:
+You can extract from multiple tomos, for example, via SLURM like:
 
 ```bash
 #!/bin/bash -l
@@ -237,7 +237,7 @@ We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which 
 rln2mod.py --x 1024 --y 1024 --z 512
 ```
 
-Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualization is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! Here, an example from reconstruction in AreTomo with refined thickeness and with default pytom extraction parameters using a high-pass filter of 400. Shown in in IMOD XYZ mode (<kbd>ctrl + X</kbd>):
+Just give the tomogram dimensions in pixels as input. Then you can open your tomogram.mrc and .mod together in IMOD. A trick for better visualisation is to go to: <kbd>Edit > Object > Type > Sphere radius for point</kbd> and increase this value! Here, an example from reconstruction in AreTomo with refined thickness and with default pytom extraction parameters using a high-pass filter of 400. Shown in in IMOD XYZ mode (<kbd>ctrl + X</kbd>):
 
 <a href="/imgs/36_mod.png" data-lightbox="image-gallery">
   <img src="/imgs/36_mod.png" alt="Processing Workflow" style="width:60%;">
@@ -250,21 +250,21 @@ Common problems that can occur:
 - Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
 
 The latter might not pose a problem if you believe you can easily trash them through classification in the later stages of **[STA](/03-tutorial/05-sta-in-relion5/)**.
-You can improve your particle picks by using a mask only covering the cytosol and excluding the chloroplast instead of a simple boundary mask. You can even provide this mask during the extraction job. This will yield optimal results as you only extract particles in the areas you expect them to be. However, this requires you to create the masks in the first place and can be tedious when you work with tens or hundreds of tomograms. Approaches like **[Pom](https://github.com/bionanopatterning/Pom)** or other automated volume segmentations or many-feature segmentations could overcome this bottleneck. We have not tested such approaches thoroughly enough though.
-You can also try to play with pytom parameters like the `high-pass`. We used a value of 400, you can use smaller values, but be careful at some point you will lose true positive signal. The number of particles you want extracted is always tricky to decide. Of course, you ideally want to pick "everything" i.e. all the true positives. In reality, if you want to pick "everything", you will probably have to "overpick" and include false positives. Luckily you will have the chance of cleaning them out in the later stages. If you "underpick", there are high chances that you will minimise the number of false positives and only select your particles of interest. This is useful when you want to quickly generate an average from your own data. This is **ALWAYS** a good idea when doing template matching. Because using a template generated from your data will always give better results than a template coming from e.g an SPA map or `molmap` in ChimeraX from a PDB (worst).
+You can improve your particle picks by using a mask that only covers the cytosol and excludes the chloroplast instead of a simple boundary mask. You can even provide this mask during the extraction job. This will yield optimal results as you only extract particles in the areas you expect them to be. However, this requires you to create the masks in the first place and can be tedious when you work with tens or hundreds of tomograms. Approaches like **[Pom](https://github.com/bionanopatterning/Pom)** or other automated volume segmentations or many-feature segmentations could overcome this bottleneck. We have not tested such approaches thoroughly enough, though.
+You can also try to play with pytom parameters like the `high-pass`. We used a value of 400; you can use smaller values, but be careful that at some point, you will lose the true positive signal. The number of particles you want extracted is always tricky to decide. Of course, you ideally want to pick "everything", i.e. all the true positives. In reality, if you want to pick "everything", you will probably have to "overpick" and include false positives. Luckily, you will have the chance of cleaning them out in the later stages. If you "underpick", there are high chances that you will minimise the number of false positives and only select your particles of interest. This is useful when you want to quickly generate an average from your own data. This is **ALWAYS** a good idea when doing template matching. Because using a template generated from your data will always give better results than a template coming from, e.g an SPA map or `molmap` in ChimeraX from a PDB (worst).
 
 ## Combining your particles
 
 Finally, once you are satisfied with the template matching results, you can generate a "master" .star file that will contain all the particle positions for all the tomograms.
-To do so you can use the `pytom_merge_stars.py` script included with pytom. Run it from a folder containing all your `.star` files. It will automatically merge particle lists present in the directory
+To do so, you can use the `pytom_merge_stars.py` script included with pytom. Run it from a folder containing all your `.star` files. It will automatically merge particle lists present in the directory
 
-When importing to RELION5, make sure prefix such as `rec_` is not present in the `rlnTomoName` field of your merged `particles.star` file. Otherwise do a quick find-and-replace to remove this prefix.
+When importing to RELION5, make sure a prefix such as `rec_` is not present in the `rlnTomoName` field of your merged `particles.star` file. Otherwise, do a quick find-and-replace to remove this prefix.
 
 ## Visualisation in ChimeraX using ArtiaX
 
 We will show you how to use the [ArtiaX](https://github.com/FrangakisLab/ArtiaX) plug-in in [ChimeraX](https://www.cgl.ucsf.edu/chimerax/). This allows you to not only check the position but also the orientation of particles.
 
-This is also what we use to create these figures;
+This is also what we use to create these figures:
 
 <figure style="text-align:center;">
 <a href="/imgs/37_mitopoop.png" data-lightbox="image-gallery">
@@ -284,9 +284,9 @@ This is also what we use to create these figures;
   </figcaption>
 </figure>
 
-Here is a short step by step guide on how to open your particles in ArtiaX.
+Here is a short step-by-step guide on how to open your particles in ArtiaX.
 
-Once you've installed ArtiaX, you should have have these options available on the top window:
+Once you've installed ArtiaX, you should have these options available on the top window:
 
 <a href="/imgs/38_artiax1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax1.JPG" alt="Processing Workflow" style="width:70%;">
@@ -310,7 +310,7 @@ On the right, you have the ArtiaX options, you can play with the two first slide
   <img src="/imgs/placeholder.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-To open a particle list, select <kbd>Open List</kbd>, chose your list (it needs to be a RELION5 particle list), and this window will pop-up. Click on custom and select the tomogram, it will adapt the dimensions.
+To open a particle list, select <kbd>Open List</kbd>, choose your list (it needs to be a RELION5 particle list), and this window will pop up. Click on custom and select the tomogram, and it will adapt the dimensions.
 
 <a href="/imgs/38_artiax4.JPG" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax4.JPG" alt="Processing Workflow" style="width:60%;">
@@ -318,7 +318,7 @@ To open a particle list, select <kbd>Open List</kbd>, chose your list (it needs 
 
 If you have a particle list with particles from several tomograms (e.g a concatenated particle list after template matching), you'll want to display only the particles from your tomogram of interest (here tomo50).
 
-On the left go to <kbd>Select/Manipulate</kbd>, and <kbd>Add selector</kbd>. Choose `rlnTomoName`, and select only the tomogram you want (here 50)
+On the left, go to <kbd>Select/Manipulate</kbd>, and <kbd>Add selector</kbd>. Choose `rlnTomoName`, and select only the tomogram you want (here 50)
 
 <a href="/imgs/38_artiax5.png" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax5.png" alt="Processing Workflow" style="width:60%;">
@@ -330,38 +330,38 @@ Now, only the particles from tomogram 50 are visible:
   <img src="/imgs/38_artiax6.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-The center of the particles are represented by balls and their orientation by the arrows. However, you see all particles from all the slices are represented, you can change it by pressing <kbd>Clip</kbd> on the top.
+The centre of the particles is represented by balls, and their orientation by the arrows. However, you see all particles from all the slices are represented, you can change it by pressing <kbd>Clip</kbd> on the top.
 Now only the particles close (in Z) to the plane you are looking at will be visible. Easier for inspection.
 
 <a href="/imgs/38_artiax7.JPG" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax7.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-You can also hide the tomogram and just look at the particles. Here, for example, you can see a pattern, these particles appear to all be oriented the same way.
+You can also hide the tomogram and just look at the particles. Here, for example, you can see a pattern; these particles appear to all be oriented the same way.
 
 <a href="/imgs/38_artiax8.JPG" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax8.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Let's try to attach a volume to these particles, to have a better idea of what is happening. On the left window, <kbd>Open Geomodel</kbd> (a .mrc volume, for example the template used for template matching, or the volume you obtained during STA)
-Then on the right, on the <kbd>Visualization tab</kbd>, at the bottom, on the <kbd>Add new surface</kbd> part, click on <kbd>Attach Model</kbd>. Now we have ribosomes! You can play for the <kbd>Surface Level</kbd> to make it nice.
+Let's try to attach a volume to these particles, to have a better idea of what is happening. On the left window, <kbd>Open Geomodel</kbd> (a .mrc volume, for example, the template used for template matching, or the volume you obtained during STA)
+Then on the right, on the <kbd> Visualisation tab</kbd>, at the bottom, on the <kbd>Add new surface</kbd> part, click on <kbd>Attach Model</kbd>. Now we have ribosomes! You can play for the <kbd>Surface Level</kbd> to make it nice.
 
 <a href="/imgs/38_artiax9.JPG" data-lightbox="image-gallery">
   <img src="/imgs/38_artiax9.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Here you can see that many of them are nicely organized, these are ER-bound polysomes.
+Here you can see that many of them are nicely organised, these are ER-bound polysomes.
 
 You can also open multiple particle lists from multiple complexes as well as membrane segmentation, to understand how all these thing are organized in 3D, and to create nice figures.
 
 
 ## Alternatives to template matching
 
-While template matching is a standard method, several alternative approaches have been developed for identifying macromolecules within dense cellular environment. Especially, in the case where you don't know what your particle looks like, template matching falls short.
+While template matching is a standard method, several alternative approaches have been developed for identifying macromolecules within a dense cellular environment. Especially, in the case where you don't know what your particle looks like, template matching falls short.
 
 ### Manual Picking
 
-- If you are able to recognize your particle of interest in the tomograms, you can manually select them in IMOD or with ArtiaX
+- If you can recognise your particle of interest in the tomograms, you can manually select them in IMOD or with ArtiaX
 
 ### Machine Learning-Based Methods
 
@@ -372,8 +372,8 @@ While template matching is a standard method, several alternative approaches hav
 
 ### Geometry-Based Methods
 
-- **[MPicker](https://www.nature.com/articles/s41467-024-55767-w)**: Focuses on membrane-associated particles by generating flattened tomograms to reduce membrane curvature, enhancing the visualization and localization of proteins on membranes.​
-- **[MemBrain-pick](https://github.com/CellArchLab/membrain-pick)**: Part of the MemBrain suite, this tool utilizes pre-existing membrane segmentations to localize membrane-associated particles. It converts segmentations into mesh representations, which can be manually annotated using Surforama to train models for particle prediction.​
+- **[MPicker](https://www.nature.com/articles/s41467-024-55767-w)**: Focuses on membrane-associated particles by generating flattened tomograms to reduce membrane curvature, enhancing the visualisation and localisation of proteins on membranes.​
+- **[MemBrain-pick](https://github.com/CellArchLab/membrain-pick)**: Part of the MemBrain suite, this tool utilises pre-existing membrane segmentations to localise membrane-associated particles. It converts segmentations into mesh representations, which can be manually annotated using Surforama to train models for particle prediction.​
 
 
 
