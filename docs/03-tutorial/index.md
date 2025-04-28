@@ -11,7 +11,7 @@ has_children: true
 
 # General workflow
 
-Cryo-ET data processing can be summarized by this simple chart. If you’re familiar with single-particle data processing, you’ll notice that most of the pre-processing steps are very similar.
+Cryo-ET data processing can be summarised by this simple chart. If you’re familiar with single-particle data processing, you’ll notice that most of the pre-processing steps are very similar.
 
 In this tutorial, we’ll walk through all the steps following data acquisition.
 
@@ -30,7 +30,7 @@ Here’s a quick summary:
 - **CTF Estimation**: The electron microscope’s lenses can cause distortions in the images. The “Contrast Transfer Function” 
   (CTF) describes those distortions. By estimating the CTF, you gather important information that helps correct these 
   effects later on.  
-- **Tilt-Series Curation**: Because you take a series of images at various tilt angles, some may be poor quality (e.g., too 
+- **Tilt-Series Curation**: Because you take a series of images at various tilt angles, some may be of poor quality (e.g., too 
   much drift or damage). Tilt-series curation is where you review the images and remove or flag the bad ones, ensuring only 
   the best data moves forward.
 
@@ -46,13 +46,12 @@ images that are overly damaged or too low in signal to be useful. This helps mai
 
 ## Tomogram Reconstruction
 
-Once all the tilt-series images are aligned and cleaned up, the software combines them to form a 3D “tomogram,” which is 
-essentially a 3D picture of your sample.
+Once all the tilt-series images are aligned and cleaned up, the software combines them to form a 3D “tomogram,” which is essentially a 3D picture of your sample.
 
 ## Post-processing
 
-- **Deconvolution / Denoising**: Specialized methods refine the 3D data by enhancing details and reducing noise, similar to 
-  using a ‘sharpen’ or ‘denoise’ filter on a standard image—only adapted for three dimensions. This is used to make the 
+- **Deconvolution / Denoising**: Specialised methods refine the 3D data by enhancing details and reducing noise, similar to 
+  using a ‘sharpen’ or ‘denoise’ filter on a standard image, only adapted for three dimensions. This is used to make the 
   tomograms pleasant to “human” eyes.  
 - **CTF Correction**: You use the previously estimated CTF information to correct for the lens distortions in your final 3D 
   tomogram, improving the overall quality and clarity. This is especially important for STA and automated particle picking.
