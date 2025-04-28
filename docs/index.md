@@ -4,11 +4,9 @@ title: "Welcome to Tomo101"
 nav_order: 1
 ---
 
-<div style="border:2px solid red; padding:1em; background-color:#ffe5e5; color:#a00; margin-bottom:1em;">
-<h2>🚧 Under Construction 🚧</h2>
-<p>This website is under heavy construction! Please do not use or share the information just yet. Please wait until the authors communicate the official release.</p>
-</div>
-
+<a href="docs/imgs/00_ribofun.png" data-lightbox="image-gallery">
+  <img src="docs/imgs/00_ribofun.png" alt="Ribofun" style="width:100%;">
+</a>
 
 # **Welcome to TomoGuide**
 This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique and data processing workflows.
