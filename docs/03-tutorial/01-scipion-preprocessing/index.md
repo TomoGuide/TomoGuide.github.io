@@ -50,7 +50,7 @@ information about each tilt series.
 > **Note**: We work with Tomo5 mdocs (TFS acquisition software) here but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD) which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that. Check **[here](/03-tutorial/06-check-hand/)**.
 
 
-## Motion correction
+## Motion correction {#motion-correction}
 
 This step aligns each frame of the movies and corrects for beam-induced motion. Frames to align can bet set **from 1 to 0** then it will automatically detect the number of frames.
 
