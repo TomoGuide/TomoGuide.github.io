@@ -4,8 +4,8 @@ title: "Welcome to Tomo101"
 nav_order: 1
 ---
 
-<a href="docs/imgs/00_ribofun.png" data-lightbox="image-gallery">
-  <img src="docs/imgs/00_ribofun.png" alt="Ribofun" style="width:100%;">
+<a href="/docs/imgs/00_ribofun.png" data-lightbox="image-gallery">
+  <img src="/docs/imgs/00_ribofun.png" alt="Ribofun" style="width:100%;">
 </a>
 
 # **Welcome to TomoGuide**
