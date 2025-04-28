@@ -34,7 +34,7 @@ If you want to push resolution (try classification etc.), process the entire set
 **General info about the dataset:**
 
 - **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
-- **Pixel size:** 1.91 (originally 1.96, but 1.91 is closer to reality)  
+- **Pixel size:** 1.91 (microscope defined 1.96, calibrated by STA to be 1.91)  
 - **Voltage:** 300  
 - **Spherical aberration:** 2.7  
 - **Tilt axis:** 95 (use -95 to get the proper tomogram handedness)  
