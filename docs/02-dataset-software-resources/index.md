@@ -23,12 +23,13 @@ This folder should contain:
 - The raw frames  
 - The .mdoc for each tilt series (6 + 27)  
 - The gain references (2)  
-- Two text files with thickness measurements for automated AreTomo TS alignment  
-- Templates and masks for Template Matching  
+- Two text files with thickness measurements for automated AreTomo TS alignment : link for download 
+- Templates and masks for Template Matching : link for download
 
 The 33 tilt-series (TS) can be divided into two groups: 6 associated with GainRef1 and 27 with GainRef2.  
 If you are just interested in learning the basics of tomogram reconstruction and STA, we recommend using only the 6 TS associated with GainRef1 as processing will be faster.  
 If you want to push resolution (try classification etc.), process the entire set of TS.
+
 
 **General info about the dataset:**
 
@@ -45,6 +46,8 @@ If you want to push resolution (try classification etc.), process the entire set
 
 You need to have access to a GPU-powered machine running on Linux. It can be a local machine or a computing cluster. In our case, we work on a computing cluster with a SLURM system.
 You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a python installation.
+
+Click on the buttons below to get more information about the main software used in that tutorial and download them:
 
 [Scipion](https://scipion.i2pc.es/){: .btn } <br>
 [IMOD](https://bio3d.colorado.edu/imod/){: .btn } <br>

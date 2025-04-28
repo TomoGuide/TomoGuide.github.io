@@ -57,7 +57,7 @@ You need to know the tilt axis and the defocus handedness for RELION (something 
 You also need to know the handedness of your tomos.  
 In our case they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95 we use -95.
 
-Both defocus handedness and tomo handedness can be checked once the tomos are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
+Both defocus handedness and tomo handedness can be checked once the tomograms are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
 Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should be all the same.
 
 ## Motion Correction and CTF estimation 
@@ -102,7 +102,7 @@ Napari, is an interactive, open-source Python tool for visualizing, annotating, 
 
 Go through the tilt stack and untick the stacks that aren't good. In that case for example (tomo24) tilts -67° to -70° and 41° to 50° were blacked out, so we removed them. Be aware that Napari does not handle the contrast of tomograms that well...
 
-Once you are done with all the TS, you can press <kbd>save tilt-series STAR file</kbd> and proceed to the next step.
+Once you are done with all the tilt series, you can press <kbd>save tilt-series STAR file</kbd> and proceed to the next step.
 
 ## TS alignment
 
@@ -202,10 +202,10 @@ Tilt angle offset: If you recontructed with AreTomo, you don't need to use this 
 </a>
 
 Additional flags to make your tomo look nicer and we advise to use:  
-- ---**Fc** (binning by Fourier cropping)  
-- ---**pre_weight** (pre-weighting in 2D instead of 3D weighting)  
-- ---**ctf** (CTF correction by phase flip)  
-- ---**SNR 100** (Wiener filter SNR value. Default 10. We found 100 looks "more IMOD-like")
+* --**Fc** (binning by Fourier cropping)  
+* --**pre_weight** (pre-weighting in 2D instead of 3D weighting)  
+* --**ctf** (CTF correction by phase flip)  
+* --**SNR 100** (Wiener filter SNR value. Default 10. We found 100 looks "more IMOD-like")
 
 From here on you can run [template matching](/03-tutorial/04-template-matching/) to get particle positions (+ angles) to then try [STA](/03-tutorial/05-sta-in-relion5/)
 
