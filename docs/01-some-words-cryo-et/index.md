@@ -2,12 +2,12 @@
 layout: default
 title: "Some Words about Cryo-Electron Tomography"
 nav_order: 2
-parent: "Welcome to Tomo101"
+parent: "Welcome to TomoGuide"
 ---
 
 # Some Words about Cryo-Electron Tomography
 
-Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA), which aims to determine the structure of repeated, purified macromolecular complexes by averaging thousands or even millions of identical particles, cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thick cellular sections (lamellae) produced by focused ion beam (FIB) milling. 
+Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA) -- which aims to determine the structure of repeated -- purified macromolecular complexes by averaging thousands or even millions of identical particles, cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thick cellular sections (lamellae) produced by focused ion beam (FIB) milling. 
 
 The main difference between SPA and cryo-ET is that cryo-ET data is much more information-rich. In cryo-ET, you see much more than what you are specifically targeting, and sometimes it can even be difficult to find your target in the tomograms. Additionally, in cryo-ET, you typically work in 3D, even though the raw data are 2D projections of your sample. This means you need to examine your tomograms in detail to understand what’s in them, whereas in SPA, the micrographs often show the same structure multiple times.
 
