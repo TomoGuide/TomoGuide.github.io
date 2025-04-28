@@ -20,6 +20,7 @@ You have multiple options to choose from!
 - If you want to start from scratch (raw frames) using the [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) you can start by going to [Dataset](/02-dataset-software-resources) and then following either one of the [Scipion](/03-tutorial/01-scipion-preprocessing), [RELION5](/03-tutorial/03-relion-preprocessing), or [AreTomo3](/03-tutorial/02-aretomo3) preprocessing workflows! 
 - If you want to start from preprocessed deposited data (originally preprocessed in TOMOMAN) of the [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) and learn STA using RELION5 -- you can use [this script](https://github.com/Chromatin-Structure-Rhythms-Lab/ChlamyAnnotations/tree/master/chlamydataset2relion5) to create the necessary files to start [STA](/03-tutorial/05-sta-in-relion5/#ctftomo)
 - If you want to use your own data go ahead and explore our [Tutorial](/03-tutorial) page.
+
 We hope it will be useful! 
 
 Please keep in mind that there are dozens of cryo-ET softwares and workflows out there. What we have summarized here are common workflows we (the [Cell Architecture Lab](https://www.cellarchlab.com/)) use. Naturally, the field is constantly evolving and progressing! If you have any ideas, issues, suggestions, comments etc. please raise them directly on [GitHub](https://github.com/TomoGuide/TomoGuide.github.io). 
