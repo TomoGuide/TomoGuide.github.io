@@ -8,10 +8,10 @@ nav_order: 2
 # Preprocessing and tomogram reconstruction in Scipion
 {: .no_toc }
 
-In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the 
-information to perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-relion-preprocessing/)**.
+In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the alignement 
+information to pick particles and perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-relion-preprocessing/)**.
 
-Scipion is a freely available and open-source software that mainly acts as a wrapper for other programs, allowing you to 
+**[Scipion](https://scipion.i2pc.es/)** is a freely available and open-source software that mainly acts as a wrapper for other programs, allowing you to 
 organize your projects and have different software interact almost seamlessly. It can be used for both SPA and tomography, 
 but it is particularly handy for tomography since the field currently lacks a “simple” software that performs all the 
 operations necessary for tomogram reconstruction and STA, while also keeping track of your work.
@@ -47,10 +47,10 @@ _“Add tomo - import tilt-series”_.
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
 information about each tilt series.
 
-> **Note**: We work with Tomo5 mdocs (TFS acquisition software) here but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD) which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that.
+> **Note**: We work with Tomo5 mdocs (TFS acquisition software) here but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD) which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that. Check **[here](/03-tutorial/06-check-hand/)**.
 
 
-## Motion correction
+## Motion correction {#motion-correction}
 
 This step aligns each frame of the movies and corrects for beam-induced motion. Frames to align can bet set **from 1 to 0** then it will automatically detect the number of frames.
 
@@ -67,12 +67,14 @@ This step aligns each frame of the movies and corrects for beam-induced motion. 
   <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using software like [cryoCARE](https://github.com/juglab/cryoCARE_pip) or [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example. Later in this tutorial, we will explain how to denoise tomograms.
+Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using software like [cryoCARE](https://github.com/juglab/cryoCARE_pip) or [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example. Denoising is described later in the tutorial.
 
 In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
 the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
 
-Because this dataset was collected as `.eer`, specify how you want to group frames. For instance:
+Because this dataset was collected as `.eer`, you have the choice to decide how you want to group your frames. It also mean you **need** to specify how you want to group the frames. 
+
+To do so, we use this formula:
 
 ```
 N_frames = desired_dose_per_group / ( dose_per_tilt * pixel_size² / total_EER_frames )
@@ -91,7 +93,7 @@ Note that tilts from GainRef1 and GainRef2 have different number of frames (on a
 N_frames = 0.5 / ( 3.5 * 1.91² / 350  ) = 13.7 ~ 14 frames
 ```
 
-For `.tiff` frames this is not necessary/will not be considered.
+For `.tiff` frames this is not necessary/will not be considered, because the frames are already grouped.
 
 ## Cleaning the stack
 
@@ -123,7 +125,9 @@ Once you saved them a new tilt series should be present.
 
 ## Tilt series alignment
 
-Can be done either with **AreTomo** or with **IMOD patch tracking**. Here, we automatically do it with AreTomo. AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
+Can be done either with **AreTomo** or with **IMOD patch tracking**. Here, we are showing you how to automatically do it with AreTomo. 
+
+AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It also refines the tilt axis angle, starting from the one you provided at import.
 
 <a href="/imgs/08_Aretomo1_Scipion.PNG" data-lightbox="image-gallery">
   <img src="/imgs/08_Aretomo1_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
@@ -132,9 +136,9 @@ Can be done either with **AreTomo** or with **IMOD patch tracking**. Here, we au
   <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps — such as when performing Subtomogram Averaging (STA) — you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates (link).  
+> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps — such as when performing Subtomogram Averaging (STA) — you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates, **[link](/03-tutorial/06-check-hand/)**.  
 
-We will reconstruct bin8 tomograms first to quickly assess overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella  thickness of 1000 unbinned pixels (~190 nm).
+We will reconstruct bin8 tomograms first to quickly assess their overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella thickness of 1000 unbinned pixels (~190 nm).
 
 At this step we will not reconstruct odd/even tomograms for denoising since we are going to do it at a later stage.
 
@@ -164,7 +168,7 @@ Once you have done that for all the tomograms, you can provide this file as an i
 
 ## CTF estimation
 
-You can use different options to estimate CTF. However, you might have noticed that AreTomo can do it, and if you ran the previous job exactly as we did, you already have done it.
+To estimate CTF, you have different options. However, you might have noticed that AreTomo can do it, and if you ran the previous job exactly as we did, you already have done it.
 We found that CTFFIND4, that was an alternative that we were using, was not performing as well as AreTomo. CTFFIND5 appears to be performing better than CTFFIND4, so we recommand using this one if you don't want to use AreTomo. You can check the CTF estimate by opening the AreTomo CTF output. Your CTF values should not deviate much over the entire tilt series except for the bad tilts. Take care of the Y-axis scaling! This can be missleading.
 
 
@@ -341,6 +345,6 @@ for filename in os.listdir(directory):
 print("Batch replacement completed.")
 ```
 
-You need to adapt `replacement_text =` to your system. It needs to point to the absolute path of the Scipion `/Runs/` folder. Run the script in the `extra` folder where you have all the tomoXX.star files. All paths should point now be absolute and point to the correct files.
+You need to adapt `replacement_text =` to your system. It needs to point to the absolute path of the Scipion `/Runs/` folder. Run the script in the `extra` folder where you have all the tomoXX.star files. All paths should now be absolute and point to the correct files.
 
 Now you can reconstruct tomograms in RELION5 **[following here](/03-tutorial/03-relion-preprocessing/#ctftomo)** where the <kbd>Input tilt series</kbd> is your `tomogram.star` file.

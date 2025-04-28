@@ -8,15 +8,9 @@ nav_order: 5
 # Subtomogram Averaging (STA) in RELION5
 {: .no_toc }
 
+We will now use the particles positions obtained from Template Matching to perfom STA on our target of interest (here cytosolic ribosomes).
 
-After you’ve reconstructed your tomograms in RELION5 (or AreTomo3 or exported them from Scipion), you can proceed with subtomogram 
-averaging to reach higher resolution on repeated structures (e.g. Ribosomes).
-
-If you started in RELION you can directly go to Pick particles (link) otherwise if you come from Scipion or AreTomo3, you have to import them to RELION.
-
-If you skipped the RELION reconstruction part, some info about the running tab.
-
-The parameters you need to use in the Running tab will depend on your system, if you run RELION on a local machine, or through a computing cluster etc ...
+In the following section, the parameters you need to use in the RELION Running tab will depend on your system, e.g. if you run on a local machine, or through a computing cluster etc ...
 
 To know whether our job is going to run on GPU or CPU here's a list:
 
@@ -47,7 +41,7 @@ In general, it's best to use box sizes that are powers of 2 or 3. These "magic n
 In our case, 46 is not ideal, and we want something about 1.5 to 2 times larger anyway. A box size of 72 or 84 pixels would be appropriate, let's use 84. Of course the larger the box, the longer the computation time.
 
 You want to use the new RELION5 "Write out as 2D stacks" for faster processing. 
-Here for inputs, I used fused particles from Gain1 and Gain2 and created a tomograms.star containing both Gain1 and Gain2 tomos
+Here for inputs, we used fused particles from Gain1 and Gain2 and created a tomograms.star containing both Gain1 and Gain2 tomos. Fusing particle list can be done in RELION (Join star files) or using the `pytom_merge_stars.py` from pyTOM. For the concatenated tomograms.star you can just copy/paste the info below the header of Gain1 into the tomograms.star of Gain2 and create a concatenated tomograms_gain1n2.star.
 
 <a href="/imgs/25_extract.JPG" data-lightbox="image-gallery">
   <img src="/imgs/25_extract.JPG" alt="Processing Workflow" style="width:60%;">
@@ -294,7 +288,7 @@ You can click on <kbd>Show metadata this class</kbd>
 </a>
 
 And you can see how many particles are in that class, the estimated resolution etc ...
-Of course you can also open all these classes in ChimeraX to see how they look:
+Of course, you can also open all these classes in ChimeraX to see how they look:
 
 <a href="/imgs/29_class5.png" data-lightbox="image-gallery">
   <img src="/imgs/29_class5.png" alt="Processing Workflow" style="width:80%;">
@@ -309,7 +303,7 @@ Same as before, you can also monitor the classification in RELION, using the com
 </a>
 
 
-Here i'm tracking how much the particles are changing classes.
+Here we are tracking how much the particles are changing classes.
 You can see that after iteration 19, not much is happening anymore. So we will use this.
 
 
@@ -350,9 +344,9 @@ Here's an example of selected classes:
   <img src="/imgs/29_class8.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-You can see i selected classes 2, 3, 5 and 6. 
+You can see that we selected classes 2, 3, 5 and 6. 
 
-In that case, I could have also discarded class 2 that have less defined features, but I decided to be generous with the particle selection because I know that some will improve later.
+In that case, we could have also discarded class 2 that have less defined features, but we decided to be generous with the particle selection because we know that some will improve later.
 We will do a second round of classification without alignment at bin2 where we will be more selective.
 
 
@@ -391,7 +385,7 @@ These are the parameters that are going to be used to create the mask. The impor
 For the Lowpass parameter, let's use 25, which is slightly lower than the resolution we are at.
 
 For the Initial binarisation threshold, you will have to open your input map in ChimeraX, and decide of the threshold you want to use.
-I recommend choosing a rather low threshold, to be sure to have all the features of ribosome are visible, even the low resolution ones.
+We recommend choosing a rather low threshold, to be sure to have all the features of ribosome are visible, even the low resolution ones.
 
 <a href="/imgs/30_mask2.png" data-lightbox="image-gallery">
   <img src="/imgs/30_mask2.png" alt="Processing Workflow" style="width:60%;">
@@ -512,7 +506,7 @@ Run the job (it's fast):
 
 We are at Nyquist bin4!
 
-Check our output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look sharper than what you had before, and at high threshold you should already see some rRNA helices.
+Check your output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look sharper than what you had before, and at high threshold you should already see some rRNA helices.
 
 ## More classification or going to High-resolution?
 
@@ -520,13 +514,13 @@ After 3D auto-refine you should have reached bin4 Nyquist, which corresponds to 
 
 You can further classify your particles using 3D class without (or with) alignment and try to pull out e.g membrane-bound ribosomes or different translation states.
 
-But before doing that I would first recommend running a first round of CTF Refine and Polishing to greatly improve the quality of your particles/average.
+But before doing that we would first recommend running a first round of CTF Refine and Polishing to greatly improve the quality of your particles/average.
 
 ## CTF and alignment refinement cycle
 
 In the tomo branch of RELION5, **CTF refinement** and **Bayesian polishing** are used to improve the quality of subtomogram averages by correcting for optical and motion-related errors. 
 
-**CTF refinement** refines per-particle defocus and optical aberrations using a high-resolution bin1 reference. **Bayesian polishing** corrects for particle motion across the tilt series, basically realigning your tilt series at the particle level and for the entire tilt-series.
+**CTF refinement** refines per-particle defocus and optical aberrations using a high-resolution bin1 reference. **Bayesian polishing** corrects for particle motion across the tilt series, basically realigning your tilt series at the particle level and for the entire tilt series.
 
 **Iterative refinement cycle**
 
@@ -535,8 +529,9 @@ In the tomo branch of RELION5, **CTF refinement** and **Bayesian polishing** are
 3. Reconstruct at bin1 and post-process
 4. Run Bayesian polishing
 5. Reconstruct again and post-process
-6. Refine particles
-7. Repeat for further improvements
+6. Re-extract your particles
+7. Refine particles
+8. Repeat for further improvements
 
 This cycle is typically run after the first classification and refinement, and repeated to progressively improve resolution. Each iteration should result in better maps—both visually and by FSC resolution.
 
@@ -638,15 +633,17 @@ Here's the result after 3 cycles of Polishing/refinement, focused on the large s
   <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
+Here's the final map obtained, with some details. We can see RNA base separation, kinda cool!
 <a href="/imgs/34_final_ribo.png" data-lightbox="image-gallery">
-  <img src="/imgs/34_final_ribo.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/34_final_ribo.png" alt="Processing Workflow" style="width:80%;">
 </a>
 
-<video controls style="width:60%; max-width:100%;">
+<video controls style="width:80%; max-width:100%;">
   <source src="/imgs/ribo_movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist (check this link)!
+Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist!
+Additionally, each Bayesian polishing step generate a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. Time to start over!
 
 That's it! Thanks for following this tutorial.
