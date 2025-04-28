@@ -18,7 +18,7 @@ A good target, because they are large, abundant and easy to pick, are **ribosome
 Here are structures of the same ribosome, one with the wrong and one with the correct handedness:
 
 <a href="/imgs/39_flippedy_floppedy.jpg" data-lightbox="image-gallery">
-  <img src="/imgs/39_flippedy_floppedy.jpg" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/39_flippedy_floppedy.jpg" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Here the right one (green) is correct, and the left one is wrong.
@@ -43,13 +43,17 @@ Once you have run template matching, you should already see a difference by lett
 Note that template matching with a template which has a different handedness than your tomo might still give you somewhat plausible results and fool you. Example:
 
 <a href="/imgs/39_flipflop.jpg" data-lightbox="image-gallery">
-  <img src="/imgs/39_flipflop.jpg" alt="Processing Workflow" style="width:50%;">
+  <img src="/imgs/39_flipflop.jpg" alt="Processing Workflow" style="width:80%;">
 </a>
 
-Here, the results of TM done using a proper template (right) or a flipped template (right). Click to make it bigger.
+Click to make it bigger.
+
+Here, the results of TM done using a proper template (right) or a flipped template (right).
+
 The TM results are much better using the proper template (perfect sharp peaks) which means that the tomo has the proper hand, but the one on the right might look plausible to an inexperienced user.
 
 Note that, for some reasons, if operations were made on the microscope camera, this can also affect the handedness. So we would recommend to double-checking the handedness if some operations were done on your microscope.
+
 The handedness should however be the same for tilt-series acquired during the same sessions.
 
 
