@@ -1,6 +1,6 @@
 ﻿---
 layout: default
-title: "Acknowledgments"
+title: "Acknowledgements"
 nav_order: 10
 ---
 
