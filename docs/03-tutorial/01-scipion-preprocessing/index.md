@@ -8,11 +8,11 @@ nav_order: 2
 # Preprocessing and tomogram reconstruction in Scipion
 {: .no_toc }
 
-In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the alignement 
+In this section, we will go through how to reconstruct your tomograms using Scipion, and at the end, how to export the alignment 
 information to pick particles and perform STA in RELION5. If you want to do everything in RELION5, you can click **[here](/03-tutorial/03-relion-preprocessing/)**.
 
 **[Scipion](https://scipion.i2pc.es/)** is a freely available and open-source software that mainly acts as a wrapper for other programs, allowing you to 
-organize your projects and have different software interact almost seamlessly. It can be used for both SPA and tomography, 
+organise your projects and have different software interact almost seamlessly. It can be used for both SPA and tomography, 
 but it is particularly handy for tomography since the field currently lacks a “simple” software that performs all the 
 operations necessary for tomogram reconstruction and STA, while also keeping track of your work.
 
@@ -31,23 +31,22 @@ Here is the example workflow that we are going to follow:
 
 ## Create a new project
 
-From the base Scipion interface click on **Create Project**, give it a name and a location.  
-From there you are in your Scipion project, which is for now empty.
+From the base Scipion interface, click on **Create Project**, give it a name and a location.  
+From there, you are in your Scipion project, which is empty for now.
 
 
 ## Import frames
 
-The first step is going to import the frames. You can press <kbd>Add</kbd> on the top left or press <kbd>Ctrl + f</kbd> to select a protocol. Look for 
+The first step is to import the frames. You can press <kbd>Add</kbd> on the top left or press <kbd>Ctrl + f</kbd> to select a protocol. Look for 
 _“Add tomo - import tilt-series”_.
 
 <a href="/imgs/03_image-2025-1-15_16-17-56.png" data-lightbox="image-gallery">
   <img src="/imgs/03_image-2025-1-15_16-17-56.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the 
-information about each tilt series.
+Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the information about each tilt series.
 
-> **Note**: We work with Tomo5 mdocs (TFS acquisition software) here but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff` this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD) which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that. Check **[here](/03-tutorial/06-check-hand/)**.
+> **Note**: We work with Tomo5 mdocs (TFS acquisition software) here, but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff`, this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD), which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that. Check **[here](/03-tutorial/06-check-hand/)**.
 
 
 ## Motion correction {#motion-correction}
@@ -67,12 +66,11 @@ This step aligns each frame of the movies and corrects for beam-induced motion. 
   <img src="/imgs/07_image-2025-1-15_16-19-23.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using software like [cryoCARE](https://github.com/juglab/cryoCARE_pip) or [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge) for example. Denoising is described later in the tutorial.
+Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denoise your tomograms using software like [cryoCARE](https://github.com/juglab/cryoCARE_pip) or [DeepDeWedge](https://github.com/MLI-lab/DeepDeWedge), for example. Denoising is described later in the tutorial.
 
-In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where 
-the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
+In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
 
-Because this dataset was collected as `.eer`, you have the choice to decide how you want to group your frames. It also mean you **need** to specify how you want to group the frames. 
+Because this dataset was collected as `.eer`, you have the choice to decide how you want to group your frames. It also means you **need** to specify how you want to group the frames. 
 
 To do so, we use this formula:
 
@@ -87,7 +85,7 @@ N_frames = 0.5 / ( 3.5 * 1.91² / 308  ) = 12
 
 ...which means, for GainRef1, we are dividing our EER exposure into 308 / 12 = ~ 25 slices
 
-Note that tilts from GainRef1 and GainRef2 have different number of frames (on average), so edit that value accordingly!
+Note that tilts from GainRef1 and GainRef2 have different numbers of frames (on average), so edit that value accordingly!
 
 ```
 N_frames = 0.5 / ( 3.5 * 1.91² / 350  ) = 13.7 ~ 14 frames
@@ -102,7 +100,7 @@ Once motion correction is done, you want to remove “bad” tilts from your til
 - Partially or fully blacked out
 - Blurred because motion correction was not sufficient
 
-In our case we remove them manually, but be aware that some software offer automated tilt curation based on the result of motion correction and the "darkness-level" of the tilts (for example AreTomo)
+In our case, we remove them manually, but be aware that some software offers automated tilt curation based on the result of motion correction and the "darkness-level" of the tilts (for example AreTomo)
 
 In Scipion, you can open the output TiltSeries created by the motioncorr job by just double-clicking on it.
 
@@ -117,7 +115,7 @@ There, all your tilt series should be displayed. You can expand each tilt series
   <img src="/imgs/07_clean2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Once you saved them a new tilt series should be present. 
+Once you have saved them, a new tilt series should be present. 
 
 <a href="/imgs/07_clean3.JPG" data-lightbox="image-gallery">
   <img src="/imgs/07_clean3.JPG" alt="Processing Workflow" style="width:60%;">
@@ -136,7 +134,7 @@ AreTomo tries to find the optimal back projection scheme based on a theoretical 
   <img src="/imgs/09_Aretomo2_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps — such as when performing Subtomogram Averaging (STA) — you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates, **[link](/03-tutorial/06-check-hand/)**.  
+> **Note**: This is where having the correct tilt angle becomes crucial. If you use 95° instead of -95°, AreTomo will reconstruct tomograms with an inverted hand, causing them to be mirrored. Hence, in later steps, such as when performing Subtomogram Averaging (STA), you could end up with mirrored structures. To check whether your tomograms are mirrored, you can run template matching with both properly oriented and inverted-hand templates, **[link](/03-tutorial/06-check-hand/)**.  
 
 We will reconstruct bin8 tomograms first to quickly assess their overall quality and to measure lamella thickness for Z-height refinement. For the initial reconstruction, we will use an estimated lamella thickness of 1000 unbinned pixels (~190 nm).
 
@@ -153,7 +151,7 @@ This step is optional but highly recommended if you want well-aligned tomograms.
     - Move your cursor to the opposite edge of the lamella (DON'T CLICK).  
     - Press Q to get the distance between the yellow cross and the position of your cursor.
 
-The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
+The distance will appear in the dialogue box. Here 106 pixels, **81 nm**.
 
 <a href="/imgs/20_ali1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -189,13 +187,13 @@ We can now finally reconstruct our tomograms
   <img src="/imgs/13_Recontruct_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-However, those tomograms don't look particularly contrasty, right? To help make it nicer to our human eyes we can denoise them.
+However, those tomograms don't look particularly contrasty, right? To help make it nicer to our human eyes, we can denoise them.
 
 ### Generating denoised tomograms
 
 We will use **[CryoCARE (Content-Aware Image Restoration)](https://github.com/juglab/cryoCARE_pip)** -- a deep learning-based denoising tool for cryo-electron tomography (cryo-ET) that utilizes a U-Net architecture. It learns from pairs of noisy tomograms (our ODD and EVN tomos) to then enhance the signal-to-noise ratio.
 
-To run CryoCARE, you first have to train a model based on your own data, this will give the best results:
+To run CryoCARE, you first have to train a model based on your data, which will give the best results:
 
 <a href="/imgs/08_cryo1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/08_cryo1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -223,7 +221,7 @@ The workflow should look like that:
   <img src="/imgs/08_cryo6.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Here's a comparison between non-denoised (left) and denoised (right) (yes this is the same tomogram!). Much better yes?
+Here's a comparison between non-denoised (left) and denoised (right) (yes, this is the same tomogram!). Much better, right?
 
 <a href="/imgs/08_cryo7.JPG" data-lightbox="image-gallery">
   <img src="/imgs/08_cryo7.JPG" alt="Processing Workflow" style="width:60%;">
@@ -236,7 +234,7 @@ A simple and rapid deconvolution approach would be the "dimifilter" - in IMOD im
 
 ## Automatic segmentation using MemBrain-seg
 
-If you want to automatically segment membranes present in your tomograms you can use the **[MemBrain-seg](https://github.com/teamtomo/membrain-seg)** module (developed by [Lorenz Lamm](https://bsky.app/profile/lorenzlamm.bsky.social) from our team). It runs well on CryoCARE tomogram. Inside Scipion just run it with default parameters:
+If you want to automatically segment membranes present in your tomograms, you can use the **[MemBrain-seg](https://github.com/teamtomo/membrain-seg)** module (developed by [Lorenz Lamm](https://bsky.app/profile/lorenzlamm.bsky.social) from our team). It runs well on CryoCARE tomogram. Inside Scipion just run it with default parameters:
 
 <a href="/imgs/09_seg1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/09_seg1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -245,7 +243,7 @@ If you want to automatically segment membranes present in your tomograms you can
   <img src="/imgs/09_seg2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-It looks great! If the segmentation is not perfect, you can then manually refine it in a software such as [Amira](https://www.thermofisher.com/ch/en/home/electron-microscopy/products/software-em-3d-vis/amira-software.html).
+It looks great! If the segmentation is not perfect, you can then manually refine it in software such as [Amira](https://www.thermofisher.com/ch/en/home/electron-microscopy/products/software-em-3d-vis/amira-software.html).
 
 
 ## Exporting data to RELION5 for STA
@@ -253,8 +251,8 @@ It looks great! If the segmentation is not perfect, you can then manually refine
 Scipion can export the final alignment, tomograms, or pick coordinates into RELION5. Just search for the `reliontomo` jobs.
 
 
-You can run a RELION5 tomograms reconstruction using the output of AreTomo alignment for example.
-Here the parameters for tomogram reconstruction don't really matter (because we won't actually use the tomograms) except for the **x y z (4096, 4096, 2048)** that have to be consistent with the rest of your workflow. Here, we reconstruct bin8 tomograms (15.28 Å/pix) as a test:
+You can run a RELION5 tomograms reconstruction using the output of AreTomo alignment, for example.
+Here, the parameters for tomogram reconstruction don't really matter (because we won't actually use the tomograms) except for the **x y z (4096, 4096, 2048)** that have to be consistent with the rest of your workflow. Here, we reconstruct bin8 tomograms (15.28 Å/pix) as a test:
 
 <a href="/imgs/10_rln1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/10_rln1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -262,13 +260,13 @@ Here the parameters for tomogram reconstruction don't really matter (because we 
 
 What we really want from this job are the .star files generated that will allow us to go into RELION5.
 
-If you go through the folder where you run your Scipion projects, you will be able to go find the Relion5TomoReconstruct folders:
+If you go through the folder where you run your Scipion projects, you will be able to find the Relion5TomoReconstruct folders:
 
 <a href="/imgs/10_rln2.JPG" data-lightbox="image-gallery">
   <img src="/imgs/10_rln2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-In "extra" you will see the tomoXX.star files that defines for RELION5 how each tomograms have to be reconstructed and the tomograms.star file that point to all the tomoXX.star files.
+In "extra" you will see the tomoXX.star files that defines for RELION5 how each tomograms have to be reconstructed and the tomograms.star file that points to all the tomoXX.star files.
 
 <a href="/imgs/10_rln3.JPG" data-lightbox="image-gallery">
   <img src="/imgs/10_rln3.JPG" alt="Processing Workflow" style="width:60%;">
@@ -292,7 +290,7 @@ Now, we need to make sure the tomograms.star points properly to all the tomoXX.s
   <img src="/imgs/10_rln5.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-This path is wrong: `Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. We want it to point to this (relative to the root of our RELION5 working folder): `002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. To easily modify that, that you can <kbd>crtl + H</kbd> (search and replace) `"Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/"` and replace it by nothing. Here's how the file should look after:
+This path is wrong: `Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. We want it to point to this (relative to the root of our RELION5 working folder): `002057_ProtRelion5TomoReconstruct/extra/tomo50.star`. To easily modify that, you can <kbd>crtl + H</kbd> (search and replace) `"Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/"` and replace it with nothing. Here's how the file should look after:
 
 <a href="/imgs/10_rln6.JPG" data-lightbox="image-gallery">
   <img src="/imgs/10_rln6.JPG" alt="Processing Workflow" style="width:60%;">
@@ -300,7 +298,7 @@ This path is wrong: `Runs/002057_ProtRelion5TomoReconstruct/extra/Runs/002057_Pr
 
 Then we need to modify paths in all the tomoXX.star files. 
 
-To do so you can use this script:
+To do so, you can use this script:
 
 ```python
 import os
