@@ -19,7 +19,7 @@ The main difference between SPA and cryo-ET is that cryo-ET data is much more in
 
 ## Sample Types
 
-Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies) which involves high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
+Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies), which involves high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
 
 <figure style="text-align:center;">
   <a href="/imgs/00_CMC_vibe.jpeg" data-lightbox="image-gallery" data-title="McCafferty, Caitlyn L., et al. Cell 187.3 (2024): 563–584.">
