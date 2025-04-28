@@ -4,6 +4,10 @@ title: "Welcome to Tomo101"
 nav_order: 1
 ---
 
+# **Welcome to TomoGuide**
+This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique and data processing workflows.
+You’ll find practical guidance for useful datasets, software recommendations, and a step-by-step tutorial for preprocessing and sub-tomogram averaging (STA).
+
 <a href="/imgs/00_ribofun.png"
    data-lightbox="image-gallery"
    style="display:block; margin:0; padding:0;">
@@ -11,10 +15,6 @@ nav_order: 1
        alt="Ribofun"
        style="width:100%; display:block; margin:0; padding:0;">
 </a>
-
-# **Welcome to TomoGuide**
-This website serves as a resource for both beginners and experienced researchers in cryo-ET, offering an overview of the technique and data processing workflows.
-You’ll find practical guidance for useful datasets, software recommendations, and a step-by-step tutorial for preprocessing and sub-tomogram averaging (STA).
 
 ### Start by selecting a topic from the sidebar!
 
