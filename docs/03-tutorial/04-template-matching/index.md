@@ -268,18 +268,18 @@ This is also what we use to create these figures;
 
 <figure style="text-align:center;">
 <a href="/imgs/37_mitopoop.png" data-lightbox="image-gallery">
-  <img src="/imgs/37_mitopoop.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/37_mitopoop.png" alt="Processing Workflow" style="width:80%;">
 </a>
-  <figcaption style="width:60%; margin:0 auto;">
+  <figcaption style="width:80%; margin:0 auto;">
     <em>Waltz Florent, et al. “In-cell architecture of the mitochondrial respiratory chain.” <strong>Science</strong> (2025): DOI: 10.1126/science.ads8738.</em>
   </figcaption>
 </figure>
 
 <figure style="text-align:center;">
 <a href="/imgs/37_rubipoop.png" data-lightbox="image-gallery">
-  <img src="/imgs/37_rubipoop.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/37_rubipoop.png" alt="Processing Workflow" style="width:80%;">
 </a>
-  <figcaption style="width:60%; margin:0 auto;">
+  <figcaption style="width:80%; margin:0 auto;">
     <em>Shimakawa Ginga, Demulder Manon, Flori Serena, et al. “Diatom pyrenoids are encased in a protein shell that enables efficient CO2 fixation.” <strong>Cell</strong> (2024): DOI: 10.1016/j.cell.2024.09.013.</em>
   </figcaption>
 </figure>
