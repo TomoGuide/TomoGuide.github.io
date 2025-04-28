@@ -8,11 +8,11 @@ nav_order: 5
 # Subtomogram Averaging (STA) in RELION5
 {: .no_toc }
 
-We will now use the particles positions obtained from Template Matching to perfom STA on our target of interest (here cytosolic ribosomes).
+We will now use the particle positions obtained from Template Matching to perform STA on our target of interest (here, cytosolic ribosomes).
 
-In the following section, the parameters you need to use in the RELION Running tab will depend on your system, e.g. if you run on a local machine, or through a computing cluster etc ...
+In the following section, the parameters you need to use in the RELION Running tab will depend on your system, e.g. if you run on a local machine, or through a computing cluster, etc ...
 
-To know whether our job is going to run on GPU or CPU here's a list:
+To know whether our job is going to run on GPU or CPU, here's a list:
 
 - Make pseudo-subtomos (**CPU**)
 - 3D initial model (**single GPU**)
@@ -32,12 +32,12 @@ To know whether our job is going to run on GPU or CPU here's a list:
 
 ## Extract your particles and check your average 
 
-The first step to begin Subtomogram Averaging (STA) is to run an Extract Subtomos job. This job will extract cropped subtomograms from all tilts, around the center of the particle positions we identified using Template Matching.
+The first step to begin Subtomogram Averaging (STA) is to run an Extract Subtomos job. This job will extract cropped subtomograms from all tilts, around the centre of the particle positions we identified using Template Matching.
 
 Typically, we start with a binning of 4 or sometimes even 8. We use high binning in the initial steps because the focus is on cleaning and roughly aligning the particles—high-resolution information is not essential at this stage.
 In this example, we start at bin 4. You want the box size to be larger than your target—ideally at least ~1.5 times larger. Ribosomes are approximately 350 Å wide, which corresponds to about 46 pixels at bin 4.
 
-In general, it's best to use box sizes that are powers of 2 or 3. These "magic numbers" optimize computational performance. You can find more about that here: https://blake.bcm.edu/emanwiki/EMAN2/BoxSize.
+In general, it's best to use box sizes that are powers of 2 or 3. These "magic numbers" optimise computational performance. You can find more about that here: https://blake.bcm.edu/emanwiki/EMAN2/BoxSize.
 In our case, 46 is not ideal, and we want something about 1.5 to 2 times larger anyway. A box size of 72 or 84 pixels would be appropriate, let's use 84. Of course the larger the box, the longer the computation time.
 
 You want to use the new RELION5 "Write out as 2D stacks" for faster processing. 
@@ -82,7 +82,7 @@ Just like in single-particle analysis, achieving high resolution requires a homo
 
 The first step here is to clean out false positives that may have been picked during Template Matching.
 
-A good approach is to **first align all particles** together using a quick local refinement. Since our particles already have initial orientations from pyTOM, a fast alignment with local searches only should be sufficient at this stage.
+A good approach is to **first align all particles** together using a quick local refinement. Since our particles already have initial orientations from pytom, a fast alignment with local searches only should be sufficient at this stage.
 
 Once you've done that, you can proceed to **classification without alignment** to separate good particles from bad ones, or to distinguish between different structural states.
 
@@ -108,7 +108,7 @@ Let's launch an alignment with the 3D classification using only one class.
 
 - **Initial low-pass filter:** Start with **50 Å**. Later, adjust this value to be slightly above the estimated resolution from the previous step. This is important to low-pass filter your reference to avoid over-fitting.
 - Example: If 3D Classification gave you a resolution of **22 Å**, set this to **25 Å** in **3D Refinement**.
-- **Symmetry**: We don't work with a symmetric complex. If you do, I would recommend to initially **not apply symmetry**. Apply it in later stages.
+- **Symmetry**: We don't work with a symmetric complex. If you do, I would recommend initially **not applying symmetry**. Apply it in later stages.
 
 <a href="/imgs/27_class2.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class2.png" alt="Processing Workflow" style="width:60%;">
@@ -118,13 +118,13 @@ Let's launch an alignment with the 3D classification using only one class.
 {: .no_toc }
 
 - **CTF Correction**: Always **enable** this.
-- **Ignore CTFs until first peak**: It can be usefull to turn on at the beginning, especially for initial alignment and classification. This option acts like a low-pass filter.
+- **Ignore CTFs until first peak**: It can be useful to turn on at the beginning, especially for initial alignment and classification. This option acts like a low-pass filter.
 
 <a href="/imgs/27_class3.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class3.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-### Optimization Tab
+### Optimisation Tab
 {: .no_toc }
 
 - **Number of classes**: Set to the number of desired classes. Current case: We are using **1** class.
@@ -145,8 +145,8 @@ Example: `1.91 × 4 × 2 = ~15 Å`
 {: .no_toc }
 
 - **Perform alignment**: Set to **Yes** (since we are aligning). If not aligning, set to **No**.
-- **Off search range and step**. This define the translation parameters, how much you let your thing move in the box. Our particles should be centered thanks to TM and we are high binning, so best is use small values like a range of 2 range and a step of 1.
-- **Local searches only**: Enable this, and use the suggested parameters. This overrides **Angular sampling interval**. We only want to perform local searches because our particles are already well aligned from TM.
+- **Off search range and step**. This defines the translation parameters, how much you let your thing move in the box. Our particles should be centred thanks to TM, and we are high binning, so best is use small values like a range of 2 and a step of 1.
+- **Local searches only**: Enable this, and use the suggested parameters. This overrides the **Angular sampling interval**. We only want to perform local searches because our particles are already well aligned from TM.
 
 <a href="/imgs/27_class5.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class5.png" alt="Processing Workflow" style="width:60%;">
@@ -186,7 +186,7 @@ You can run these commands from the terminal, in the folder of the job.
    ```
 
 - **Monitor Class Convergence (Optimum Changes)**
-   Track how well classes are stabilizing. This number should start high (near 1) and trend toward 0 as the classes converge
+   Track how well classes are stabilising. This number should start high (near 1) and trend toward 0 as the classes converge
    ```bash
    grep _rlnChangesOptimalClasses run_it???_optimiser.star
    ```
@@ -200,7 +200,7 @@ Let's see how the resolution evolved over time in that particular case:
 You can see that from iteration 20 it stopped decreasing. This is the iteration that we are going to select to continue.
 
 You can also see the resolution at each iteration in the RELION GUI, in the log window.
-Double click on the log window and it will pop-up. You will be able to scroll through the log, and check the resolution.
+Double click on the log window and it will pop up. You will be able to scroll through the log and check the resolution.
 
 <a href="/imgs/27_class8.png" data-lightbox="image-gallery">
   <img src="/imgs/27_class8.png" alt="Processing Workflow" style="width:60%;">
@@ -218,20 +218,20 @@ Result:
   <img src="/imgs/28_class.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-You can see that at iteration 1, our ribosome is very smooth, you can only distinguish the large and small subunit.
+You can see that at iteration 1, our ribosome is very smooth; you can only distinguish the large and small subunit.
 At iteration 20, we start seeing domains.
 
 
 ## 3D classification without alignment
 
-Your particles should now be all aligned more or less the same way. The next step would be to run classification without alignment, but this might be different for you.
+Your particles should now be all aligned, more or less the same way. The next step would be to run classification without alignment, but this might be different for you.
 
 Let's again launch a Class3D job.
 
 ### I/O Tab
 {: .no_toc }
 
-- **Input images STAR file**: Use the <kbd>*_data.star file</kbd> generated by the previous **3Dclass** job. E.g, if you liked iteration 9 you have to use <kbd>run_it009_data.star</kbd> as input.
+- **Input images STAR file**: Use the <kbd>*_data.star file</kbd> generated by the previous **3Dclass** job. E.g., if you liked iteration 9, you have to use <kbd>run_it009_data.star</kbd> as input.
 - **Reference map**: Use the <kbd>run_it009_data.mrc</kbd> file created by the **3Dclass** job.  
 
 <a href="/imgs/29_class.png" data-lightbox="image-gallery">
@@ -241,13 +241,13 @@ Let's again launch a Class3D job.
 ### Reference Tab
 {: .no_toc }
 
-- **Initial low-pass filter**: You can now set the low pass filter slightly above the resolution given by the iteration you reached in the 3DClass with 1 class. In that case we were at 21 Å, so let's set it to **25 Å**. 
+- **Initial low-pass filter**: You can now set the low-pass filter slightly above the resolution given by the iteration you reached in the 3DClass with 1 class. In that case, we were at 21 Å, so let's set it to **25 Å**. 
 
-### Optimization Tab
+### Optimisation Tab
 {: .no_toc }
 
 - **Number of classes**: This now depends on the heterogeneity you expect and the number of particles you have. Start maybe with 6 classes, but this parameter should be changed and tested.
-- **T parameter**: This is a parameter that you will have to play with. Usually launching multiple jobs with different T values is smart (e.g 0.5, 1, 2 and 4).
+- **T parameter**: This is a parameter that you will have to play with. Usually, launching multiple jobs with different T values is smart (e.g 0.5, 1, 2 and 4).
 
 <a href="/imgs/29_class1.png" data-lightbox="image-gallery">
   <img src="/imgs/29_class1.png" alt="Processing Workflow" style="width:60%;">
@@ -263,12 +263,12 @@ Let's again launch a Class3D job.
 
 - Turn off GPU acceleration
 
-To check the progress of the classification, can check each iterations in the <kbd>~/Class3D/job00X</kbd> and open the volumes <kbd>run_it00x_class001.mrc</kbd> in ChimeraX or IMOD.
+To check the progress of the classification, can check each iteration in the <kbd>~/Class3D/job00X</kbd> and open the volumes <kbd>run_it00x_class001.mrc</kbd> in ChimeraX or IMOD.
 You can also follow it in RELION. Go to <kbd>File > Display</kbd> (or Alt+D)  and open <kbd>Class3D > job00X > run_it000_model.star</kbd>.
 
 This would show you a 2D slice of all your classes, which can sometime be helpful to judge about the quality of the classes.
 
-Like this for example:
+Like this, for example:
 
 <a href="/imgs/29_class2.png" data-lightbox="image-gallery">
   <img src="/imgs/29_class2.png" alt="Processing Workflow" style="width:60%;">
@@ -287,14 +287,14 @@ You can click on <kbd>Show metadata this class</kbd>
   <img src="/imgs/29_class4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-And you can see how many particles are in that class, the estimated resolution etc ...
+And you can see how many particles are in that class, the estimated resolution, etc ...
 Of course, you can also open all these classes in ChimeraX to see how they look:
 
 <a href="/imgs/29_class5.png" data-lightbox="image-gallery">
   <img src="/imgs/29_class5.png" alt="Processing Workflow" style="width:80%;">
 </a>
 
-You can see that class 1 is an empty or "trash" class. Classes 2, 3, 5, and 6 are quite similar with class 2 being less resolved. Class 4 is bad.
+You can see that class 1 is an empty or "trash" class. Classes 2, 3, 5, and 6 are quite similar, with class 2 being less resolved. Class 4 is bad.
 
 Same as before, you can also monitor the classification in RELION, using the commands described previously.
 
@@ -310,14 +310,14 @@ You can see that after iteration 19, not much is happening anymore. So we will u
 ### Select good classes
 {: .no_toc }
 
-Assuming your classification worked and you want to select good class(es), and only proceed with these.
+Assuming your classification worked and you want to select good classes (es), and only proceed with these.
 
 Let's launch a **Subset selection job**.
 
 ### I/O Tab
 {: .no_toc }
 
-For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24 you have to use <kbd>Class3D/job00X/run_it019_optimiser.star </kbd> as input.
+For the Input images STAR file, take the particles file that was created by the Class3D job, at the iteration that you want. For example, if you liked iteration 24, you have to use <kbd>Class3D/job00X/run_it019_optimiser.star </kbd> as input.
 
 <a href="/imgs/29_class7.png" data-lightbox="image-gallery">
   <img src="/imgs/29_class7.png" alt="Processing Workflow" style="width:60%;">
@@ -332,7 +332,7 @@ Don't submit it to the queue, run it locally!
 
 Press **Run**!
 
-The Relion display GUI pops up, press <kbd> Display</kbd> ! This will show you a 2D slice of all your classes. It's similar to the Display tab.
+The Relion display GUI pops up, press <kbd> Display</kbd>! This will show you a 2D slice of all your classes. It's similar to the Display tab.
 
 To select the one(s) you want, **left click** on it/them. Then press **right click**, and do **Save selected classes**. Also, BEFORE SAVING, you can right-click and do <kbd>Show metadata this class</kbd>, and it will show you the total number of particles you are selecting.
 
@@ -346,8 +346,8 @@ Here's an example of selected classes:
 
 You can see that we selected classes 2, 3, 5 and 6. 
 
-In that case, we could have also discarded class 2 that have less defined features, but we decided to be generous with the particle selection because we know that some will improve later.
-We will do a second round of classification without alignment at bin2 where we will be more selective.
+In that case, we could have also discarded class 2, that have less defined features, but we decided to be generous with the particle selection because we know that some will improve later.
+We will do a second round of classification without alignment at bin2, where we will be more selective.
 
 
 ## Creating a mask
@@ -358,7 +358,7 @@ Something that we haven't done yet is create a mask.
 
 **Focus Alignment and Classification**: Masks isolate specific regions of interest within a particle, such as a flexible domain or a particular subunit. By focusing computational efforts on these areas, masks improve alignment precision and enable targeted classification, which is crucial for resolving structural heterogeneity.​
 
-**Noise Reduction**: Applying masks helps exclude extraneous noise from surrounding areas, such as solvent regions or neighboring particles. This exclusion enhances the signal-to-noise ratio, leading to clearer and more accurate reconstructions.
+**Noise Reduction**: Applying masks helps exclude extraneous noise from surrounding areas, such as solvent regions or neighbouring particles. This exclusion enhances the signal-to-noise ratio, leading to clearer and more accurate reconstructions.
 
 For the next steps we will use a mask that cover the entire ribosome and ​exclude the solvent, to make sure that alignment is only focused on the ribosome.
 
@@ -367,7 +367,7 @@ To do so, let's launch a **Mask creation job**.
 ### I/O Tab
 {: .no_toc }
 
-You will use a map of the ribosome that you working with. The best is to use, for example, class 3 or 5 of iteration 19 from our last 3D classfication job.
+You will use a map of the ribosome that you working with. The best is to use, for example, class 3 or 5 of iteration 19 from our last 3D classification job.
 
 <a href="/imgs/30_mask.png" data-lightbox="image-gallery">
   <img src="/imgs/30_mask.png" alt="Processing Workflow" style="width:60%;">
@@ -391,7 +391,7 @@ We recommend choosing a rather low threshold, to be sure to have all the feature
   <img src="/imgs/30_mask2.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-We will then extend by 3 pixel, to make sure that the mask is not going to cut through our volume.
+We will then extend by 3 pixels, to make sure that the mask is not going to cut through our volume.
 
 You can then create the mask, and check how it looks (always check!)
 
@@ -406,15 +406,15 @@ Let's now do a proper 3D alignment using 3D Refinement.
 
 The 3D auto-refinement job aligns particle images to iteratively reconstruct a high-resolution 3D map of a macromolecule.
 To ensure accuracy and prevent overfitting, the dataset is split into two independent half-sets. Each half is refined separately, and their similarity is assessed using the gold-standard Fourier Shell Correlation (FSC).
-This is that specific part which was not done 3D classification with 1 class.
+This is the specific part which was not done 3D classification with 1 class.
 This approach ensures that only genuine structural features are enhanced during refinement. 
 
 ### I/O Tab
 {: .no_toc }
 
-- This time we can not use the Input optimisation set, because we created a subset of particles. We have to use **direct entries**. Set it to **Yes**
+- This time, we can not use the Input optimisation set, because we created a subset of particles. We have to use **direct entries**. Set it to **Yes**
 - For the **Input particle set**, use the output of the Select job
-- For the **Input tomogram set**, I use the <kbd>tomogram.star</kbd> that contains all the tomograms (from gain ref 1 and 2). You can easily create it by just copy pasting the list of tomo within these files.
+- For the **Input tomogram set**, I use the <kbd>tomogram.star</kbd> that contains all the tomograms (from gain ref 1 and 2). You can easily create it by just copying and pasting the list of tomo within these files.
 - **Reference map**: Here I use the <kbd>run_it019_class003.mrc</kbd> from the 3D classification job that I used to create the mask.
 - **Reference mask**: Use the <kbd>mask.mrc</kbd> we just made before.
 
@@ -436,11 +436,11 @@ This approach ensures that only genuine structural features are enhanced during 
 
 - Same as 3D classification
 
-### Optimization Tab
+### Optimisation Tab
 {: .no_toc }
 
-- **Mask Diameter**: Is the same as in 3D classification, 570. Note: this mask is different from the mask we just created, it's a spherical mask, automatically created by RELION.
-- **Use solvent-flattened FSCs**:  In the case of STA, this as proven particularly useful, set it to YES
+- **Mask Diameter**: Is the same as in 3D classification, 570. Note: this mask is different from the mask we just created; it's a spherical mask, automatically created by RELION.
+- **Use solvent-flattened FSCs**:  In the case of STA, this has proven particularly useful, set it to YES
 
 ### Auto-sampling Tab
 {: .no_toc }
@@ -475,7 +475,7 @@ This is very close to Nyquist bin4. Let's run a Post-processing job to check wha
 2. **FSC Calculation**: Computes the gold-standard FSC between the masked half-maps to provide an accurate resolution estimate.
 3. **B-factor Sharpening**: Automatically estimates and applies a B-factor to sharpen the map, enhancing high-resolution features. ​
 
-The output includes a sharpened map and a PDF summarizing the FSC curves and Guinier plots, facilitating assessment of map quality and resolution.
+The output includes a sharpened map and a PDF summarising the FSC curves and Guinier plots, facilitating assessment of map quality and resolution.
 
 ### I/O Tab
 {: .no_toc }
@@ -506,7 +506,7 @@ Run the job (it's fast):
 
 We are at Nyquist bin4!
 
-Check your output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look sharper than what you had before, and at high threshold you should already see some rRNA helices.
+Check your output, <kbd>postprocess_masked.star</kbd> in ChimeraX, it should look sharper than what you had before, and at high threshold, you should already see some rRNA helices.
 
 ## More classification or going to High-resolution?
 
@@ -533,9 +533,9 @@ In the tomo branch of RELION5, **CTF refinement** and **Bayesian polishing** are
 7. Refine particles
 8. Repeat for further improvements
 
-This cycle is typically run after the first classification and refinement, and repeated to progressively improve resolution. Each iteration should result in better maps—both visually and by FSC resolution.
+This cycle is typically run after the first classification and refinement, and repeated to progressively improve resolution. Each iteration should result in better maps, both visually and by FSC resolution.
 
-Before starting you have to do the following:
+Before starting, you have to do the following:
 
 - **Generate a bin1 reference**: run a Reconstruct job from your last refinement (at bin4) but resconstruct with bin1 and appropriate box size (4 times your bin4 box size). Use the output of Refine3D as input here.
 
@@ -548,9 +548,9 @@ Before starting you have to do the following:
 </a>
 
 - **Generate a bin1 mask**: from the bin1 Reconstruct job generate a bin1 mask
-- **Post-process:** using the bin1 Reconstruct and the generated bin1 mask (the resolution should already be higher, than what you obtained that bin4).
+- **Post-process:** using the bin1 Reconstruct and the generated bin1 mask (the resolution should already be higher than what you obtained that bin4).
 
-In our case the Post-process already gave 9.55 Å (aka subnanometer resolution 😎).
+In our case, the Post-process already gave 9.55 Å (aka subnanometer resolution 😎).
 
 ## Run CTF refinement
 
@@ -570,15 +570,15 @@ For the half-maps, use the ones generated from the bin1 Recontruct job, use the 
 {: .no_toc }
 
 This is where you should play with the parameters. Usually, we just change **Refine defocus** and **Do defocus regularization** (marked in red).
-For the **Box size for estimation** it is recommended to use a larger box size than your actual box size (again check the magic box sizes)
+For the **Box size for estimation**, it is recommended to use a larger box size than your actual box size (again, check the magic box sizes)
 
 <a href="/imgs/33_ctf4.png" data-lightbox="image-gallery">
   <img src="/imgs/33_ctf4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
 Run the jobs with the different parameters, and then for each of them run a **Reconstruct job** with the same parameters that you used as the step before and run **post-process** (all with the same bin1 mask you used initially!) and compare resolution. 
-You should also check if visually, in ChimeraX, the map looks better.
-At this step resolution should have improved slightly. In our case we went to **8.48 Å**, a whole angstrom gained!
+You should also check if, visually, in ChimeraX, the map looks better.
+At this step resolution should have improved slightly. In our case, we went to **8.48 Å**, a whole angstrom gained!
 
 ## Run Bayesian polishing
 
@@ -605,7 +605,7 @@ Here you can try deactivating Fit per-particle motion, even though it should alw
 </a>
 
 Again, for each of the Polish jobs, run Reconstruct with the same parameters that you used as the step before and run post-process (all with the same mask!) and compare resolution. 
-At this step resolution should have improved again. In our case we went to **5.65 Å**!
+At this step resolution should have improved again. In our case, we went to **5.65 Å**!
 
 **<u>Summary of the first cycle we did (Post-processed value)</u>**<br>
 Bin4 Refine3D = **15.28 Å** (Nyquist bin4)<br>
@@ -617,7 +617,7 @@ You can see we already reached 5.6 Å, which is already quite cool.
 
 ## What to do next?
 
-At this step you should are already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify your particles at bin2.
+At this step, you should already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify your particles at bin2.
 
 You can re-extract subtomos at bin2 from your best Polish job, then generate a bin2 reference. From there, launch a 3D Refine at bin2 (you should reach bin2 Nyquist). You can then run a 3D classification job to remove particles that do not positively contribute to resolution (I would not recommend classifying at bin1, except if you are classifying for a feature only visible at bin1).
 
@@ -644,6 +644,6 @@ Here's the final map obtained, with some details. We can see RNA base separation
 </video>
 
 Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist!
-Additionally, each Bayesian polishing step generate a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. Time to start over!
+Additionally, each Bayesian polishing step generates a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. Time to start over!
 
 That's it! Thanks for following this tutorial.
