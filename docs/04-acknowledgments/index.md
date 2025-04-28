@@ -4,7 +4,7 @@ title: "Acknowledgements"
 nav_order: 10
 ---
 
-# Acknowledgments
+# Acknowledgements
 
 This tutorial and website were created by [**Philippe Van der Stappen**](https://bsky.app/profile/phaips.vd.st) and [**Florent Waltz**](https://bsky.app/profile/florentwaltz.bsky.social), with contributions from the Cryo-ET community.
 
