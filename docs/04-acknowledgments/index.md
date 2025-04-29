@@ -16,4 +16,3 @@ Aside from the few custom Python scripts we provide, **we are not responsible** 
 the various packages and software presented. For assistance, please refer to the official developers and GitHub pages of the respective software.
 
 If this tutorial was useful to you, please make sure to acknowledge us, on [Bluesky](https://bsky.app/profile/cellarchlab.com) or in your papers.
-If you want more in depth insights, think about inviting us for your next Cryo-ET workshop, and we would be happy to cover all the steps from sample prepation to final structure at the end!
