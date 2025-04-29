@@ -72,7 +72,7 @@ time AreTomo3 \
     -AmpContrast ${amp_con}
 ```
 
-{: .note }
+```note
 Make sure you check the meaning of all the flags with `AreTomo3 --help`. Important things to get right are `FmInt` (default `15`) which corresponds how you want your eer frames to be grouped **[check this](/03-tutorial/01-scipion-preprocessing/#motion-correction/)** and `FmDose` is defined as **dose per frame**! Here for example **3.5 e/Å² per 25 frames** would result in the `FmDose=0.14`. This depends on your EER grouping - in TIFF format this will change and `FmInt 1` should be used.
 
 The way the command works now is that it will find all frames corresponding to their .mdocs in the given path. **Thus, make sure your mdocs and frames are in the same folder!** The tomograms will be reconstructed with CTF correction in bin4 and also ODD+EVEN volumes are generated. Those can be used for denoising for example. If you don't use SLURM you can just adopt the above command and submit/run it your way. Additionally, AreTomo3 will also output alignment information (e.g. IMOD format).
