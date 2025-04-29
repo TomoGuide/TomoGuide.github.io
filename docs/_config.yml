@@ -12,6 +12,8 @@ back_to_top: true
 back_to_top_text: "Back to top"
 enable_copy_code_button: true
 
+remote_theme: "just-the-docs/just-the-docs@v0.4.0"
+
 callouts:
   note:
     title: "Note"         # omit a title if you just want the icon
