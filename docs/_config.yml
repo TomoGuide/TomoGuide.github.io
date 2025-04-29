@@ -1,24 +1,26 @@
 ﻿title: "TomoGuide"
 description: "A step-by-step Cryo-ET guide"
 remote_theme: "just-the-docs/just-the-docs"
+plugins:
+  - jekyll-remote-theme
+callouts:
+  note:
+    title: "Note"   
+    icon: info       
+    color: "#3b82f6" 
 color_scheme: "light"
 favicon_ico: "/imgs/00_favicon.svg"
 logo:   "/imgs/00_logo.svg"
 
+markdown: kramdown
+kramdown:
+  input: GFM
 
 search_enabled: true
 nav_sort: case_insensitive
 back_to_top: true
 back_to_top_text: "Back to top"
 enable_copy_code_button: true
-
-remote_theme: "just-the-docs/just-the-docs@v0.4.0"
-
-callouts:
-  note:
-    title: "Note"         # omit a title if you just want the icon
-    icon: info        # uses the "info" icon
-    color: "#3b82f6"  # Tailwind's blue-500, for example
 
 nav:
   - title: "Welcome"
