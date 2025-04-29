@@ -23,7 +23,7 @@ nav_order: 2
 #SBATCH --mail-type=none
 #SBATCH --mem 64G
 #SBATCH --qos=emgpu
-#SBATCH --time=00-00:30:00
+#SBATCH --time=00-02:00:00
  
 files="path/to/frames" # All frames with mdocs in this folder will be processed. Can also specify only one Position_X tilt series.
 gain_ref="GainReference.gain" # give the gainref file!
