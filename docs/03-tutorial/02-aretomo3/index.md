@@ -26,7 +26,7 @@ nav_order: 2
 #SBATCH --time=00-00:30:00
  
 files="path/to/frames" # All frames with mdocs in this folder will be processed. Can also specify only one Position_X tilt series.
-gain_ref="GainReference.gain"
+gain_ref="GainReference.gain" # give the gainref file!
 outdir=aretomo_output
 apix=1.91
 tilt_axis=-95.75
@@ -65,7 +65,6 @@ time AreTomo3 \
     -FlipVol 1 \
     -TiltCor 1 \
     -Patch 0 0 \
-    -CorrCTF 1 \
     -DarkTol ${dark_tol} \
     -CorrCTF 1 ${lowpass} \
     -Kv 300 \
