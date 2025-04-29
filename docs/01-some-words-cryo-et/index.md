@@ -7,7 +7,7 @@ parent: "Welcome to TomoGuide"
 
 # Some Words about Cryo-Electron Tomography
 
-Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA) -- which aims to determine the structure of repeated -- purified macromolecular complexes by averaging thousands or even millions of identical particles, cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thick cellular sections (lamellae) produced by focused ion beam (FIB) milling. 
+Cryo-electron tomography (cryo-ET) is an imaging method used to obtain three-dimensional (3D) reconstructions of biological specimens in a close-to-native, vitrified state. Unlike single-particle analysis (SPA) -- which aims to determine the structure of repeated, purified macromolecular complexes by averaging thousands or even millions of identical particles -- cryo-ET focuses on imaging large and complex biological samples. These samples can be entire cells, subcellular organelles, or thin cellular sections (lamellae) produced by focused ion beam (FIB) milling. 
 
 The main difference between SPA and cryo-ET is that cryo-ET data is much more information-rich. In cryo-ET, you see much more than what you are specifically targeting, and sometimes it can even be difficult to find your target in the tomograms. Additionally, in cryo-ET, you typically work in 3D, even though the raw data are 2D projections of your sample. This means you need to examine your tomograms in detail to understand what’s in them, whereas in SPA, the micrographs often show the same structure multiple times.
 
@@ -19,7 +19,7 @@ The main difference between SPA and cryo-ET is that cryo-ET data is much more in
 
 ## Sample Types
 
-Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies) which involve high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
+Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) so the electron beam of the transmission electron microscope (**TEM**) can pass through. For whole cells, a focused ion beam (**FIB**) is used to mill thin lamellae while preserving native structure. However, if you’re studying purified organelles (e.g., isolated mitochondria), you can sometimes skip or reduce milling if they’re already thin enough. People are also now going towards more complex samples (e.g small multicellular organisms or biopsies), which involves high-pressure freezing (**HPF**) of the sample instead of the more classical plunge-freezing.
 
 <figure style="text-align:center;">
   <a href="/imgs/00_CMC_vibe.jpeg" data-lightbox="image-gallery" data-title="McCafferty, Caitlyn L., et al. Cell 187.3 (2024): 563–584.">
@@ -34,7 +34,7 @@ Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) s
 A critical philosophical difference is that cryo-ET aims to observe macromolecules in their natural cellular context. Meanwhile, SPA requires extensive purification steps, removing the protein complexes from their native milieu but achieving higher resolution in exchange for losing cellular context.
 
 ### FIB-Milled Cellular Lamellae
-- **Preserves In Situ Context:** You see organelles and macromolecules in their native environment (cell membranes, cytoskeleton, neighboring structures).
+- **Preserves In Situ Context:** You see organelles and macromolecules in their native environment (cell membranes, cytoskeleton, neighbouring structures).
 - **Complex and Heterogeneous:** More challenging to prepare and interpret because you capture the full cellular complexity.
 
 ### Purified sample (e.g organelles, large viruses, etc)
@@ -70,7 +70,7 @@ In short, cellular lamellae capture the true cellular environment at the expense
 ### **Dose and Radiation Damage**
 Electron radiation damages biological samples. The total electron dose must be strictly limited, leading to a lower signal-to-noise ratio (SNR).
 
-### **Missing Wedge Artifact**
+### **Missing Wedge Artefact**
 Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain anisotropic distortions, known as the **missing wedge** effect.
 
 ### **Tilt-series alignment**

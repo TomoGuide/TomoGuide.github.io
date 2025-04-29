@@ -14,7 +14,7 @@ nav_order: 3
 - TOC
 {:toc}
 
-## Initialize RELION
+## Initialise RELION
 
 Create a clean working folder and name it however you want.
 
@@ -24,7 +24,7 @@ Load RELION5 and launch the tomo branch.
 ```bash
 relion --tomo &
 ```
-A GUI pops-up, you are in RELION.
+A GUI pops up, you are in RELION.
 
 <a href="/imgs/14_gui.JPG" data-lightbox="image-gallery">
   <img src="/imgs/14_gui.JPG" alt="Processing Workflow" style="width:60%;">
@@ -49,24 +49,24 @@ ln -s ~/path/to/gain ~/path/to/RELION/raw/gain
   <img src="/imgs/15_Import2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gainrefs.  
+Similarly to Scipion, if you are dealing with a dataset where tilt-series were collected with different Gain references, you should import them individually, grouped by gain references.  
 In the case of the cytoribosome dataset, out of the 33 tomos, 6 tomos were collected with one gainref and 27 with another, so we split them in two different groups. You would have to run them as separate jobs until you go to STA.
 
 You need to know the tilt axis and the defocus handedness for RELION (something Scipion didn't ask you for!). If you get the defocus handedness wrong, this will only have an effect during STA, especially when reaching high resolution. If you want to check it, you can use **[Defocusgrad](https://github.com/CellArchLab/cryoet-scripts/tree/main)**. With this dataset, _Invert defocus handedness_ should be set as **YES (-1)**.
 
 You also need to know the handedness of your tomos.  
-In our case they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95 we use -95.
+In our case, they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95, we use -95.
 
 Both defocus handedness and tomo handedness can be checked once the tomograms are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
-Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should be all the same.
+Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should all be the same.
 
 ## Motion Correction and CTF estimation 
 
-Run beam induced motion correction using RELION's implementation of motioncor2. 
+Run beam-induced motion correction using RELION's implementation of motioncor2. 
 
 For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
 
-At this step you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
+At this step, you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
 Don't forget to indicate the proper gainref in the Motion tab!
 
 <a href="/imgs/16_Motion1.JPG" data-lightbox="image-gallery">
@@ -77,7 +77,7 @@ Don't forget to indicate the proper gainref in the Motion tab!
 </a>
 
 For CTF estimation, you can run a CTF estimation job, using the default parameters (CTFFIND-4.1 implementation).
-However, **we recommend you to estimate CTF using AreTomo** (it's the step after this one), which in our hands, performs better.
+However, **we recommend you estimate CTF using AreTomo** (it's the step after this one), which, in our hands, performs better.
 
 If you still choose to CTFFIND, make sure CTF is properly estimated by checking the .pdf output (in the jobXXX directory). 
 
@@ -89,26 +89,26 @@ Once motioncorr is done, you might want to remove bad tilts. Bad tilts are eithe
 - Partially or fully blacked out - especially high tilts
 - Blurred because motion correction was not sufficient
 
-In our case we remove them manually, but be aware that some software offer automated tilt curation based on the result of motion correction and the "darkness-level" of the tilts (for example AreTomo)
+In our case, we remove them manually, but be aware that some software offers automated tilt curation based on the result of motion correction and the "darkness-level" of the tilts (for example, AreTomo)
 
-Run an <kbd>Exclude tit-images</kbd> job using the output of MotionCorr or CTF estimation. Don't submit to queue.
+Run an <kbd>Exclude tit-images</kbd> job using the output of MotionCorr or CTF estimation. Don't submit to the queue.
 
 This will open Napari (it might be slow to open).
-Napari, is an interactive, open-source Python tool for visualizing, annotating, and analyzing large multi-dimensional images, designed to support scientific workflows with an extensible plugin ecosystem
+Napari is an interactive, open-source Python tool for visualising, annotating, and analysing large multi-dimensional images, designed to support scientific workflows with an extensible plugin ecosystem
 
 <a href="/imgs/17_napari.png" data-lightbox="image-gallery">
   <img src="/imgs/17_napari.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Go through the tilt stack and untick the stacks that aren't good. In that case for example (tomo24) tilts -67° to -70° and 41° to 50° were blacked out, so we removed them. Be aware that Napari does not handle the contrast of tomograms that well...
+Go through the tilt stack and untick the stacks that aren't good. In that case, for example (tomo24) tilts -67° to -70° and 41° to 50° were blacked out, so we removed them. Be aware that Napari does not handle the contrast of tomograms that well...
 
 Once you are done with all the tilt series, you can press <kbd>save tilt-series STAR file</kbd> and proceed to the next step.
 
 ## TS alignment
 
-Getting a properly aligned tilt series is very important for efficient particle detection and for tomogram "good looking-ness".
+Getting a properly aligned tilt series is very important for efficient particle detection and for tomogram "good-looking-ness".
 
-Similar to Scipion, in RELION you can either do it using AreTomo or, the more manual way with IMOD patch tracking.
+Similar to Scipion, in RELION, you can either do it using AreTomo or the more manual way with IMOD patch tracking.
 
 For this dataset, and in general, AreTomo works great. This is why we are going to show you how to automatically do it with AreTomo.
 
@@ -121,7 +121,7 @@ Make sure the path to the AreTomo2 executable is correct and points to your syst
 
 Here, let's run a first alignment with a value of 200 nm. 
 Set Correct Tilt Angle Offset to YES.
-Also, this is were we are going to use AreTomo for CTF estimation.
+Also, this is where we are going to use AreTomo for CTF estimation.
 
 <a href="/imgs/18_ALI1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/18_ALI1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -145,9 +145,9 @@ To do so, let's launch a <kbd>Reconstruct tomograms</kbd> job.
   <img src="/imgs/19_recons2.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-In <kbd>I/O</kbd> fill the info as shown, and in the go to the <kbd>Reconstruct</kbd> tab.
+In <kbd>I/O</kbd> fill the info as shown, and go to the <kbd>Reconstruct</kbd> tab.
 
-Fill in the info about to your tomogram dimensions, here 4096 4096 2048 (bin1 dimensions).
+Fill in the info about your tomogram dimensions, here 4096 4096 2048 (bin1 dimensions).
 For the pixel size, we will bin by 8, so we use a value of **15.28 Å/px**.
 
 Run the job. You now have bin8 tomograms.
@@ -155,9 +155,9 @@ Run the job. You now have bin8 tomograms.
 
 ## Refining TS alignment:
 
-Similar to Scipion, you can measure the tomogram thickness for each tomo and use this value to have a more accurate TS alignment.
+Similar to Scipion, you can measure the tomogram thickness for each tomogram and use this value to have a more accurate TS alignment.
 
-Once you aligned your tomos the first time with a single estimated tomo thickness (here we did with 200 nm), you can refine your alignment using the real tomo thickness.  
+Once you have aligned your tomos the first time with a single estimated tomo thickness (here we did with 200 nm), you can refine your alignment using the real tomo thickness.  
 To do this, you can measure the tomo thickness in IMOD by hand.
 
 1. **Open the bin8 tomograms** that resulted from your first AreTomo run.  
@@ -167,7 +167,7 @@ To do this, you can measure the tomo thickness in IMOD by hand.
     - Move your cursor to the opposite edge of the lamella (DON'T CLICK).  
     - Press Q to get the distance between the yellow cross and the position of your cursor.
 
-The distance will appear in the dialog box. Here 106 pixels, **81 nm**.
+The distance will appear in the dialogue box. Here 106 pixels, **81 nm**.
 
 <a href="/imgs/20_ali1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:60%;">
@@ -180,16 +180,16 @@ Here's an example of an edited file:
   <img src="/imgs/21_ali1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Whenever you modify a file, create a copy of the original and name it *_ori, so that you keep track of what you have done and can easily revert back.
+Whenever you modify a file, create a copy of the original and name it *_ori, so that you keep track of what you have done and can easily revert.
 
 Then run the AreTomo job again with the edited selected_tilt_series.star and run the tomo reconstruction. Your tomo should look better.  
 To be sure it was taken into account, check the .log and _AlignZ_ should be different for all tomos.
 
 ## Generate CTF corrected tomograms {#ctftomo}
 
-Once we are satisfied with the alignment of our tomograms, we can reconstruct bin4 CTF corrected tomogram for template matching.
+Once we are satisfied with the alignment of our tomograms, we can reconstruct bin4 CTF corrected tomograms for template matching.
 
-Tilt angle offset: If you recontructed with AreTomo, you don't need to use this because AreTomo automatically flatens the tomo.
+Tilt angle offset: If you reconstructed with AreTomo, you don't need to use this because AreTomo automatically flattens the tomo.
 
 <a href="/imgs/23_recons.JPG" data-lightbox="image-gallery">
   <img src="/imgs/23_recons.JPG" alt="Processing Workflow" style="width:60%;">
@@ -201,7 +201,7 @@ Tilt angle offset: If you recontructed with AreTomo, you don't need to use this 
   <img src="/imgs/24_recons.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Additional flags to make your tomo look nicer and we advise to use:  
+Additional flags to make your tomo look nicer, and we advise using:  
 * --**Fc** (binning by Fourier cropping)  
 * --**pre_weight** (pre-weighting in 2D instead of 3D weighting)  
 * --**ctf** (CTF correction by phase flip)  

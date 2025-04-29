@@ -10,7 +10,7 @@ nav_order: 8
 For this tutorial, we compiled a subset of **33 tomograms** from the "Chlamy dataset" (EMPIAR-11830) (R. Kelley, et al, *Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii.* bioRxiv [Preprint] (2024). [https://doi.org/10.1101/2024.12.28.630444](https://doi.org/10.1101/2024.12.28.630444)).
 
 Even if already reconstructed tomograms are available for this dataset (originally reconstructed using TOMOMAN, automatically aligned with AreTomo), this tutorial aims at teaching you how to reconstruct tomograms from scratch and get into subtomogram averaging (STA).  
-We believe this subset can also be of interest for people benchmarking different software.
+We believe this subset can also be of interest to people benchmarking different software.
 
 You can directly download the subsets from EMPIAR using this command:
 
@@ -27,14 +27,14 @@ This folder should contain:
 - Templates and masks for Template Matching : link for download
 
 The 33 tilt-series (TS) can be divided into two groups: 6 associated with GainRef1 and 27 with GainRef2.  
-If you are just interested in learning the basics of tomogram reconstruction and STA, we recommend using only the 6 TS associated with GainRef1 as processing will be faster.  
+If you are just interested in learning the basics of tomogram reconstruction and STA, we recommend using only the 6 TS associated with GainRef1, as processing will be faster.  
 If you want to push resolution (try classification etc.), process the entire set of TS.
 
 
 **General info about the dataset:**
 
 - **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
-- **Pixel size:** 1.91 (originally 1.96, but 1.91 is closer to reality)  
+- **Pixel size:** 1.91 (microscope defined 1.96, calibrated by STA to be 1.91)  
 - **Voltage:** 300  
 - **Spherical aberration:** 2.7  
 - **Tilt axis:** 95 (use -95 to get the proper tomogram handedness)  
@@ -45,9 +45,9 @@ If you want to push resolution (try classification etc.), process the entire set
 ## **Software**
 
 You need to have access to a GPU-powered machine running on Linux. It can be a local machine or a computing cluster. In our case, we work on a computing cluster with a SLURM system.
-You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a python installation.
+You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a Python installation.
 
-Click on the buttons below to get more information about the main software used in that tutorial and download them:
+Click on the buttons below to get more information about the main software used in that tutorial and download it:
 
 [Scipion](https://scipion.i2pc.es/){: .btn } <br>
 [IMOD](https://bio3d.colorado.edu/imod/){: .btn } <br>
