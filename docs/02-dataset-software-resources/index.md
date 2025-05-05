@@ -9,14 +9,6 @@ nav_order: 8
 ## **Dataset: EMPIAR-11830**
 For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published in as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
 
-Although reconstructed tomograms from this dataset are already available (processed using TOMOMAN and automatically aligned with AreTomo), this tutorial is designed to guide you through the full tomogram reconstruction workflow from scratch, leading into **subtomogram averaging (STA)**.
-
-This subset may also serve as a useful benchmark for testing and comparing different software tools.
-
-The 33 tilt series are divided into two groups:
-- 6 tilt series using GainRef1
-- 27 tilt series using GainRef2
-
 **General info about the dataset:**
 
 - **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
@@ -26,6 +18,14 @@ The 33 tilt series are divided into two groups:
 - **Tilt axis:** -95, be aware that the tilt axis angles indicated in the mdocs are usually wrong
 - **Defocus handedness:** -1 in RELION if starting from scratch (+1 if using the TOMOMAN preprocessed project)  
 - **Dose:** 3.5 e-/A² per tilt
+
+Although reconstructed tomograms from this dataset are already available (processed using TOMOMAN and automatically aligned with AreTomo), this tutorial is designed to guide you through the full tomogram reconstruction workflow from scratch, leading into **subtomogram averaging (STA)**.
+
+This subset may also serve as a useful benchmark for testing and comparing different software tools.
+
+The 33 tilt series are divided into two groups:
+- 6 tilt series using GainRef1
+- 27 tilt series using GainRef2
 
 If you're just getting started and want to learn the fundamentals of tomogram reconstruction and STA, we recommend beginning with the **6 GainRef1 tilt series** for faster processing.
 
