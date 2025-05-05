@@ -45,9 +45,6 @@ and run `./bash_download_gain1.sh`:
 
 <details>
   <summary><strong>bash_download_gain1.sh</strong></summary>
-
-  <br>
-
   <pre><code class="bash">
 #!/bin/bash
 
