@@ -7,7 +7,7 @@ nav_order: 8
 # Datasets, Software, and Resources
 
 ## Dataset: EMPIAR-11830
-For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of _Chlamydomonas reinhardtii_ [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
+For this tutorial, we compiled a subset of **33** tomograms from the [**Chlamy dataset** (EMPIAR-11830)](https://www.ebi.ac.uk/empiar/EMPIAR-11830/), originally published as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of _Chlamydomonas reinhardtii_ [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
 
 **General info about the dataset:**
 
