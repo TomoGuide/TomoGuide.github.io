@@ -35,14 +35,6 @@ You can download the datasets directly from EMPIAR. We compiled some scripts to 
 
 From a Linux terminal, in your desired directory, run the following command to download the 6 tilt series associated with **GainRef1:**
 
-Make the script executable:
-
-```bash
-chmod +x bash_download_gain1.sh 
-./bash_download_gain1.sh
-```
-and run `./bash_download_gain1.sh`:
-
 <details>
   <summary><strong>bash_download_gain1.sh</strong></summary>
   <pre><code class="bash">
@@ -70,6 +62,16 @@ done
   </code></pre>
 </details>
 
+Make the script executable:
+
+```bash
+chmod +x bash_download_gain1.sh 
+```
+and run it like :
+
+```bash
+./bash_download_gain1.sh
+```
 
 To download the 27 tilt series associated with **GainRef2**:
 
@@ -297,13 +299,9 @@ echo "Everything is cleaned, organized, and renamed."
   </code></pre>
 </details>
 
-Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
 
-Make sure you have python loaded and run:
-```bash
-python python_organise.py chlamy_visual_proteomics
-```
 
+Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_links and gain2_links folders that contains soft links to .eer and .mdoc.
 
 <details>
   <summary><strong>python_organise.py</strong></summary>
@@ -414,6 +412,12 @@ if __name__ == "__main__":
         main(sys.argv[1])
   </code></pre>
 </details>
+
+Make sure you have python loaded and run:
+```bash
+python python_organise.py chlamy_visual_proteomics
+```
+
 
 
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
