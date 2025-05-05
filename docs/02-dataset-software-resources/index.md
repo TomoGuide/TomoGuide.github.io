@@ -43,7 +43,12 @@ chmod +x bash_download_gain1.sh
 ```
 and run `./bash_download_gain1.sh`:
 
-```bash
+<details>
+  <summary><strong>bash_download_gain1.sh</strong></summary>
+
+  <br>
+
+  <pre><code class="bash">
 #!/bin/bash
 
 # Base URL
@@ -51,22 +56,22 @@ BASE_URL="ftp://ftp.ebi.ac.uk/empiar/world_availability/11830/data/chlamy_visual
 
 # List of gain1 target entries
 ENTRIES=(
-    "06042022_BrnoKrios_Arctis_grid5_Position_12"
-    "02122021_BrnoKrios_Arctis_lam2_pos2"
-    "02122021_BrnoKrios_Arctis_lam1_pos8"
-    "02122021_BrnoKrios_Arctis_lam1_pos6"
-    "01122021_BrnoKrios_arctis_lam3_pos31"
-    "01122021_BrnoKrios_arctis_lam3_pos29"
-    "01122021/gainref"
+  "06042022_BrnoKrios_Arctis_grid5_Position_12"
+  "02122021_BrnoKrios_Arctis_lam2_pos2"
+  "02122021_BrnoKrios_Arctis_lam1_pos8"
+  "02122021_BrnoKrios_Arctis_lam1_pos6"
+  "01122021_BrnoKrios_arctis_lam3_pos31"
+  "01122021_BrnoKrios_arctis_lam3_pos29"
+  "01122021/gainref"
 )
 
-# Download only .eer and .mdoc files for each entry
 for ENTRY in "${ENTRIES[@]}"; do
-    wget -r -N -np -nH --cut-dirs=4 \
-         --accept "*.eer,*.mdoc,*.gain" \
-         "$BASE_URL/$ENTRY/"
+  wget -r -N -np -nH --cut-dirs=4 \
+       --accept "*.eer,*.mdoc,*.gain" \
+       "$BASE_URL/$ENTRY/"
 done
-```
+  </code></pre>
+</details>
 
 
 To download the 27 tilt series associated with **GainRef2**:
