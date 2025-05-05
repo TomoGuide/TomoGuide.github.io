@@ -44,9 +44,7 @@ chmod +x bash_download_gain1.sh
 
 <details><summary><strong>bash_download_gain1.sh</strong></summary>
 
-<br>
-
-<pre><code>
+<pre><code class="language-bash">
 #!/bin/bash
 
 # Base URL
