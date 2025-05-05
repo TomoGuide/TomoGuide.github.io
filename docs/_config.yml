@@ -5,6 +5,8 @@ color_scheme: "light"
 favicon_ico: "/imgs/00_favicon.svg"
 logo:   "/imgs/00_logo.svg"
 
+markdown: kramdown
+highlighter: rouge
 
 search_enabled: true
 nav_sort: case_insensitive
