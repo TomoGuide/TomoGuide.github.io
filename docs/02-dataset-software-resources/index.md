@@ -300,12 +300,12 @@ echo "Everything is cleaned, organized, and renamed."
 Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
 
 Make sure you have python loaded and run:
-```
+```bash
 python python_organise.py chlamy_visual_proteomics
 ```
 
 <details>
-  <summary><strong>python_organise.py</strong></summary>
+  <summary><strong>prepare_clean_rename.sh</strong></summary>
   <pre><code class="python">
 import os
 import re
