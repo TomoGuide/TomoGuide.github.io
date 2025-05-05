@@ -415,6 +415,7 @@ if __name__ == "__main__":
   </code></pre>
 </details>
 
+
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
 
 <a href="/imgs/40_gain1.png" data-lightbox="image-gallery">
