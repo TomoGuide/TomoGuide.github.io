@@ -6,8 +6,8 @@ nav_order: 8
 
 # Datasets, Software, and Resources
 
-## **Dataset: EMPIAR-11830**
-For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published in as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
+## Dataset: EMPIAR-11830
+For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of _Chlamydomonas reinhardtii_ [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
 
 **General info about the dataset:**
 
@@ -427,8 +427,8 @@ At the end you should have a folder named `chlamy_visual_proteomics` containing 
 
 Additionally you can directly download these files here:
 
-- Two text files with thickness measurements for automated AreTomo TS alignment: https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/
-- Templates and masks for Template Matching: https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/
+- Two text files with thickness measurements for automated AreTomo TS alignment: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/)
+- Templates and masks for Template Matching: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/)
 
 ## Software
 
