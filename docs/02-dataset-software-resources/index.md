@@ -411,7 +411,6 @@ if __name__ == "__main__":
         print("Usage: python update_subframe_paths.py <chlamy_visual_proteomics>")
     else:
         main(sys.argv[1])
-
   </code></pre>
 </details>
 
