@@ -115,7 +115,7 @@ For this dataset, and in general, AreTomo works great. This is why we are going 
 AreTomo tries to find the optimal back projection scheme based on a theoretical lamella thickness. It will also find and refine the tilt axis angle, starting from the one you provided at the import step.
 
 The way AreTomo works right now in RELION5 is a bit restrictive. In the GUI, you can only set a single estimated tomogram thickness.
-AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal.
+AreTomo performs best when the tomogram thickness is accurate, so having one value for all tomos is not optimal (we will optimise this in a second).
 
 Make sure the path to the AreTomo2 executable is correct and points to your system.
 
@@ -155,10 +155,9 @@ Run the job. You now have bin8 tomograms.
 
 ## Refining TS alignment:
 
-Similar to Scipion, you can measure the tomogram thickness for each tomogram and use this value to have a more accurate TS alignment.
-
-Once you have aligned your tomos the first time with a single estimated tomo thickness (here we did with 200 nm), you can refine your alignment using the real tomo thickness.  
-To do this, you can measure the tomo thickness in IMOD by hand.
+Similar to Scipion, you can measure the tomogram thickness for each tomogram and use this value to have a more accurate TS alignment. If you follow the Tutorial using Gain1 or Gain2 from the Chlamy dataset you can download the measured tomogram thickness files [**here**](/02-dataset-software-resources/#downloads). If not you can refine tilt series alignment by measuring the tomogram thickness as follows:
+ 
+To do this, you can measure in IMOD by hand.
 
 1. **Open the bin8 tomograms** that resulted from your first AreTomo run.  
 2. Go to **Edit > Image > Flip/Rotate**.  
