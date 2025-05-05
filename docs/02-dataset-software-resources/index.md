@@ -35,16 +35,15 @@ You can download the datasets directly from EMPIAR. We compiled some scripts to 
 
 From a Linux terminal, in your desired directory, run the following command to download the 6 tilt series associated with **GainRef1:**
 
-Make the script executable and run it like:
+Make the script executable:
 
 ```bash
 chmod +x bash_download_gain1.sh 
 ./bash_download_gain1.sh
 ```
+and run `./bash_download_gain1.sh`:
 
-<details><summary><strong>bash_download_gain1.sh</strong></summary>
-
-<pre><code class="language-bash">
+```bash
 #!/bin/bash
 
 # Base URL
@@ -67,12 +66,10 @@ for ENTRY in "${ENTRIES[@]}"; do
          --accept "*.eer,*.mdoc,*.gain" \
          "$BASE_URL/$ENTRY/"
 done
-</code></pre>
-
-</details>
+```
 
 
-To download the 27 tilt series associated with **GainRef2:**
+To download the 27 tilt series associated with **GainRef2**:
 
 ```bash
 #!/bin/bash
