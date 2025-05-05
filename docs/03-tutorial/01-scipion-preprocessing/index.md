@@ -142,7 +142,7 @@ At this step we will not reconstruct odd/even tomograms for denoising since we a
 
 ### Refining AreTomo tilt series alignment
 
-This step is optional but highly recommended if you want well-aligned tomograms. The better the tomogram alignment, the easier it will be to detect your target of interest, and the better resolution you can achieve in subsequent analyses. From [**here**](/02-dataset-software-resources/#downloads) you can get the files with the measured thickness (for Gain1 or Gain2 Chlamy dataset) to provide to AreTomo. If you want to measure your tomogram thickness yourself continue below:
+This step is optional but highly recommended if you want well-aligned tomograms. The better the tomogram alignment, the easier it will be to detect your target of interest, and the better resolution you can achieve in subsequent analyses. If you follow the Tutorial using Gain1 or Gain2 from the Chlamy dataset you can download the measured tomogram thickness files [**here**](/02-dataset-software-resources/#downloads). If not you can refine tilt series alignment by measuring the tomogram thickness as follows:
 
 1. **Open the bin8 tomograms** that resulted from your first AreTomo run.  
 2. Go to **Edit > Image > Flip/Rotate**.  
