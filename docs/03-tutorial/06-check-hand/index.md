@@ -17,11 +17,16 @@ A good target, because they are large, abundant and easy to pick, are **ribosome
 
 Here are the structures of the same ribosome, one with the wrong and one with the correct handedness:
 
+
+<figure style="text-align:center;">
 <a href="/imgs/39_flippedy_floppedy.jpg" data-lightbox="image-gallery">
   <img src="/imgs/39_flippedy_floppedy.jpg" alt="Processing Workflow" style="width:60%;">
 </a>
+  <figcaption style="width:70%; margin:0 auto;">
+    <em>Here, the right one (green) is correct, and the left one is wrong.</em>
+  </figcaption>
+</figure>
 
-Here, the right one (green) is correct, and the left one is wrong.
 
 You can easily change the handedness of your volume in ChimeraX using the command:
 
@@ -42,11 +47,16 @@ Once you have run template matching, you should already see a difference by lett
 
 Note that template matching with a template which has a different handedness than your tomo might still give you somewhat plausible results and fool you. Example:
 
+
+<figure style="text-align:center;">
 <a href="/imgs/39_flipflop.jpg" data-lightbox="image-gallery">
   <img src="/imgs/39_flipflop.jpg" alt="Processing Workflow" style="width:80%;">
 </a>
+  <figcaption style="width:70%; margin:0 auto;">
+    <em>Click to make it bigger.</em>
+  </figcaption>
+</figure>
 
-Click to make it bigger.
 
 Here, the results of TM are shown using a proper template (right) or a flipped template (right).
 
