@@ -42,7 +42,7 @@ chmod +x bash_download_gain1.sh
 ./bash_download_gain1.sh
 ```
 
-<details><summary>Click to expand code</summary>
+<details><summary>bash_download_gain1.sh</summary>
 
 ```bash
 #!/bin/bash
@@ -68,6 +68,8 @@ for ENTRY in "${ENTRIES[@]}"; do
          "$BASE_URL/$ENTRY/"
 done
 ```
+
+</details>
 
 To download the 27 tilt series associated with **GainRef2:**
 
@@ -116,9 +118,9 @@ for ENTRY in "${ENTRIES[@]}"; do
          "$BASE_URL/$ENTRY/"
 done
 ```
-</details>
 
 From there, because the original files have annoying names, run this script. It will clean, rename and organize the files. (run the script the same way you did for the download part)
+
 
 ```bash
 #!/bin/bash
