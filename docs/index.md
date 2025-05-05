@@ -27,7 +27,5 @@ We hope it will be useful!
 
 Please keep in mind that there are dozens of cryo-ET software packages and workflows out there. What we have summarised here are common workflows we (the [Cell Architecture Lab](https://www.cellarchlab.com/)) use. Naturally, the field is constantly evolving and progressing. If you have any ideas, issues, suggestions, comments etc., please raise them directly on [GitHub](https://github.com/TomoGuide/TomoGuide.github.io). 
 
-We appreciate any user feedback and are looking forward to interacting with you! Ultimately, this is all about creating a useful resource for the community. 
-
-So YOU can also help us make it better 😊
+We appreciate any user feedback and are looking forward to interacting with you! Ultimately, this is all about creating a useful resource for the community. So YOU can help us make it better 😊
 

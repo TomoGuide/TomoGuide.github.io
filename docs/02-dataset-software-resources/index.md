@@ -7,25 +7,35 @@ nav_order: 8
 # Datasets, Software, and Resources
 
 ## **Dataset: EMPIAR-11830**
-For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published in as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii. bioRxiv [Preprint] (2024). https://doi.org/10.1101/2024.12.28.630444.)
+For this tutorial, we compiled a subset of **33** tomograms from the **Chlamy dataset** (EMPIAR-11830), originally published in as R. Kelley, et al, Towards community-driven visual proteomics with large-scale cryo-electron tomography of Chlamydomonas reinhardtii [bioRxiv Preprint (2024)](https://doi.org/10.1101/2024.12.28.630444).
 
 Although reconstructed tomograms from this dataset are already available (processed using TOMOMAN and automatically aligned with AreTomo), this tutorial is designed to guide you through the full tomogram reconstruction workflow from scratch, leading into **subtomogram averaging (STA)**.
 
 This subset may also serve as a useful benchmark for testing and comparing different software tools.
 
 The 33 tilt series are divided into two groups:
---6 tilt series using GainRef1
---27 tilt series using GainRef2
+- 6 tilt series using GainRef1
+- 27 tilt series using GainRef2
+
+**General info about the dataset:**
+
+- **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
+- **Pixel size:** 1.91 (microscope defined 1.96, calibrated by STA to be 1.91)  
+- **Voltage:** 300  
+- **Spherical aberration:** 2.7  
+- **Tilt axis:** -95, be aware that the tilt axis angles indicated in the mdocs are usually wrong
+- **Defocus handedness:** -1 in RELION if starting from scratch (+1 if using the TOMOMAN preprocessed project)  
+- **Dose:** 3.5 e-/A² per tilt
 
 If you're just getting started and want to learn the fundamentals of tomogram reconstruction and STA, we recommend beginning with the **6 GainRef1 tilt series** for faster processing.
 
-If you're interested in pushing resolution, trying classification, or running advanced workflows, you can process the full set. GainRef1 alone is about 33Go while GainRef1 and 2 is about 170Go.
+If you're interested in pushing resolution, trying classification, or running advanced workflows, you can process the full set. GainRef1 alone is about 33 Gb while GainRef1 and 2 is about 170Gb.
 
 You can download the datasets directly from EMPIAR. We compiled some scripts to help you in that process.
 
 From a Linux terminal, in your desired directory, run the following command to download the 6 tilt series associated with **GainRef1:**
 
-Make the script executable and run it like so:
+Make the script executable and run it like:
 
 ```bash
 chmod +x bash_download_gain1.sh 
@@ -233,7 +243,7 @@ if [ -f "$GAINREF1_FILE" ]; then
     echo "→ gainref1.gain copied to gain1/"
     rm -rf "$BASE_DIR/01122021"
 else
-    echo "⚠️  No .gain file found in $GAINREF1_SRC"
+    echo "No .gain file found in $GAINREF1_SRC"
 fi
 
 if [ -f "$GAINREF2_FILE" ]; then
@@ -241,7 +251,7 @@ if [ -f "$GAINREF2_FILE" ]; then
     echo "→ gainref2.gain copied to gain2/"
     rm -rf "$BASE_DIR/06042022"
 else
-    echo "⚠️  No .gain file found in $GAINREF2_SRC"
+    echo "No .gain file found in $GAINREF2_SRC"
 fi
 
 # Step 6: Rename folders and files
@@ -252,14 +262,14 @@ for GAIN_DIR in "$BASE_DIR/gain1" "$BASE_DIR/gain2"; do
         dest_folder="$GAIN_DIR/$new_name"
 
         if [ -d "$src_folder" ]; then
-            echo "🔄 Renaming folder: $original_name → $new_name"
+            echo "Renaming folder: $original_name → $new_name"
             mv "$src_folder" "$dest_folder"
 
             # Rename .mdoc
             old_mdoc=$(find "$dest_folder" -maxdepth 1 -name "*.mdoc" | head -n 1)
             if [ -f "$old_mdoc" ]; then
                 mv "$old_mdoc" "$dest_folder/${new_name}.mdoc"
-                echo "   📄 Renamed .mdoc to ${new_name}.mdoc"
+                echo "Renamed .mdoc to ${new_name}.mdoc"
             fi
 
             # Rename all .eer files
@@ -267,23 +277,22 @@ for GAIN_DIR in "$BASE_DIR/gain1" "$BASE_DIR/gain2"; do
                 if [[ -f "$eer_file" ]]; then
                     angle=$(echo "$eer_file" | sed -E 's/.*\[(.*)\]_EER\.eer/\1/')
                     mv "$eer_file" "$dest_folder/${new_name}[${angle}]_EER.eer"
-                    echo "   🎞️  Renamed .eer to ${new_name}[${angle}]_EER.eer"
+                    echo "Renamed .eer to ${new_name}[${angle}]_EER.eer"
                 fi
             done
         fi
     done
 done
 
-echo "✅ Everything is cleaned, organized, and renamed."
+echo "Everything is cleaned, organized, and renamed."
 ```
 
-Finally run this python script. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
+Finally run the python script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
 
 Make sure you have python loaded and run
 
 ```bash
 python python_organise.py chlamy_visual_proteomics
-
 ```
 
 ```python
@@ -346,7 +355,7 @@ def process_folder(folder_path):
             mdoc_path = os.path.join(folder_path, filename)
             mdoc_data, subframe_paths = parse_mdoc(mdoc_path)
             update_mdoc_in_place(mdoc_path, mdoc_data, subframe_paths, eer_files)
-            print(f"✅ Updated: {mdoc_path}")
+            print(f"Updated: {mdoc_path}")
 
 def create_symlinks(base_dir, gain_name):
     gain_path = os.path.join(base_dir, gain_name)
@@ -370,9 +379,9 @@ def create_symlinks(base_dir, gain_name):
                     if os.path.exists(link_path) or os.path.islink(link_path):
                         os.remove(link_path)
                     os.symlink(rel_target, link_path)
-                    print(f"🔗 Linked: {file} → {rel_target}")
+                    print(f"Linked: {file} → {rel_target}")
                 except Exception as e:
-                    print(f"⚠️ Failed to link {file}: {e}")
+                    print(f"Failed to link {file}: {e}")
 
 def main(base_dir):
     for gain_dir in ['gain1', 'gain2']:
@@ -394,27 +403,19 @@ if __name__ == "__main__":
 
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
 
-picture1 | picture2
+<a href="/imgs/40_gain1.png" data-lightbox="image-gallery">
+  <img src="/imgs/40_gain1.png" alt="Processing Workflow" style="width:60%;">
+</a>
+<a href="/imgs/40_gain2.png" data-lightbox="image-gallery">
+  <img src="/imgs/40_gain2.png" alt="Processing Workflow" style="width:60%;">
+</a>
 
 Additionally you can directly download these files here:
 
 - Two text files with thickness measurements for automated AreTomo TS alignment : link for download
 - Templates and masks for Template Matching : link for download
 
-
-
-**General info about the dataset:**
-
-- **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
-- **Pixel size:** 1.91 (microscope defined 1.96, calibrated by STA to be 1.91)  
-- **Voltage:** 300  
-- **Spherical aberration:** 2.7  
-- **Tilt axis:** 95 (use -95 to get the proper tomogram handedness)  /!\ be aware that the tilt axis indicated in the mdoc are usually wrong /!\
-- **Defocus handedness:** -1 in RELION if starting from scratch (+1 if using the TOMOMAN preprocessed project)  
-- **Dose:** 3.5 e-/A² per tilt
-
-
-## **Software**
+## Software
 
 You need to have access to a GPU-powered machine running on Linux. It can be a local machine or a computing cluster. In our case, we work on a computing cluster with a SLURM system.
 You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a Python installation.

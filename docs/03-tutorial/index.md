@@ -55,3 +55,18 @@ Once all the tilt-series images are aligned and cleaned up, the software combine
   tomograms pleasant to “human” eyes.  
 - **CTF Correction**: You use the previously estimated CTF information to correct for the lens distortions in your final 3D 
   tomogram, improving the overall quality and clarity. This is especially important for STA and automated particle picking.
+
+## Software
+
+You need to have access to a GPU-powered machine running on Linux. It can be a local machine or a computing cluster. In our case, we work on a computing cluster with a SLURM system.
+You will also need to have appropriate CUDA drivers (this means you need to have NVIDIA GPUs) and a Python installation.
+
+Click on the buttons below to get more information about the main software used in that tutorial and download it:
+
+[Scipion](https://scipion.i2pc.es/){: .btn } <br>
+[IMOD](https://bio3d.colorado.edu/imod/){: .btn } <br>
+[RELION 5](https://relion.readthedocs.io/en/release-5.0/){: .btn } <br>
+[AreTomo3](https://github.com/czimaginginstitute/AreTomo3){: .btn } <br>
+[ChimeraX](https://www.cgl.ucsf.edu/chimerax/){: .btn } <br>
+[ArtiaX](https://github.com/FrangakisLab/ArtiaX){: .btn } <br>
+[pytom-match-pick](https://github.com/SBC-Utrecht/pytom-match-pick){: .btn } <br>
