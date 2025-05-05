@@ -299,7 +299,10 @@ echo "Everything is cleaned, organized, and renamed."
 
 Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
 
-Make sure you have python loaded and run `python python_organise.py chlamy_visual_proteomics`
+Make sure you have python loaded and run:
+```bash
+python python_organise.py chlamy_visual_proteomics
+```
 
 
 <details>
@@ -406,7 +409,7 @@ def main(base_dir):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python update_subframe_paths.py <chlamy_visual_proteomics>")
+        print("Usage: python update_subframe_paths.py chlamy_visual_proteomics")
     else:
         main(sys.argv[1])
   </code></pre>
