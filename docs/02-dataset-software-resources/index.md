@@ -41,11 +41,13 @@ Make the script executable:
 chmod +x bash_download_gain1.sh 
 ./bash_download_gain1.sh
 ```
+
 and run `./bash_download_gain1.sh`:
 
 <details>
   <summary><strong>bash_download_gain1.sh</strong></summary>
-  <pre><code class="bash">
+
+```bash
 #!/bin/bash
 
 # Base URL
@@ -67,15 +69,16 @@ for ENTRY in "${ENTRIES[@]}"; do
        --accept "*.eer,*.mdoc,*.gain" \
        "$BASE_URL/$ENTRY/"
 done
-  </code></pre>
-</details>
+```
 
+</details>
 
 To download the 27 tilt series associated with **GainRef2**:
 
 <details>
   <summary><strong>bash_download_gain2.sh</strong></summary>
-  <pre><code class="bash">
+
+```bash
 #!/bin/bash
 
 # Base URL
@@ -119,14 +122,16 @@ for ENTRY in "${ENTRIES[@]}"; do
          --accept "*.eer,*.mdoc,*.gain" \
          "$BASE_URL/$ENTRY/"
 done
-  </code></pre>
+```
+
 </details>
 
 From there, because the original files have annoying names, run this `prepare_clean_rename.sh` script. It will clean, rename and organize the files. (Run the script the same way you did for the download part):
 
 <details>
   <summary><strong>prepare_clean_rename.sh</strong></summary>
-  <pre><code class="bash">
+
+```bash
 #!/bin/bash
 
 BASE_DIR="chlamy_visual_proteomics"
@@ -294,7 +299,8 @@ for GAIN_DIR in "$BASE_DIR/gain1" "$BASE_DIR/gain2"; do
 done
 
 echo "Everything is cleaned, organized, and renamed."
-  </code></pre>
+```
+
 </details>
 
 Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
@@ -304,11 +310,10 @@ Make sure you have python loaded and run:
 python python_organise.py chlamy_visual_proteomics
 ```
 
-
 <details>
   <summary><strong>python_organise.py</strong></summary>
 
-  <pre><code class="python">
+```python
 import os
 import re
 import sys
@@ -412,9 +417,9 @@ if __name__ == "__main__":
         print("Usage: python update_subframe_paths.py <chlamy_visual_proteomics>")
     else:
         main(sys.argv[1])
-  </code></pre>
-</details>
+```
 
+</details>
 
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
 
