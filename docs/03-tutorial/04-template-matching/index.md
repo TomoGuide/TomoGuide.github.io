@@ -314,8 +314,8 @@ You can open the tomogram of your choice, and it will open
 
 On the right, you have the ArtiaX options, you can play with the two first sliders to change the contrast, and the last slider let you go through Z.
 
-<a href="/imgs/placeholder.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/placeholder.JPG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/38_artiax3_2.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax3_2.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 To open a particle list, select <kbd>Open List</kbd>, choose your list (it needs to be a RELION5 particle list), and this window will pop up. Click on custom and select the tomogram, and it will adapt the dimensions.
