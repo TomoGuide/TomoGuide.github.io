@@ -425,6 +425,7 @@ At the end you should have a folder named `chlamy_visual_proteomics` containing 
   <img src="/imgs/40_gain2.png" alt="Processing Workflow" style="width:50%;">
 </a>
 
+<a id="downloads"></a>
 Additionally you can directly download these files here:
 
 - Two text files with thickness measurements for automated AreTomo TS alignment: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/)

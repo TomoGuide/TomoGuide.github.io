@@ -50,7 +50,7 @@ For more details, check the [Documentation](https://sbc-utrecht.github.io/pytom-
 
 Hence, template matching is also an iterative process. For challenging targets, you want to rerun everything once you obtain a "low-res" (ideally bin4 Nyquist) structure from your data.
 
-From the download tab, you can retrieve the Ribosome templates and masks.
+From the [download tab](02-dataset-software-resources/#downloads), you can retrieve the Ribosome templates and masks.
 Here, on the left, the volume `Cytoribo_box72-inv.mrc` with inverted contrast, is the one to use for template matching, on the right the normal volume, `Cytoribo_box72.mrc`
 
 <a href="/imgs/36_tmplts.PNG" data-lightbox="image-gallery">
