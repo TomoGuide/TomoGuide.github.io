@@ -428,8 +428,8 @@ At the end you should have a folder named `chlamy_visual_proteomics` containing 
 <a id="downloads"></a>
 Additionally you can directly download these files here:
 
-- Two text files with thickness measurements for automated AreTomo TS alignment: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/)
-- Templates and masks for Template Matching: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/)
+- **Two text files with thickness measurements for automated AreTomo TS alignment: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/)**
+- **Templates and masks for Template Matching: [https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/](https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/)**
 
 ## Software
 
