@@ -404,10 +404,10 @@ if __name__ == "__main__":
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
 
 <a href="/imgs/40_gain1.png" data-lightbox="image-gallery">
-  <img src="/imgs/40_gain1.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/40_gain1.png" alt="Processing Workflow" style="width:50%;">
 </a>
 <a href="/imgs/40_gain2.png" data-lightbox="image-gallery">
-  <img src="/imgs/40_gain2.png" alt="Processing Workflow" style="width:60%;">
+  <img src="/imgs/40_gain2.png" alt="Processing Workflow" style="width:50%;">
 </a>
 
 Additionally you can directly download these files here:
