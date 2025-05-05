@@ -73,7 +73,9 @@ done
 
 To download the 27 tilt series associated with **GainRef2**:
 
-```bash
+<details>
+  <summary><strong>bash_download_gain2.sh</strong></summary>
+  <pre><code class="bash">
 #!/bin/bash
 
 # Base URL
@@ -117,12 +119,14 @@ for ENTRY in "${ENTRIES[@]}"; do
          --accept "*.eer,*.mdoc,*.gain" \
          "$BASE_URL/$ENTRY/"
 done
-```
+  </code></pre>
+</details>
 
-From there, because the original files have annoying names, run this script. It will clean, rename and organize the files. (run the script the same way you did for the download part)
+From there, because the original files have annoying names, run this `prepare_clean_rename.sh` script. It will clean, rename and organize the files. (Run the script the same way you did for the download part):
 
-
-```bash
+<details>
+  <summary><strong>prepare_clean_rename.sh</strong></summary>
+  <pre><code class="bash">
 #!/bin/bash
 
 BASE_DIR="chlamy_visual_proteomics"
@@ -290,17 +294,19 @@ for GAIN_DIR in "$BASE_DIR/gain1" "$BASE_DIR/gain2"; do
 done
 
 echo "Everything is cleaned, organized, and renamed."
+  </code></pre>
+</details>
+
+Finally run the `python_organise.py` script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
+
+Make sure you have python loaded and run:
 ```
-
-Finally run the python script below. It will modify the .mdoc and create gain1_link and gain2_link folders that contains soft links to .eer and .mdoc.
-
-Make sure you have python loaded and run
-
-```bash
 python python_organise.py chlamy_visual_proteomics
 ```
 
-```python
+<details>
+  <summary><strong>python_organise.py</strong></summary>
+  <pre><code class="python">
 import os
 import re
 import sys
@@ -404,7 +410,8 @@ if __name__ == "__main__":
         print("Usage: python update_subframe_paths.py <chlamy_visual_proteomics>")
     else:
         main(sys.argv[1])
-```
+  </code></pre>
+</details>
 
 At the end you should have a folder named `chlamy_visual_proteomics` containing fours folders. `gain1` and `gain2` folders contains the raw data and the gain references, `gain1_links` and `gain2_links` contain links to the `.eer` and the `.mdoc` in a single folder.
 
@@ -417,8 +424,8 @@ At the end you should have a folder named `chlamy_visual_proteomics` containing 
 
 Additionally you can directly download these files here:
 
-- Two text files with thickness measurements for automated AreTomo TS alignment : link for download
-- Templates and masks for Template Matching : link for download
+- Two text files with thickness measurements for automated AreTomo TS alignment: https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/Z_height/
+- Templates and masks for Template Matching: https://github.com/TomoGuide/TomoGuide.github.io/tree/main/docs/data/TM/
 
 ## Software
 

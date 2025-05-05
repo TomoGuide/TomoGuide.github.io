@@ -50,6 +50,15 @@ For more details, check the [Documentation](https://sbc-utrecht.github.io/pytom-
 
 Hence, template matching is also an iterative process. For challenging targets, you want to rerun everything once you obtain a "low-res" (ideally bin4 Nyquist) structure from your data.
 
+From the download tab, you can retrieve the Ribosome templates and masks.
+Here, on the left, the volume `Cytoribo_box72-inv.mrc` with inverted contrast, is the one to use for template matching, on the right the normal volume, `Cytoribo_box72.mrc`
+
+<a href="/imgs/36_tmplts.PNG" data-lightbox="image-gallery">
+  <img src="/imgs/36_tmplts.PNG" alt="Processing Workflow" style="width:60%;">
+</a>
+
+If you want to create your own template from a map you can follow the section below.
+
 ### Scaling a template using RELION or EMAN
 
 Scaling an `input.mrc` file from the [EMDB](https://www.ebi.ac.uk/emdb/) can be done, for example, using either `e2proc3d.py` from [EMAN2](https://blake.bcm.edu/emanwiki/EMAN2) or `relion_image_handler` from [RELION](https://github.com/3dem/relion/tree/ver5.0):

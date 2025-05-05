@@ -1,0 +1,6 @@
+tomo50	680
+tomo24	418
+tomo25	942
+tomo34	680
+tomo35	890
+tomo37	1310
