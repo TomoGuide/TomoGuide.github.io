@@ -31,7 +31,7 @@ If you're just getting started and want to learn the fundamentals of tomogram re
 
 If you're interested in pushing resolution, trying classification, or running advanced workflows, you can process the full set. Dataset GainRef1 alone is about 33 Gb while GainRef1 and 2 is about 170Gb.
 
-You can download the datasets directly from EMPIAR. We compiled some scripts to help you in that process.
+**You can download the datasets directly from EMPIAR. We compiled some scripts to help you in that process.**
 
 From a Linux terminal, in your desired directory, run the following command to download the 6 tilt series associated with **GainRef1:**
 
