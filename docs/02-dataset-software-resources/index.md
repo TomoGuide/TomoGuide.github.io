@@ -29,7 +29,7 @@ The 33 tilt series are divided into two groups:
 
 If you're just getting started and want to learn the fundamentals of tomogram reconstruction and STA, we recommend beginning with the **6 GainRef1 tilt series** for faster processing.
 
-If you're interested in pushing resolution, trying classification, or running advanced workflows, you can process the full set. GainRef1 alone is about 33 Gb while GainRef1 and 2 is about 170Gb.
+If you're interested in pushing resolution, trying classification, or running advanced workflows, you can process the full set. Dataset GainRef1 alone is about 33 Gb while GainRef1 and 2 is about 170Gb.
 
 You can download the datasets directly from EMPIAR. We compiled some scripts to help you in that process.
 
