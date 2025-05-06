@@ -152,13 +152,13 @@ This step is optional but highly recommended if you want well-aligned tomograms.
     - Move your cursor to the opposite edge of the lamella (DON'T CLICK).  
     - Press Q to get the distance between the yellow cross and the position of your cursor.
 
-The distance will appear in the dialogue box. Here 106 pixels, **81 nm**.
+The distance will appear in the dialogue box. Here **106 pixels** or 81 nm.
 
 <a href="/imgs/20_ali1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/20_ali1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the Advanced options.
+Once you have done that for all the tomograms, you can provide this file as an input for the AreTomo job in the **Advanced options** ([example files here](/02-dataset-software-resources/#downloads)).
 
 <a href="/imgs/10_Aretomo3_Scipion.PNG" data-lightbox="image-gallery">
   <img src="/imgs/10_Aretomo3_Scipion.PNG" alt="Processing Workflow" style="width:60%;">
