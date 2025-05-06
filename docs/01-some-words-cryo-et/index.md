@@ -47,7 +47,7 @@ In short, cellular lamellae capture the true cellular environment at the expense
 
 
 1. **Sample preparation**  
-   FIB-milled plunge-frozen cells, HPF samples, or purified macromolecules of interest.
+   FIB-milled plunge-frozen cells, HPF samples, or purified macromolecules.
 
 2. **Sample Mounting**  
    The sample is transferred into the cryo-TEM (kept below –180°C).
@@ -71,7 +71,7 @@ In short, cellular lamellae capture the true cellular environment at the expense
 Electron radiation damages biological samples. The total electron dose must be strictly limited, leading to a lower signal-to-noise ratio (SNR).
 
 ### **Missing Wedge Artefact**
-Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain anisotropic distortions, known as the **missing wedge** effect.
+Due to incomplete tilt sampling (typically ±60°), 3D reconstructions contain anisotropic information, known as the **missing wedge** effect.
 
 ### **Tilt-series alignment**
 Even small movements in the sample can degrade correlations between images.
