@@ -46,6 +46,8 @@ _“Add tomo - import tilt-series”_.
 
 Here, you need to specify the directory that contains the movies (e.g., `.eer`) and the `.mdoc` files that contain the information about each tilt series.
 
+If you are using the downloaded test dataset this would be the `gain1_links` and `gain2_links` folders.
+
 > **Note**: We work with Tomo5 mdocs (TFS acquisition software) here, but you might be working with SerialEM mdocs. In any case, Scipion is smart enough to read the info from the mdoc files. However, we recommend overriding these values if you know them! Since they can be wrong in the mdoc file, notably the **Tilt axis angle**. If you collect your own data on a "classic" Titan G4 with Falcon4i and SelectrisX in `.eer`, the tilt axis will probably be the same as here. If you acquired in `.tiff`, this value might be different. In doubt, ask your facility manager, or check the output of AreTomo (or IMOD), which can estimate the tilt axis angle. A wrong tilt axis angle might result in a wrong-handed tomogram (mirrored), so it's really important to be sure of that. Check **[here](/03-tutorial/06-check-hand/)**.
 
 
