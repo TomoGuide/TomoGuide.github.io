@@ -529,7 +529,7 @@ In the tomo branch of RELION5, **CTF refinement** and **Bayesian polishing** are
 3. Reconstruct at bin1 and post-process
 4. Run Bayesian polishing
 5. Reconstruct again and post-process
-6. Re-extract your particles
+6. Re-extract your particles (at bin 2 or 1)
 7. Refine particles
 8. Repeat for further improvements
 
@@ -628,22 +628,24 @@ Then run another cycle of CTF Refine + Polish. This should improve the resolutio
 Finally, you can re-extract subtomos at bin1 and run a 3D refinement at bin1, and then again run another cycle of CTF Refine + Polish.
 
 Here's the result after 3 cycles of Polishing/refinement, focused on the large subunit of the ribosome. It's at Nyquist bin1.
-
 <a href="/imgs/34_bayes4.png" data-lightbox="image-gallery">
   <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Here's the final map obtained, with some details. We can see RNA base separation, kinda cool!
+Here's the final map obtained, with some details. We can see RNA base separation, kinda cool! 
 <a href="/imgs/34_final_ribo.png" data-lightbox="image-gallery">
   <img src="/imgs/34_final_ribo.png" alt="Processing Workflow" style="width:80%;">
 </a>
-
+Using 20506 particles from 33 tomograms
 <video controls style="width:80%; max-width:100%;">
   <source src="/imgs/ribo_movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 Congrats! You might also be at bin1 Nyquist, the true physical limit of the dataset ... or is it? Since this dataset was acquired in EER format, you can in theory go past Nyquist!
-Additionally, each Bayesian polishing step generates a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. Time to start over!
+
+Additionally, each Bayesian polishing step generates a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. 
+
+Time to start over!
 
 That's it! Thanks for following this tutorial.
