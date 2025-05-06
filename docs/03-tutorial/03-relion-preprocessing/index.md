@@ -104,7 +104,7 @@ Go through the tilt stack and untick the stacks that aren't good. In that case, 
 
 Once you are done with all the tilt series, you can press <kbd>save tilt-series STAR file</kbd> and proceed to the next step.
 
-## TS alignment
+## Tilt series alignment
 
 Getting a properly aligned tilt series is very important for efficient particle detection and for tomogram "good-looking-ness".
 
@@ -153,9 +153,9 @@ For the pixel size, we will bin by 8, so we use a value of **15.28 Å/px**.
 Run the job. You now have bin8 tomograms.
 
 
-## Refining TS alignment:
+## Refining tilt series alignment:
 
-Similar to Scipion, you can measure the tomogram thickness for each tomogram and use this value to have a more accurate TS alignment. If you follow the Tutorial using Gain1 or Gain2 from the Chlamy dataset you can download the measured tomogram thickness files [**here**](/02-dataset-software-resources/#downloads). If not you can refine tilt series alignment by measuring the tomogram thickness as follows:
+Similar to Scipion, you can measure the tomogram thickness for each tomogram and use this value to have a more accurate tilt series alignment. If you follow the Tutorial using Gain1 or Gain2 from the Chlamy dataset you can download the measured tomogram thickness files [**here**](/02-dataset-software-resources/#downloads). If not you can refine tilt series alignment by measuring the tomogram thickness as follows:
  
 To do this, you can measure in IMOD by hand.
 
