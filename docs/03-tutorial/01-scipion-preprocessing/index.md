@@ -70,6 +70,7 @@ Tick **Yes** for _“Split & sum odd/even frames”_ if you later want to denois
 
 In the _“Motioncor params”_ tab, since we are dealing with really low dose per tilts and frames (as opposed to SPA, where the dose is usually about 10 times higher), we will perform **full frame motion correction** instead of dividing them into patches.
 
+<a id="eer"></a>
 Because this dataset was collected as `.eer`, you have the choice to decide how you want to group your frames. It also means you **need** to specify how you want to group the frames. 
 
 To do so, we use this formula:
