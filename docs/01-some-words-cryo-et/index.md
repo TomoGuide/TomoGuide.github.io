@@ -34,7 +34,7 @@ Cryo-electron tomography (cryo-ET) requires thin samples (around 100–200 nm) s
 A critical philosophical difference is that cryo-ET aims to observe macromolecules in their natural cellular context. Meanwhile, SPA requires extensive purification steps, removing the protein complexes from their native milieu but achieving higher resolution in exchange for losing cellular context.
 
 ### FIB-Milled Cellular Lamellae
-- **Preserves In Situ Context:** You see organelles and macromolecules in their native environment (cell membranes, cytoskeleton, neighbouring structures).
+- **Preserves In Situ Context:** You see organelles and macromolecules in their native environment.
 - **Complex and Heterogeneous:** More challenging to prepare and interpret because you capture the full cellular complexity.
 
 ### Purified sample (e.g organelles, large viruses, etc)
