@@ -37,9 +37,9 @@ A critical philosophical difference is that cryo-ET aims to observe macromolecul
 - **Preserves In Situ Context:** You see organelles and macromolecules in their native environment.
 - **Complex and Heterogeneous:** More challenging to prepare and interpret because you capture the full cellular complexity.
 
-### Purified sample (e.g organelles, large viruses, etc)
+### Purified sample (e.g organelles, viruses)
 - **Simpler Prep:** Often no milling needed if the organelle is inherently small or can be fractionated to the right thickness.
-- **Less Context:** You lose interactions with other cellular components—what you gain in simplicity, you lose in native spatial relationships.
+- **Less Context:** You lose interactions with other cellular components—what you gain in simplicity and abundance, you lose in native spatial relationships.
 
 In short, cellular lamellae capture the true cellular environment at the expense of more complex data collection and processing, whereas purified organelles simplify tomography but lose the broader context.
 
@@ -47,7 +47,7 @@ In short, cellular lamellae capture the true cellular environment at the expense
 
 
 1. **Sample preparation**  
-   FIB-milled plunge-frozen cells, HPFed samples, or purified macromolecules of interest.
+   FIB-milled plunge-frozen cells, HPF samples, or purified macromolecules of interest.
 
 2. **Sample Mounting**  
    The sample is transferred into the cryo-TEM (kept below –180°C).
