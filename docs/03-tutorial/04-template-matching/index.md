@@ -217,21 +217,21 @@ You can extract from multiple tomos, for example, via SLURM like:
 ml purge
 ml pytom-match-pick
  
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_25/rec_tomo25_job.json -r 20 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_34/rec_tomo34_job.json -r 20 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json -r 20 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_25/rec_tomo25_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_34/rec_tomo34_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
 ```
 
 
 Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
 ```python
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 5000 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 5000 --relion5-compat
 ```
 
 Force select the top 800 positions:
 ```python
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json -r 20 -n 800 -c -1 --relion5-compat
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
 ```
 
 or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value.
