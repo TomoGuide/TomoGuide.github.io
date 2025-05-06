@@ -64,7 +64,7 @@ Be aware that even if data were collected on the same microscope, updates on the
 
 Run beam-induced motion correction using RELION's implementation of motioncor2. 
 
-For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/)** where we show the calculations.
+For the EER fractionation value, refer to the motion correction part of the **[Scipion tutorial](/03-tutorial/01-scipion-preprocessing/#eer)** where we show the calculations.
 
 At this step, you want to save the ODD and EVN frames for later steps, so tick **Save images for denoising**.
 Don't forget to indicate the proper gainref in the Motion tab!
