@@ -619,7 +619,7 @@ You can see we already reached 5.6 Å, which is already quite cool.
 
 At this step, you should already be quite satisfied, but you can try to push the resolution further. To do this, you should try to align and classify your particles at bin2.
 
-You can re-extract subtomos at bin2 from your best Polish job, then generate a bin2 reference. From there, launch a 3D Refine at bin2 (you should reach bin2 Nyquist). You can then run a 3D classification job to remove particles that do not positively contribute to resolution (I would not recommend classifying at bin1, except if you are classifying for a feature only visible at bin1).
+You can re-extract subtomos at bin2 from your best Polish job, then generate a bin2 reference. From there, launch a 3D Refine at bin2 (you should reach Nyquist bin2 ). You can then run a 3D classification job to remove particles that do not positively contribute to resolution (I would not recommend classifying at bin1, except if you are classifying for a feature only visible at bin1).
 
 From there, select the best particles or your sub-state of interest.
 
@@ -627,7 +627,8 @@ Then run another cycle of CTF Refine + Polish. This should improve the resolutio
 
 Finally, you can re-extract subtomos at bin1 and run a 3D refinement at bin1, and then again run another cycle of CTF Refine + Polish.
 
-Here's the result after 3 cycles of Polishing/refinement, focused on the large subunit of the ribosome. It's at Nyquist bin1.
+Using 20506 particles from 33 tomograms, here's the result after 3 cycles of Polishing/refinement, focused on the large subunit of the ribosome. It's at Nyquist bin1.
+
 <a href="/imgs/34_bayes4.png" data-lightbox="image-gallery">
   <img src="/imgs/34_bayes4.png" alt="Processing Workflow" style="width:60%;">
 </a>
@@ -636,7 +637,7 @@ Here's the final map obtained, with some details. We can see RNA base separation
 <a href="/imgs/34_final_ribo.png" data-lightbox="image-gallery">
   <img src="/imgs/34_final_ribo.png" alt="Processing Workflow" style="width:80%;">
 </a>
-Using 20506 particles from 33 tomograms
+
 <video controls style="width:80%; max-width:100%;">
   <source src="/imgs/ribo_movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -646,6 +647,6 @@ Congrats! You might also be at bin1 Nyquist, the true physical limit of the data
 
 Additionally, each Bayesian polishing step generates a new 'tomograms.star' that you can use to create polished tomograms on which Template Matching should perform better, because they are better aligned. 
 
-Time to start over!
+**Time to start over!**
 
 That's it! Thanks for following this tutorial.
