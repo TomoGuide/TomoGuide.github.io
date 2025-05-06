@@ -20,7 +20,7 @@ You'll find practical guidance, software recommendations, and a step-by-step tut
 
 You have multiple options to choose from! 
 - If you want to start from scratch (raw frames) using the [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) you can start by going to [Dataset](/02-dataset-software-resources) and then following either one of the [Scipion](/03-tutorial/01-scipion-preprocessing), [RELION5](/03-tutorial/03-relion-preprocessing), or [AreTomo3](/03-tutorial/02-aretomo3) preprocessing workflows.
-- If you want to start from preprocessed deposited data (originally preprocessed in TOMOMAN) of the [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) and learn STA using RELION5 -- you can use [this script](https://github.com/Chromatin-Structure-Rhythms-Lab/ChlamyAnnotations/tree/master/chlamydataset2relion5) to create the necessary files to start [STA](/03-tutorial/05-sta-in-relion5/#ctftomo).
+- If you want to start from preprocessed data (originally preprocessed in TOMOMAN) of the [Chlamy dataset](https://www.ebi.ac.uk/empiar/EMPIAR-11830/) and learn STA using RELION5 -- you can use [this script](https://github.com/Chromatin-Structure-Rhythms-Lab/ChlamyAnnotations/tree/master/chlamydataset2relion5) to create the necessary files to start [STA](/03-tutorial/05-sta-in-relion5/#ctftomo) directly.
 - If you want to use your own data, explore our [Tutorial](/03-tutorial) page.
 
 We hope it will be useful! 
