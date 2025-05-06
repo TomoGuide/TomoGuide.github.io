@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src="docs/imgs/00_logo.svg" alt="TomoGuide Logo" width="160" />
+  <img src="docs/imgs/00_logo.svg" alt="TomoGuide Logo" width="200" />
 </p>
 
 <h1 align="center">Welcome to TomoGuide 🧊</h1>
