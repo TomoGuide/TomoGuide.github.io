@@ -42,6 +42,8 @@ ln -s ~/path/to/frames/ ~/path/to/RELION/raw/frames
 ln -s ~/path/to/gain ~/path/to/RELION/raw/gain
 ```
 
+If you are using the test dataset, you should create soft links to the `gain1_links` and `gain2_links` folders.
+
 <a href="/imgs/14_Import1.JPG" data-lightbox="image-gallery">
   <img src="/imgs/14_Import1.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
