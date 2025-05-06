@@ -2,7 +2,7 @@
   <img src="docs/imgs/00_logo.svg" alt="TomoGuide Logo" width="160" />
 </p>
 
-<h1 align="center">Welcome to <em>TomoGuide</em> 🧊</h1>
+<h1 align="center">Welcome to TomoGuide 🧊</h1>
 
 <p align="center">
   <a href="https://tomoguide.github.io/" target="_blank">
@@ -12,8 +12,6 @@
     <img src="https://img.shields.io/badge/License-CC%20BY--4.0-lightgrey.svg?style=flat" alt="License: CC-BY-4.0">
   </a>
 </p>
-
----
 
 ### ✨ Features
 - **Cryo-ET fundamentals** – Sample preparation, data collection, end-to-end workflows  
