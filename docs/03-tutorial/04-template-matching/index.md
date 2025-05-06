@@ -308,8 +308,8 @@ Press on Launch on the left, you should now have these windows
 
 You can open the tomogram of your choice, and it will open
 
-<a href="/imgs/38_artiax3.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/38_artiax3.JPG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/38_artiax3_new.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax3_new.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 On the right, you have the ArtiaX options, you can play with the two first sliders to change the contrast, and the last slider let you go through Z.
@@ -334,15 +334,15 @@ On the left, go to <kbd>Select/Manipulate</kbd>, and <kbd>Add selector</kbd>. Ch
 
 Now, only the particles from tomogram 50 are visible:
 
-<a href="/imgs/38_artiax6.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/38_artiax6.JPG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/38_artiax6_new.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax6_new.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 The centre of the particles is represented by balls, and their orientation by the arrows. However, you see all particles from all the slices are represented, you can change it by pressing <kbd>Clip</kbd> on the top.
 Now only the particles close (in Z) to the plane you are looking at will be visible. Easier for inspection.
 
-<a href="/imgs/38_artiax7.JPG" data-lightbox="image-gallery">
-  <img src="/imgs/38_artiax7.JPG" alt="Processing Workflow" style="width:60%;">
+<a href="/imgs/38_artiax7_new.JPG" data-lightbox="image-gallery">
+  <img src="/imgs/38_artiax7_new.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
 You can also hide the tomogram and just look at the particles. Here, for example, you can see a pattern; these particles appear to all be oriented the same way.
