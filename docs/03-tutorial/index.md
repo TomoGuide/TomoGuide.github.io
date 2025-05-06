@@ -5,10 +5,6 @@ nav_order: 9
 has_children: true
 ---
 
-**Start by going to the [Dataset, Software and Resources](/02-dataset-software-resources/) tab and make sure you download the dataset and all the necessary software based on the workflow you want to run.**
-
----
-
 # General workflow
 
 Cryo-ET data processing can be summarised by this simple chart. If you’re familiar with single-particle data processing, you’ll notice that most of the pre-processing steps are very similar.
