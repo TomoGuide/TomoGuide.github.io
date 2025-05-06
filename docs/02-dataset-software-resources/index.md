@@ -12,14 +12,14 @@ For this tutorial, we compiled a subset of **33** tomograms from the [**Chlamy d
 **General info about the dataset:**
 
 - **Detector:** Falcon4i with SelectrisX energy filter, using Tomo5 on a generation 4 Titan Krios(es)  
-- **Pixel size:** 1.91 (microscope defined 1.96, calibrated by STA to be 1.91)  
+- **Pixel size:** 1.91 Å (microscope defined 1.96, calibrated by STA to be 1.91)  
 - **Voltage:** 300  
 - **Spherical aberration:** 2.7  
 - **Tilt axis:** -95, be aware that the tilt axis angles indicated in the mdocs are usually wrong
 - **Defocus handedness:** -1 in RELION if starting from scratch (+1 if using the TOMOMAN preprocessed project)  
-- **Dose:** 3.5 e-/A² per tilt
+- **Dose per tilt:** 3.5 e-/Å²
 
-Although reconstructed tomograms from this dataset are already available (processed using TOMOMAN and automatically aligned with AreTomo), this tutorial is designed to guide you through the full tomogram reconstruction workflow from scratch, leading into **subtomogram averaging (STA)**.
+Although reconstructed tomograms from this dataset are already available (processed using [TOMOMAN](https://github.com/wan-lab-vanderbilt/TOMOMAN)), this tutorial is designed to guide you through the full tomogram reconstruction workflow from scratch, leading into **subtomogram averaging (STA)**.
 
 This subset may also serve as a useful benchmark for testing and comparing different software tools.
 
