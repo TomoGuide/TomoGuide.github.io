@@ -36,7 +36,7 @@ vop flip #volume
 
 At high resolution, you will also notice that DNA, RNA or alpha helices in proteins have the wrong pitch.
 
-Getting the handedness wrong can easily happened if you use the wrong tilt axis at the import step. One easy fix if you notice that the handedness is wrong, is to change the sign of the tilt axis used.
+Getting the handedness wrong can easily happen if you use the wrong tilt axis at the import step. One easy fix if you notice that the handedness is wrong, is to change the sign of the tilt axis used (or more precisely, rotate by 180°).
 
 
 ## Checking the handedness of your tomograms 
@@ -58,7 +58,7 @@ Note that template matching with a template which has a different handedness tha
 </figure>
 
 
-Here, the results of TM are shown using a proper template (right) or a flipped template (right).
+Here, the results of TM are shown using a proper template (left) or a flipped template (right).
 
 The TM results are much better using the proper template (perfect sharp peaks), which means that the tomo has the proper hand, but the one on the right might look plausible to an inexperienced user.
 
