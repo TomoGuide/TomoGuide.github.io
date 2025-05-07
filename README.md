@@ -56,13 +56,3 @@ This project is licensed under the [CC BY 4.0](https://creativecommons.org/licen
 <p align="center">
   <b>Happy Tomography!</b>
 </p>
-
-@software{Van_der_Stappen_TomoGuide_-_a_2025,
-author = {Van der Stappen, Philippe and Waltz, Florent},
-doi = {10.5281/zenodo.15358525},
-month = may,
-title = {{TomoGuide - a cryo-electron tomography processing workflow tutorial}},
-url = {https://tomoguide.github.io/},
-version = {0.2},
-year = {2025}
-}
