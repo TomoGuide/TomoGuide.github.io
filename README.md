@@ -29,6 +29,26 @@ Visit our [documentation site](https://tomoguide.github.io/) to begin your journ
 This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips).  
 We welcome contributions from the community! Please raise any issues or suggestions [here](https://github.com/TomoGuide/TomoGuide.github.io/issues).
 
+## 📑 Citing TomoGuide
+
+If TomoGuide has helped with your research, please cite it as follows:
+
+**APA**  
+Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomography processing workflow tutorial_ (Version 0.2) [Workflow]. https://doi.org/10.5281/zenodo.15358525
+
+**BibTeX**  
+```bibtex
+@workflow{TomoGuide_Workflow_2025,
+  author = {Van der Stappen, Philippe and Waltz, Florent},
+  title  = {{TomoGuide - a cryo-electron tomography processing workflow tutorial}},
+  year   = {2025},
+  version= {0.2},
+  doi    = {10.5281/zenodo.15358525},
+  url    = {https://tomoguide.github.io/},
+  note   = {[Workflow version 0.2]}
+}
+```
+
 ### 📄 License
 This project is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
