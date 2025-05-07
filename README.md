@@ -38,14 +38,18 @@ Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomograp
 
 **BibTeX**  
 ```bibtex
-@workflow{TomoGuide_Workflow_2025,
-  author = {Van der Stappen, Philippe and Waltz, Florent},
-  title  = {{TomoGuide - a cryo-electron tomography processing workflow tutorial}},
-  year   = {2025},
-  version= {0.2},
-  doi    = {10.5281/zenodo.15358525},
-  url    = {https://tomoguide.github.io/},
-  note   = {[Workflow version 0.2]}
+@workflow{van_der_stappen_2025_15358525,
+  author       = {Van der Stappen, Philippe and
+                  Waltz, Florent},
+  title        = {TomoGuide - a cryo-electron tomography processing
+                   workflow tutorial
+                  },
+  month        = may,
+  year         = 2025,
+  publisher    = {Zenodo},
+  version      = {0.2},
+  doi          = {10.5281/zenodo.15358525},
+  url          = {https://doi.org/10.5281/zenodo.15358525},
 }
 ```
 
