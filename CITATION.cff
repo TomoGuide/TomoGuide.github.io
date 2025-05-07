@@ -1,23 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "TomoGuide - a cryo-electron tomography processing workflow tutorial"
 authors:
-  - family-names: "Van der Stappen"
-    given-names: "Philippe"
-    orcid: "https://orcid.org/0009-0006-8746-1222"
-  - family-names: "Waltz"
-    given-names: "Florent"
-    orcid: "https://orcid.org/0000-0002-2251-3363"
-version: "0.2"
+- family-names: "Van der Stappen"
+  given-names: "Philippe"
+  orcid: "https://orcid.org/0009-0006-8746-1222"
+- family-names: "Waltz"
+  given-names: "Florent"
+  orcid: "https://orcid.org/0000-0002-2251-3363"
+title: "TomoGuide - a cryo-electron tomography processing workflow tutorial"
+version: 0.2
 doi: 10.5281/zenodo.15358524
 date-released: 2025-05-07
-preferred-citation:
-  type: generic
-  citation: |
-    @workflow{TomoGuide_Workflow_2025,
-      author = {Van der Stappen, Philippe and Waltz, Florent},
-      title  = {{TomoGuide - a cryo-electron tomography processing workflow tutorial}},
-      year   = {2025},
-      doi    = {10.5281/zenodo.15358524},
-      url    = {https://tomoguide.github.io/},
-    }
+url: "https://tomoguide.github.io/"
