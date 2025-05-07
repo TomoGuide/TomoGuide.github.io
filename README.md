@@ -42,7 +42,7 @@ Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomograp
   author       = {Van der Stappen, Philippe and
                   Waltz, Florent},
   title        = {TomoGuide - a cryo-electron tomography processing
-                   workflow tutorial
+                  workflow tutorial
                   },
   month        = may,
   year         = 2025,
