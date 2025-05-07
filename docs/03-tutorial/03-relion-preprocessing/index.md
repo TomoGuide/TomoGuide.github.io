@@ -59,7 +59,7 @@ You need to know the tilt axis and the defocus handedness for RELION (something 
 You also need to know the handedness of your tomos.  
 In our case, they are flipped, so to get the proper hand, we need to import them with an inverted tilt axis. Instead of 95, we use -95.
 
-Both defocus handedness and tomo handedness can be checked once the tomograms are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that first before trying to batch process over 100 tomos.  
+Both defocus handedness and tomo handedness can be checked once the tomograms are reconstructed, not before! If you don't know anything about your data, start by reconstructing 2 or 3 of them and check that (**[here](/03-tutorial/06-check-hand/)**) first before trying to batch process over 100 tomos.  
 Be aware that even if data were collected on the same microscope, updates on the camera can result in flipped handedness. Data collected within the same session should all be the same.
 
 ## Motion Correction and CTF estimation 
