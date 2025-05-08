@@ -26,7 +26,7 @@
 Visit our [documentation site](https://tomoguide.github.io/) to begin your journey into Cryo-Electron Tomography.
 
 ### 👥 Contributors
-This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips).  
+This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips) and [Florent Waltz](https://github.com/CryoFlo).  
 We welcome contributions from the community! Please raise any issues or suggestions [here](https://github.com/TomoGuide/TomoGuide.github.io/issues).
 
 ### 📑 Citing TomoGuide
