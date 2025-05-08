@@ -8,7 +8,6 @@ authors:
   given-names: "Florent"
   orcid: "https://orcid.org/0000-0002-2251-3363"
 title: "TomoGuide - a cryo-electron tomography processing workflow tutorial"
-version: 0.2
 doi: 10.5281/zenodo.15358525
 date-released: 2025-05-07
 url: "https://tomoguide.github.io/"
