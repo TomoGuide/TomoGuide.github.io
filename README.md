@@ -34,7 +34,7 @@ We welcome contributions from the community! Please raise any issues or suggesti
 If TomoGuide has helped with your research, please cite it as follows:
 
 **APA**  
-Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomography processing workflow tutorial_ (Version 0.2) [Workflow]. https://doi.org/10.5281/zenodo.15358525
+Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomography processing workflow tutorial_ [Workflow]. https://doi.org/10.5281/zenodo.15358525
 
 **BibTeX**  
 ```bibtex
@@ -44,7 +44,6 @@ Van der Stappen, P., & Waltz, F. (2025). _TomoGuide – a cryo-electron tomograp
   month        = may,
   year         = 2025,
   publisher    = {Zenodo},
-  version      = {0.2},
   doi          = {10.5281/zenodo.15358525},
   url          = {https://tomoguide.github.io/},
 }
