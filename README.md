@@ -29,7 +29,7 @@ Visit our [documentation site](https://tomoguide.github.io/) to begin your journ
 This guide is maintained by [Philippe Van der Stappen](https://github.com/Phaips).  
 We welcome contributions from the community! Please raise any issues or suggestions [here](https://github.com/TomoGuide/TomoGuide.github.io/issues).
 
-## 📑 Citing TomoGuide
+### 📑 Citing TomoGuide
 
 If TomoGuide has helped with your research, please cite it as follows:
 
