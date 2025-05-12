@@ -92,7 +92,7 @@ An example of how to run the script:
 ```python
 python batch_pytom.py \
   --mrc-dir path/to/Tomograms/jobXXX/tomograms \
-  --star-dir /path/to/Tomograms/jobXXX/ \
+  --star-dir /path/to/Tomograms/jobXXX/starfiles \
   -t /path/to/template.mrc \
   -m /path/to/mask.mrc \
   [--particle-diameter 140 | --angular-search 7] \ # either or - here --angular-search 10 is good
@@ -105,7 +105,7 @@ python batch_pytom.py \
   --non-spherical-mask \
   --tomogram-ctf-model phase-flip \
   --high-pass 400 \
-  --tomogram-mask path/to/slab_mask.mrc # if you have one \
+  ---bmask-dir path/to/the/folder/with/masks/ # if you have one \
   [--dry-run] # to just create the submission scripts without launching them
 ```
 
