@@ -8,6 +8,11 @@ nav_order: 10
 
 This tutorial and website were created by [**Philippe Van der Stappen**](https://bsky.app/profile/phaips.vd.st) and [**Florent Waltz**](https://bsky.app/profile/florentwaltz.bsky.social), with contributions from the Cryo-ET community.
 
+If TomoGuide was useful for you please cite it as follows:
+```
+Van der Stappen, P., & Waltz, F. (2025). TomoGuide – a cryo-electron tomography processing workflow tutorial [Workflow]. https://doi.org/10.5281/zenodo.15358525
+```
+
 Special thanks to **[Sofie van Dorst](https://bsky.app/profile/sofie-dot-rec.bsky.social)**, **[Ricardo Righetto](https://bsky.app/profile/lifeonthewedge.bsky.social)**, the entire [**Cell Architecture Lab**](https://www.cellarchlab.com/), and all software developers.
 
 # Disclaimer
