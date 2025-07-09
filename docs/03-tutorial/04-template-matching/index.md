@@ -166,7 +166,7 @@ You can check the `_scores.mrc` file in IMOD for example to already see if templ
 
 ## Running template matching on AreTomo3 tomograms {#at3tm}
 
-Similarly, if you have reconstructed your tomograms using the [AreTomo3 pipeline](03-tutorial/02-aretomo3/), we have a **[batch_pytom_aretomo3](https://github.com/Phaips/batch_pytom_aretomo3)** script. This will also create submission files for template matching using the tilt and CTF information from the AreTomo3 outputs. Your output folder should look something like:
+Similarly, if you have reconstructed your tomograms using the [AreTomo3 pipeline](/03-tutorial/02-aretomo3/), we have a **[batch_pytom_aretomo3](https://github.com/Phaips/batch_pytom_aretomo3)** script. This will also create submission files for template matching using the tilt and CTF information from the AreTomo3 outputs. Your output folder should look something like:
 
 ```
 aretomo3/
