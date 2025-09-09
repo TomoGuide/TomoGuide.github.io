@@ -30,10 +30,10 @@ gain_ref="GainReference.gain" # give the gainref file!
 outdir=aretomo_output
 apix=1.91
 tilt_axis=-95.75
-dark_tol=0.7
+dark_tol=0.8
 vol_z=2048
 amp_con=0.1
-fm_dose=0.14 # dose per frame! so 3.5 e/A² per 25 slices here
+fm_dose=0.01136 # dose per frame! so 3.5 e/A² per 308 total EER frames here
 lowpass=15
 # align_z=1400 # Not really needed since AreTomo3 can estimate it automatically
  
@@ -72,7 +72,7 @@ time AreTomo3 \
     -AmpContrast ${amp_con}
 ```
 
-Important things to get right are `FmInt` (default `15`) which corresponds how you want your eer frames to be grouped (**[check this](/03-tutorial/01-scipion-preprocessing/#eer)**) and `FmDose` is defined as **dose per frame**! Here for example **3.5 e/Å² per 25 frames** would result in the `FmDose=0.14`. This depends on your EER grouping - in TIFF format this will change accordingly and `FmInt 1` should be used.
+Important things to get right are `FmInt` (default `15`) which corresponds how you want your eer frames to be grouped (**[check this](/03-tutorial/01-scipion-preprocessing/#eer)**) and `FmDose` which is defined as **dose per frame**! Here for example **3.5 e/Å² per 308 frames** would result in `~FmDose=0.01136`. In TIFF format this will change accordingly i.e. divide dose per tilt by your number of TIFF frames **and `FmInt 1` should be used**.
 
 The way the command works now is that it will find all frames corresponding to their .mdocs in the given path. **Thus, make sure your mdocs and frames are in the same folder!** The tomograms will be reconstructed with CTF correction in bin4 and also ODD+EVEN volumes are generated. Those can be used for denoising for example. If you don't use SLURM you can just adopt the above command and submit/run it your way. Additionally, AreTomo3 will also output alignment information (e.g. IMOD format).
 
