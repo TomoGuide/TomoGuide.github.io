@@ -569,7 +569,7 @@ For the half-maps, use the ones generated from the bin1 Recontruct job, use the 
 ### Defocus Tab
 {: .no_toc }
 
-This is where you should play with the parameters. Usually, we just change **Refine defocus** and **Do defocus regularization** (marked in red).
+Usually, we just change **Refine defocus** and **Do defocus regularization** (marked in red).
 For the **Box size for estimation**, it is recommended to use a larger box size than your actual box size (again, check the magic box sizes)
 
 <a href="/imgs/33_ctf4.png" data-lightbox="image-gallery">
@@ -594,8 +594,8 @@ Use as input the best Ctf Refine job and its respective Reconstruct and Post-Pro
 ### Polish and Motion Tabs
 {: .no_toc }
 
-Similarly to Ctf Refine, use a larger box size for estimation than your actual box size (use the same value), and play with the different parameters.
-Here you can try deactivating Fit per-particle motion, even though it should always be better when turned on.
+Similarly to Ctf Refine, use a larger box size for estimation than your actual box size (use the same value).
+Here you can try deactivating Fit per-particle motion even though it should always be better when turned on or using Gaussian decay (much faster).
 
 <a href="/imgs/34_bayes2.png" data-lightbox="image-gallery">
   <img src="/imgs/34_bayes2.png" alt="Processing Workflow" style="width:60%;">
