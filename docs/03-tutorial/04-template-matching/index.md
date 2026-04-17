@@ -100,7 +100,7 @@ aretomo3/
 ...
 ```
 
-The functionality of the batch submission script is basically the same as for the above [RELION5](/03-tutorial/04-template-matching/#rln5tm) one. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page. Alternatively, as always, you can run pytom with template matching just using the conventional way. Our scripts are intended to facilitate the batch submission of jobs in case you want to template match hundreds of tomograms.
+The functionality of the batch submission script is basically the same as for the [RELION5](/03-tutorial/04-template-matching/#rln5tm) one below. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page. Alternatively, as always, you can run pytom with template matching just using the conventional way. Our scripts are intended to facilitate the batch submission of jobs in case you want to template match hundreds of tomograms.
 
 ### Running template matching on RELION5 tomograms {#rln5tm}
 
