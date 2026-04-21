@@ -547,14 +547,13 @@ Before starting, you have to do the following:
   <img src="/imgs/33_ctf2.png" alt="Processing Workflow" style="width:60%;">
 </a>
 
-- **Generate a bin1 mask**: from the bin1 Reconstruct job generate a bin1 mask
+- **Generate a bin1 mask**: from the bin1 Reconstruct job generate a bin1 mask. In ChimeraX you can 'smooth' the map (apply a [Gaussian](https://www.cgl.ucsf.edu/chimerax/docs/user/commands/volume.html#gaussian)) to find the correct Initial binarisation threshold in the Mask creation job of RELION5 as the default value there is a lowpass filter of 15 Å.
 - **Post-process:** using the bin1 Reconstruct and the generated bin1 mask (the resolution should already be higher than what you obtained that bin4).
 
 In our case, the Post-process already gave 9.55 Å (aka subnanometer resolution 😎).
 
 ## Run CTF refinement
 
-You should play with different parameters at this step.
 
 ### I/O Tab
 {: .no_toc }
