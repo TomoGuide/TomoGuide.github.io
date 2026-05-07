@@ -112,12 +112,19 @@ For ribosomes (and also other targets), good results were obtained using:
 - Angular search: **10°**
 - Enable random-phase correction: **YES**
 - Enable per-tilt-weighting: **YES**
-- `--tomogram-ctf-model phase-flip`: **YES** (even if you tomos are 3D CTF-corrected!)
+- `--tomogram-ctf-model phase-flip`: **YES** (even if your tomos are 3D CTF-corrected!)
 - Enable non-spherical mask: **YES** (if spherical then leave out. 2x speedup without)
 - High-pass filter: **400**
 - Random phase correction `-r --rng-seed 69`: **YES** (improves results! but also 2x speedup when left out)
 
 The functionality of the batch submission script is basically the same as for the [RELION5](/03-tutorial/04-template-matching/#rln5tm) one below. Make sure to check the `--help` and the [Github README](https://github.com/Phaips/batch_pytom_aretomo3) and feel free to raise any issues or comments directly on the GitHub page.
+
+If you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run our `batch_pytom.py` script with the flag `--dry-run` in order to generate all the input commands and flags without SLURM submission to then edit and run it the way you like while still having all the per-tomo tilt, defocus, and exposure information.
+
+> Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
+1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time, but we recommend using it, especially for more challenging targets. Any symmetry assumptions or a spherical mask will further speed up computation time!
+
+You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this section, we'll show you how to **[visualize your particles first with IMOD]**(/03-tutorial/04-template-matching/#checkimod), and then more appealingly using **[ChimeraX & ArtiaX]**(/03-tutorial/04-template-matching/#viz).
 
 ### Running template matching on RELION5 tomograms {#rln5tm}
 
@@ -192,13 +199,6 @@ pytom_match_template.py \
   --tomogram-mask masks/bmask_1.mrc                           # from Slabify, for example
 ```
 
-If you don't have an HPC or don't use SLURM, you can just run the regular [pytom-match-pick](https://sbc-utrecht.github.io/pytom-match-pick/) similar to the command above. You can run `batch_pytom.py` with the flag `--dry-run` in order to generate all the input commands and flags to then run it the way you like while still having all the tilt, defocus, and exposure information read correctly from the RELION .star files.
-
-> Some numbers: ~40 min per subvolume (tomogram is split in 4) so 2.5 to 3h per tomo with 7° angular sampling at bin4 on rtx4090 node (we could have ask for more resources of course).
-1.5h when you use the same parameters but a 10° (testing 15000 angles) angular sampling instead of 7° (testing 50000 angles). Random-phase correction will basically double the computation time, but we recommend using it, especially for more challenging targets.
-
-You can check the `_scores.mrc` file in IMOD for example to already see if template matching was successful. If you open the `tomogram.mrc` and `_scores.mrc` at the same time you should see bright dots at the center of each of your particles of interest. Later in this section, we'll show you how to visualize your particles first with IMOD, and then more appealingly using ChimeraX & ArtiaX.
-
 
 ## Extract particles
 
@@ -245,7 +245,7 @@ pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle
 or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value.
 
 
-## Check your particle positions with IMOD
+## Check your particle positions with IMOD {#checkimod}
 
 We wrote a script called **[rln2mod](https://github.com/Phaips/rln2mod)** which will create IMOD `.mod` point models from your `particle.star` files in RELION5 format. You will need to have IMOD loaded since it will run `point2model`. The script will output `.mod` files for all `.star` files in the directory it is run from:
 
@@ -276,7 +276,7 @@ To do so, you can use the `pytom_merge_stars.py` script included with pytom. Run
 
 When importing to RELION5, make sure a prefix such as `rec_` is not present in the `rlnTomoName` field of your merged `particles.star` file. Otherwise, do a quick find-and-replace to remove this prefix.
 
-## Visualisation in ChimeraX using ArtiaX
+## Visualisation in ChimeraX using ArtiaX {#viz}
 
 We will show you how to use the [ArtiaX](https://github.com/FrangakisLab/ArtiaX) plug-in in [ChimeraX](https://www.cgl.ucsf.edu/chimerax/). This allows you to not only check the position but also the orientation of particles.
 
