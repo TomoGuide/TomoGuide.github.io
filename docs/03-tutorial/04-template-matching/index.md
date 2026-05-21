@@ -261,7 +261,9 @@ Just give the tomogram dimensions in pixels as input. Then you can open your tom
 
 A total of **546** positions were extracted. The particle picking is nearly perfect, with only a few false positives occurring on thylakoid membranes or chloroplastic ribosomes, which closely resemble cytosolic ribosomes. The boundary mask was applied for selection, you can see that nothing has been picked outside of the tomogram volume.
 
-Common problems that can occur: 
+## Common problems of template matching and their fix
+
+It can often occur that: 
 - Particles extracted miss true positive particles: can be fixed by (slightly) increasing the number of particles `-n` and forcing this number with `-c -1`.
 - Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
 
