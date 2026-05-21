@@ -36,7 +36,7 @@ vop flip #volume
 
 At high resolution, you will also notice that DNA, RNA or alpha helices in proteins have the wrong pitch.
 
-Getting the handedness wrong can easily happen if you use the wrong tilt axis at the import step. One easy fix if you notice that the handedness is wrong, is to change the sign of the tilt axis used (or more precisely, rotate by 180°).
+Getting the handedness wrong can easily happen if you use the wrong tilt axis angle at the very beginning (i.e. import step). One easy fix if you notice that the handedness is wrong, is to flip your tilt axis angle. Meaning to **add plus or minus 180°** to your tilt axis angle values and then re-run everything from scratch (i.e. motion correction, CTF-estimation, tilt-series alignment, tomogram reconstruction).
 
 
 ## Checking the handedness of your tomograms 
