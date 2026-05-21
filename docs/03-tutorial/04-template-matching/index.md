@@ -200,7 +200,7 @@ pytom_match_template.py \
 ```
 
 
-## Extract particles
+## Extract particles {#extract}
 
 Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. This will create the `particles.star` in RELION5 format to then use for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). Again for detailed explanation check the documentation or `--help` of the pytom script.
 
