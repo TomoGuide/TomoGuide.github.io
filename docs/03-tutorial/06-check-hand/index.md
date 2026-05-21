@@ -43,7 +43,7 @@ Getting the handedness wrong can easily happen if you use the wrong tilt axis an
 
 If you are unsure of the handedness of your tomograms, the best is to template match 3-4 tomograms that contain ribosomes, with both a correct and a flipped template (example templates [**here**](/02-dataset-software-resources/#downloads)).
 
-Once you have run template matching, you should already see a difference by letting [pytom](/04-template-matching/#extract) determine the threshold for particle selection. One will output way more particles than the other.
+Once you have run template matching, you should already see a difference by letting [pytom](/03-tutorial/04-template-matching/#extract) determine the threshold for particle selection. One will output way more particles than the other.
 
 Note that template matching with a template which has a different handedness than your tomo might still give you somewhat plausible results and fool you. Example:
 
