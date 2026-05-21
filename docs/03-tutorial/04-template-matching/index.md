@@ -361,7 +361,7 @@ You can also hide the tomogram and just look at the particles. Here, for example
   <img src="/imgs/38_artiax8.JPG" alt="Processing Workflow" style="width:60%;">
 </a>
 
-Let's try to attach a volume to these particles, to have a better idea of what is happening. On the left window, <kbd>Open Geomodel</kbd> (a .mrc volume, for example, the template used for template matching, or the volume you obtained during STA)
+Let's try to attach a volume to these particles, to have a better idea of what is happening. On the left window, <kbd>Open Geomodel</kbd> can be a .mrc volume, for example, the template used for template matching, or the volume you obtained during STA. If you need to invert the contract you can run <kbd>vop scale #volume factor -1</kbd>.
 Then on the right, on the <kbd> Visualisation tab</kbd>, at the bottom, on the <kbd>Add new surface</kbd> part, click on <kbd>Attach Model</kbd>. Now we have ribosomes! You can play for the <kbd>Surface Level</kbd> to make it nice.
 
 <a href="/imgs/38_artiax9.JPG" data-lightbox="image-gallery">
