@@ -8,7 +8,7 @@
   <a href="https://tomoguide.github.io/" target="_blank">
     <img src="https://img.shields.io/badge/Open%20TomoGuide-Here-7B5CD6?style=flat" alt="Open TomoGuide">
   </a>
-  <a href="https://doi.org/10.5281/zenodo.15358525" target="_blank">
+  <a href="https://zenodo.org/records/15363459" target="_blank">
     <img src="https://zenodo.org/badge/DOI/10.5281%2Fzenodo.15358525.svg" alt="DOI">
   </a>
   <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
