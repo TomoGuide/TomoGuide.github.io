@@ -264,7 +264,7 @@ A total of **546** positions were extracted. The particle picking is nearly perf
 ## Common problems of template matching and their fix
 
 It can often occur that: 
-- Particles extracted miss true positive particles: can be fixed by (slightly) increasing the number of particles `-n` and forcing this number with `-c -1`.
+- Particles extracted miss true positive particles: can be fixed by setting `-n` to the actual number of particles that got extracted and (slightly) increasing it and then forcing this number with `-c -1`.
 - Particles extracted include false positives: this is more often the case. Because membranes, ice contamination, or other high contrast object cross-correlate with a high score as well.
 
 The latter might not pose a problem if you believe you can easily trash them through classification in the later stages of **[STA](/03-tutorial/05-sta-in-relion5/)**.
