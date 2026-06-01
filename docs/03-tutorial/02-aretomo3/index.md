@@ -34,8 +34,7 @@ dark_tol=0.7
 vol_z=2048
 amp_con=0.1
 fm_dose=0.01136 # dose per frame! so 3.5 e/A² per 308 total EER frames here
-lowpass=15
-# align_z=1400 # Not really needed since AreTomo3 can estimate it automatically
+# AlignZ = 1400 # Not really needed since AreTomo3 can estimate it automatically but can help if it goes wrong!
  
 ml purge
 ml IMOD
@@ -66,7 +65,7 @@ time AreTomo3 \
     -TiltCor 1 \
     -Patch 0 0 \
     -DarkTol ${dark_tol} \
-    -CorrCTF 1 ${lowpass} \
+    -CorrCTF 1 \
     -Kv 300 \
     -Cs 2.7 \
     -AmpContrast ${amp_con}
