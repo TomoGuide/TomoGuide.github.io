@@ -204,6 +204,12 @@ pytom_match_template.py \
 
 Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. This will create the `particles.star` in RELION5 format to then use for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). Again for detailed explanation check the documentation or `--help` of the pytom script.
 
+
+Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
+```python
+pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 5000 --relion5-compat
+```
+
 You can extract from multiple tomos, for example, via SLURM like:
 
 ```bash
@@ -232,17 +238,13 @@ pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json --particle
 ```
 
 
-Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
-```python
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 5000 --relion5-compat
-```
 
-Force select the top 800 positions:
+This will force select the top 800 positions:
 ```python
 pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
 ```
 
-or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value.
+or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value to include or exclude slightly more particles.
 
 
 ## Check your particle positions with IMOD {#checkimod}
