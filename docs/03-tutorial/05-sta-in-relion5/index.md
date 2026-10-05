@@ -8,7 +8,7 @@ nav_order: 5
 # Subtomogram Averaging (STA) in RELION5
 {: .no_toc }
 
-We will now use the particle positions obtained from Template Matching to perform STA on our target of interest (here, cytosolic ribosomes).
+We will now use the particle positions obtained from Template Matching to perform STA on our target of interest (here, cytosolic ribosomes)
 
 In the following section, the parameters you need to use in the RELION Running tab will depend on your system, e.g. if you run on a local machine, or through a computing cluster, etc ...
 
