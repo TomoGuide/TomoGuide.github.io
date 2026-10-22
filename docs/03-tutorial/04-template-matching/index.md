@@ -228,7 +228,7 @@ python batch_pytom_aretomo3.py \
 
 Here, `-n` sets the maximum number of candidates and `-c` controls the score cutoff. Setting `-c -1` is useful when you want to retain the highest-scoring candidates up to the specified number, even if their scores would fall below the usual threshold. You can also use `--include` and `--exclude` to restrict tomograms, `--array-max-parallel` to control concurrency, `--extract-extra-args` to pass additional PyTom options, and `--dry-run` to generate the submission script without submitting it.
 
-After extraction, inspect the generated `.svg` plots to help decide whether to raise or lower `-c` to include fewer or more particles.
+After extraction, you can check the generated `.svg` plots to help decide whether to raise or lower `-c` to include fewer or more particles. It is generally more useful, however, to visually inspect the extracted candidates (see below).
 
 
 ## Check your particle positions with IMOD {#checkimod}
