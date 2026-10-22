@@ -32,7 +32,7 @@ apix=1.91
 tilt_axis=-95.75
 dark_tol=0.7
 vol_z=2048
-amp_con=0.1
+amp_con=0.07
 fm_dose=0.01136 # dose per frame! so 3.5 e/A² per 308 total EER frames here
 # AlignZ = 1400 # Not really needed since AreTomo3 can estimate it automatically but can help if it goes wrong!
  
