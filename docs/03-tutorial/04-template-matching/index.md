@@ -202,49 +202,33 @@ pytom_match_template.py \
 
 ## Extract particles {#extract}
 
-Once you have succesfully run template matching, you can extract your particles with `pytom_extract_candidates.py`. This will create the `particles.star` in RELION5 format to then use for [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). Again for detailed explanation check the documentation or `--help` of the pytom script.
+Once you have successfully run template matching, you can extract particle candidates using the **`--workflow extract`** option of [**batch_pytom_aretomo3.py**](https://github.com/Phaips/batch_pytom_aretomo3). This runs `pytom_extract_candidates.py` across your completed tomograms as a **SLURM array**, producing particle STAR files compatible with RELION5 for subsequent [subtomogram averaging](/03-tutorial/05-sta-in-relion5/). For details about candidate selection, consult the [PyTom documentation](https://sbc-utrecht.github.io/pytom-match-pick/) or its `--help` output.
 
-
-Automatically select X best positions (determined cutoff by pytom) with a maximum number of 5000 particles:
-```python
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 5000 --relion5-compat
-```
-
-You can extract from multiple tomos, for example, via SLURM like:
+Assuming template matching wrote its results under `submission/`, simply run:
 
 ```bash
-#!/bin/bash -l
-#SBATCH -o pytomextract.out%j
-#SBATCH -D ./
-#SBATCH -J pytom
-#SBATCH --partition=emgpu
-#SBATCH --ntasks=1
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=4
-#SBATCH --gres=gpu:1
-#SBATCH --mail-type=none
-#SBATCH --mem 64G
-#SBATCH --qos=emgpu
-#SBATCH --time=06:00:00
- 
-ml purge
-ml pytom-match-pick
- 
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_25/rec_tomo25_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_34/rec_tomo34_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
-pytom_extract_candidates.py -j submission/tomo_35/rec_tomo35_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
+python batch_pytom_aretomo3.py \
+  --workflow extract \
+  -d submission/
 ```
 
+The script automatically discovers `*_job.json` files within `submission/`, creates `extract_jobs.txt` and `submit_extract_array.sh`, and submits one SLURM array task per tomogram. **Each extraction task uses exactly one GPU**, regardless of the `--gres` setting. The default extraction parameters are `--particle-diameter 300`, `-n 1000`, `-c 0.1` and **`--relion5-compat` enabled**, so the output can be used in RELION5.
 
+To specify the number of particles and the score cutoff, for example to force selection of the top 800 positions, run:
 
-This will force select the top 800 positions:
-```python
-pytom_extract_candidates.py -j submission/tomo_24/rec_tomo24_job.json --particle-diameter 300 -n 800 -c -1 --relion5-compat
+```bash
+python batch_pytom_aretomo3.py \
+  --workflow extract \
+  -d submission/ \
+  --particle-diameter 300 \
+  -n 800 \
+  -c -1 \
+  --relion5-compat
 ```
 
-or you can investigate the `.svg` file that was generated from the extraction job. Based on this you can tweak your `-c` value to include or exclude slightly more particles.
+Here, `-n` sets the maximum number of candidates and `-c` controls the score cutoff. Setting `-c -1` is useful when you want to retain the highest-scoring candidates up to the specified number, even if their scores would fall below the usual threshold. You can also use `--include` and `--exclude` to restrict tomograms, `--array-max-parallel` to control concurrency, `--extract-extra-args` to pass additional PyTom options, and `--dry-run` to generate the submission script without submitting it.
+
+After extraction, inspect the generated `.svg` plots to help decide whether to raise or lower `-c` to include fewer or more particles.
 
 
 ## Check your particle positions with IMOD {#checkimod}
