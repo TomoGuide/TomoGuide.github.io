@@ -212,7 +212,7 @@ python batch_pytom_aretomo3.py \
   -d submission/
 ```
 
-The script automatically discovers `*_job.json` files within `submission/`, creates `extract_jobs.txt` and `submit_extract_array.sh`, and submits one SLURM array task per tomogram. **Each extraction task uses exactly one GPU**, regardless of the `--gres` setting. The default extraction parameters are `--particle-diameter 300`, `-n 1000`, `-c 0.1` and **`--relion5-compat` enabled**, so the output can be used in RELION5.
+The script automatically discovers `*_job.json` files within `submission/`, creates `extract_jobs.txt` and `submit_extract_array.sh`, and submits one SLURM array task per tomogram. **Each extraction task uses exactly one GPU**, regardless of the `--gres` setting. The default extraction parameters are `--particle-diameter 300`, `-n 1000`, and **`--relion5-compat` enabled**, so the output can be used in RELION5.
 
 To specify the number of particles and the score cutoff, for example to force selection of the top 800 positions, run:
 
@@ -222,13 +222,18 @@ python batch_pytom_aretomo3.py \
   -d submission/ \
   --particle-diameter 300 \
   -n 800 \
-  -c -1 \
   --relion5-compat
 ```
 
-Here, `-n` sets the maximum number of candidates and `-c` controls the score cutoff. Setting `-c -1` is useful when you want to retain the highest-scoring candidates up to the specified number, even if their scores would fall below the usual threshold. You can also use `--include` and `--exclude` to restrict tomograms, `--array-max-parallel` to control concurrency, `--extract-extra-args` to pass additional PyTom options, and `--dry-run` to generate the submission script without submitting it.
+You can also use `--include` and `--exclude` to restrict tomograms, `--array-max-parallel` to control concurrency, `--extract-args` to pass additional PyTom options, and `--dry-run` to generate the submission script without submitting it.
 
-After extraction, you can check the generated `.svg` plots to help decide whether to raise or lower `-c` to include fewer or more particles. It is generally more useful, however, to visually inspect the extracted candidates (see below).
+**Tips:**
+* To specify an arbitrary false-positive target rate, e.g. 2, use `--extract-args "--number-of-false-positives 2"`
+* To specify an arbitrary extraction threshold, e.g. 0.3, use `--extract-args "-c 0.3"`
+* To specify different tomogram masks at extraction time (if any), the option `--bmask-dir` is also supported with `--workflow extract`
+
+
+After extraction, you can check the generated `.svg` plots to help decide whether to raise or lower the extraction threshold to include fewer or more particles. It is generally more useful, however, to visually inspect the extracted candidates (see below).
 
 
 ## Check your particle positions with IMOD {#checkimod}
