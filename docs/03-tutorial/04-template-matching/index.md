@@ -222,7 +222,8 @@ python batch_pytom_aretomo3.py \
   -d submission/ \
   --particle-diameter 300 \
   -n 800 \
-  --relion5-compat
+  --relion5-compat \
+  -c -1 
 ```
 
 You can also use `--include` and `--exclude` to restrict tomograms, `--array-max-parallel` to control concurrency, `--extract-args` to pass additional PyTom options, and `--dry-run` to generate the submission script without submitting it.
